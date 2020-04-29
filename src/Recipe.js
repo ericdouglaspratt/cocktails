@@ -15,8 +15,8 @@ function Recipe({ ingredientMap, ingredients, instructions, name, numMatches, se
   useEffect(() => {
     // find the preferred ingredient names to display
     setSpecificIngredients(ingredients.map(({ amount, preferred, tag }) => {
-      let name = tag;
-      if (preferred && ingredientMap[tag]) {
+      let name = preferred || tag;
+      if (preferred && verified && ingredientMap[tag]) {
         const preferredIngredient = ingredientMap[tag].find(ingredient => tokenMatch(preferred, ingredient.fullName.toLowerCase()));
         if (preferredIngredient) {
           name = preferredIngredient.name;
@@ -27,7 +27,7 @@ function Recipe({ ingredientMap, ingredients, instructions, name, numMatches, se
         tag
       };
     }));
-  }, [ingredients, ingredientMap]);
+  }, [ingredients, ingredientMap, verified]);
 
   return (
     <div className="Recipe">

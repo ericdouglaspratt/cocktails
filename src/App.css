@@ -21,6 +21,9 @@ h1 {
   border-radius: 6px;
   padding: 20px;
 }
+.display {
+  flex-grow: 1;
+}
 .recipes {
   display: flex;
   flex-flow: row wrap;
@@ -45,7 +48,7 @@ h1 {
   .interactive {
     flex-shrink: 0;
     margin-right: 40px;
-    width: 300px;
+    width: 360px;
   }
 }
 @media (min-width: 1280px) {

@@ -1,17 +1,21 @@
 import React from 'react';
-import { IconButton } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { Button } from '@material-ui/core';
+import CloseIcon from '@material-ui/icons/Close';
 import './SelectedIngredients.css';
 
 function SelectedIngredients({onRemove, selected = []}) {
   return (
     <ul className="SelectedIngredients">
       {selected.map(item => (
-        <li key={item}>
-          <IconButton aria-label="delete" onClick={onRemove(item)}>
-            <DeleteIcon fontSize="small" />
-          </IconButton>
-          {item}
+        <li className="SelectedIngredients-item" key={item}>
+          <Button
+            color="primary"
+            variant="contained"
+            onClick={() => onRemove(item)}
+            startIcon={<CloseIcon />}
+          >
+            {item}
+          </Button>
         </li>
       ))}
     </ul>

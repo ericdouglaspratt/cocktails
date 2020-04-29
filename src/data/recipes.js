@@ -30,8 +30,8 @@ export default [
     ingredients: [
       {
         amount: '3/4 oz',
-        preferred: 'old overholt',
-        tag: 'rye'
+        preferred: 'old overholt rye',
+        tag: 'whiskey'
       },
       {
         amount: '3/4 oz',
@@ -56,7 +56,7 @@ export default [
       {
         amount: '2 dashes',
         preferred: 'peychaud\'s',
-        tag: 'peychauds'
+        tag: 'peychaud\'s'
       }
     ]
   },
@@ -88,7 +88,9 @@ export default [
   },
   {
     name: 'Lemon Drop',
-    verified: false,
+    instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
+    dateVerified: '2019-09-08',
+    verified: true,
     ingredients: [
       {
         amount: '2 oz',
@@ -165,6 +167,8 @@ export default [
   {
     name: 'The Andy Special',
     instructions: 'Combine ingredients in shaker with ice. Shake and strain into collins glass. Serves four. Very tart.',
+    dateVerified: '2017-12-29',
+    verified: true,
     ingredients: [
       {
         amount: '5 oz',
@@ -189,8 +193,8 @@ export default [
     ingredients: [
       {
         amount: '1 oz',
-        preferred: 'bacardi',
-        tag: 'white rum'
+        preferred: 'bacardi white rum',
+        tag: 'rum'
       },
       {
         amount: '2 oz',
@@ -241,7 +245,7 @@ export default [
   },
   {
     name: 'Moscow Mule',
-    instructions: 'Combine ingredients into shaker with ice. Shake and strain into copper mug filled with ice. Garnish with lime wheel and serve.',
+    instructions: 'Shake with ice and strain into copper mug filled with crushed ice. Garnish with lime wheel and serve.',
     dateVerified: '2020-04-26',
     verified: true,
     ingredients: [
@@ -263,5 +267,204 @@ export default [
         tag: 'lime juice'
       }
     ]
+  },
+  {
+    name: 'Last Word',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
+    ingredients: [
+      {
+        amount: '3/4 oz',
+        tag: 'gin'
+      },
+      {
+        amount: '3/4 oz',
+        tag: 'maraschino liqueur'
+      },
+      {
+        amount: '3/4 oz',
+        tag: 'green chartreuse'
+      },
+      {
+        amount: '3/4 oz',
+        tag: 'lime juice'
+      }
+    ]
+  },
+  {
+    name: 'Aviation',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
+    ingredients: [
+      {
+        amount: '2 oz',
+        tag: 'gin'
+      },
+      {
+        amount: '3/4 oz',
+        tag: 'lemon juice'
+      },
+      {
+        amount: '1/2 oz',
+        tag: 'maraschino liqueur'
+      },
+      {
+        amount: '1/4 oz',
+        tag: 'creme de violette'
+      }
+    ]
+  },
+  {
+    name: 'Prosecutor',
+    instructions: 'Shake with ice and strain into a chilled rocks glass. No garnish.',
+    ingredients: [
+      {
+        amount: '1 1/2 oz',
+        preferred: 'old overholt rye',
+        tag: 'whiskey'
+      },
+      {
+        amount: '1/2 oz',
+        tag: 'yellow chartreuse'
+      },
+      {
+        amount: '1/2 oz',
+        tag: 'elderflower liqueur'
+      },
+      {
+        amount: '1/2 oz',
+        tag: 'lemon juice'
+      }
+    ]
+  },
+  {
+    name: 'Manhattan',
+    instructions: 'Stir with ice and strain into a chilled coupe or martini glass. Garnish with three cherries on a pick.',
+    ingredients: [
+      {
+        amount: '2 oz',
+        preferred: 'rye',
+        tag: 'whiskey'
+      },
+      {
+        amount: '1 oz',
+        tag: 'sweet vermouth'
+      },
+      {
+        amount: '2 dashes',
+        preferred: 'angostura',
+        tag: 'angostura'
+      }
+    ]
+  },
+  {
+    name: 'Vodka Martini',
+    instructions: 'Shake or stir with ice and strain into a chilled martini glass. Garnish with lemon peel.',
+    ingredients: [
+      {
+        amount: '2 1/2 oz',
+        tag: 'vodka'
+      },
+      {
+        amount: '1/2 oz',
+        tag: 'dry vermouth'
+      }
+    ]
+  },
+  {
+    name: 'Backyard Cocktail',
+    instructions: 'Combine cucumber slices, sauvignon blanc, and elderflower liqueur into a shaker and muddle. Shake with ice, strain into collins glass, and top with club soda and prosecco. Garnish with cucumber slice.',
+    dateVerified: '2011-04-30',
+    verified: true,
+    ingredients: [
+      {
+        amount: '2 oz',
+        //preferred: 'new zealand sauvignon blanc',
+        tag: 'sauvignon blanc'
+      },
+      {
+        amount: '1 1/2 oz',
+        preferred: 'st germain',
+        tag: 'elderflower liqueur'
+      },
+      {
+        amount: '5 slices',
+        tag: 'organic cucumber'
+      },
+      {
+        amount: '1/3 oz',
+        tag: 'club soda'
+      },
+      {
+        amount: '1/3 oz',
+        tag: 'prosecco'
+      }
+    ]
+  },
+  {
+    name: 'Periodista',
+    instructions: 'Shake with ice and strain into chilled coupe glass. No garnish.',
+    ingredients: [
+      {
+        amount: '1 1/2 oz',
+        preferred: 'dark rum',
+        tag: 'rum'
+      },
+      {
+        amount: '1/2 oz',
+        preferred: 'combier',
+        tag: 'triple sec'
+      },
+      {
+        amount: '1/2 oz',
+        preferred: 'rothman winter',
+        tag: 'apricot liqueur'
+      },
+      {
+        amount: '1/2 oz',
+        tag: 'lime juice'
+      }
+    ]
+  },
+  {
+    name: 'Ramos Gin Fizz',
+    instructions: 'Dry shake without club soda, then shake with ice. Pour club soda into chilled collins glass. Strain into glass up just beneath the rim and let sit. Tamp glass a few times to firm up the foam. If firm enough, continue pouring until foam rises in cylinder above rim of glass. No garnish.',
+    ingredients: [
+      {
+        amount: '2 oz',
+        tag: 'gin'
+      },
+      {
+        amount: '1 oz',
+        tag: 'club soda'
+      },
+      {
+        amount: '3/4 oz',
+        tag: 'heavy cream'
+      },
+      {
+        amount: '3/4 oz',
+        tag: 'simple syrup'
+      },
+      {
+        amount: '1/2 oz',
+        tag: 'lime juice'
+      },
+      {
+        amount: '1/2 oz',
+        tag: 'lemon juice'
+      },
+      {
+        amount: '5 drops',
+        tag: 'orange flower water'
+      },
+      {
+        amount: '1',
+        tag: 'egg white'
+      }
+    ]
   }
+
+  // cosmopolitan
+  // pisco sour
+  // conquistador
+  // Cuarto Vides by John McCarthy, with Pisco Portón, Cappelletti, Carpano Bianco, Verjus and seltzer.
 ];

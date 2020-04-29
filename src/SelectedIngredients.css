@@ -1,4 +1,12 @@
 .SelectedIngredients {
+  display: flex;
+  flex-flow: row wrap;
   list-style-type: none;
   padding: 0;
+}
+.SelectedIngredients-item {
+  margin-right: 20px;
+}
+.SelectedIngredients-item:last-child {
+  margin-right: 0;
 }

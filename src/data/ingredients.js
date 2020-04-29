@@ -102,6 +102,12 @@ export default [
     tags: ['liqueur', 'floral', 'creme de violette'],
     origin: 'Switzerland'
   },
+  {
+    name: 'St. Germain Elderflower Liqueur',
+    fullName: 'St. Germain Liqueur Artisanale Elderflower Liqueur',
+    tags: ['liqueur', 'floral', 'elderflower liqueur'],
+    origin: 'France'
+  },
   // ginger liqueurs
   {
     name: 'Domaine de Canton Ginger Liqueur',
@@ -179,7 +185,7 @@ export default [
   {
     name: 'Peychaud\'s Bitters',
     fullName: 'Peychaud\'s Aromatic Cocktail Bitters',
-    tags: ['bitters', 'peychauds'],
+    tags: ['bitters', 'peychaud\'s'],
     origin: 'New Orleans, LA, USA'
   }
 

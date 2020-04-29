@@ -6,6 +6,7 @@ import './App.css';
 import ingredients from './data/ingredients';
 import recipes from './data/recipes';
 
+import CategoryPicker from './CategoryPicker';
 import SelectedIngredients from './SelectedIngredients';
 import Recipe from './Recipe';
 
@@ -73,7 +74,7 @@ function App() {
     setRemainingTags(recipeTags);
   };
 
-  const handleDeselectTag = (tag) => (e) => {
+  const handleDeselectTag = tag => {
     if (tag) {
       // deselect the tag and update the recipes accordingly
       const newSelectedTags = removeItemFromArray(tag, selectedTags);
@@ -85,7 +86,7 @@ function App() {
     }
   };
 
-  const handleSelectTag = (e, tag) => {
+  const handleSelectTag = tag => {
     if (tag) {
       // select the tag and update the recipes accordingly
       const newSelectedTags = addItemAndSort(tag, selectedTags);
@@ -99,7 +100,7 @@ function App() {
 
   const removeItemFromArray = (item, arr) => {
     const index = arr.indexOf(item);
-    return arr.slice(0, index).concat(arr.slice(index + 1, arr.length));
+    return (index < 0) ? arr : arr.slice(0, index).concat(arr.slice(index + 1, arr.length));
   };
 
   const updateVisibleRecipes = (selected) => {
@@ -126,10 +127,20 @@ function App() {
           return -1;
         } else if (a.numMatches < b.numMatches) {
           return 1;
+        } else if (a.verified && !b.verified) {
+          return -1;
+        } else if (!a.verified && b.verified) {
+          return 1;
         } else {
           return 0;
         }
       });
+
+      // also want to sort by recommended/featured/verified/good ones, or include that in the algorithm mix
+
+      // possibly also sort by amount, if possible
+      // but maybe only if it's not base ones, cause we don't always want to put the strong ones first
+      // so i can say i want a vermouth-forward recipe and just search vermouth and it gives me the ones first with the most vermouth in it
 
       setVisibleRecipes(recipesByNumMatches);
     } else {
@@ -146,14 +157,13 @@ function App() {
           <Autocomplete
             id="free-solo-demo"
             options={remainingTags}
-            onChange={handleSelectTag}
+            onChange={(e, tag) => handleSelectTag(tag)}
             renderInput={(params) => (
               <TextField {...params} label="Search ingredients" margin="normal" variant="outlined" />
             )}
             value=""
           />
           <Button
-            color="primary"
             disabled={!selectedTags || selectedTags.length < 1}
             onClick={handleClearAll}
             size="small"
@@ -161,25 +171,32 @@ function App() {
           >
             Clear All
           </Button>
-          {/* <Button variant="contained" color="primary">Hello World</Button> */}
+          <CategoryPicker
+            onDeselect={handleDeselectTag}
+            onSelect={handleSelectTag}
+            recipeTags={recipeTags}
+            selected={selectedTags}
+          />
+        </div>
+        <div className="display">
           {selectedTags && selectedTags.length > 0 && (
             <SelectedIngredients onRemove={handleDeselectTag} selected={selectedTags} />
           )}
-        </div>
-        <div className="recipes">
-          {!isLoading && (
-            <Fragment>
-              {visibleRecipes.map(recipe => (
-                <Recipe
-                  key={recipe.name}
-                  ingredientMap={ingredientMap}
-                  selected={selectedTags}
-                  {...recipe}
-                />
-              ))}
-            </Fragment>
-          )}
-        </div>
+          <div className="recipes">
+            {!isLoading && (
+              <Fragment>
+                {visibleRecipes.map(recipe => (
+                  <Recipe
+                    key={recipe.name}
+                    ingredientMap={ingredientMap}
+                    selected={selectedTags}
+                    {...recipe}
+                  />
+                ))}
+              </Fragment>
+            )}
+          </div>
+          </div>
       </div>
     </Fragment>
   );
