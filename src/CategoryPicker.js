@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
-import { Button } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import CloseIcon from '@material-ui/icons/Close';
 import './CategoryPicker.css';
 
 import categories from './data/categories';
 
-function CategoryPicker({ onDeselect, onSelect, recipeTags, selected }) {
+// filters
+// method: shaken, stirred, blended
+
+function CategoryPicker({ onDeselect, onSelect, selected }) {
   return (
     <div className="CategoryPicker">
       {categories.map(category => (
@@ -17,18 +17,15 @@ function CategoryPicker({ onDeselect, onSelect, recipeTags, selected }) {
           <ul className="CategoryPicker-list">
             {category.tags.map(tag => {
               const isTagSelected = selected && selected.indexOf(tag) > -1;
+              const className = `CategoryPicker-toggle${isTagSelected ? ' CategoryPicker-toggle--selected' : ''}`;
               return (
                 <li className="CategoryPicker-listItem" key={tag}>
-                  <Button
-                    color={isTagSelected ? "primary" : "default"}
-                    disabled={recipeTags.indexOf(tag) < 0}
-                    size="small"
+                  <button
+                    className={className}
                     onClick={() => isTagSelected ? onDeselect(tag) : onSelect(tag)}
-                    startIcon={isTagSelected ? <CloseIcon /> : <AddIcon />}
-                    variant={isTagSelected ? "contained" : "outlined"}
                   >
                     {tag}
-                  </Button>
+                  </button>
                 </li>
               );
             })}

@@ -1,0 +1,12 @@
+.Browse-cards {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 20px 0 20px 20px;
+}
+.Browse-cards .MuiCard-root {
+  margin: 0 20px 20px 0;
+  width: 280px;
+}
+.Browse-cards .MuiCardContent-root {
+  min-height: 131px;
+}

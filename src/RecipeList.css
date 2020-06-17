@@ -1,0 +1,102 @@
+.RecipeList {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 1.5px 0 0 0;
+}
+.RecipeList-numMatches {
+  border-bottom: 1px dotted #5C8E89;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 20px;
+  padding-bottom: 4px;
+}
+.RecipeList-recipe {
+  align-items: center;
+  background: none;
+  border: none;
+  color: #33333f;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  flex-flow: column nowrap;
+  margin: 0 20px 40px 0;
+  padding: 0;
+  position: relative;
+  top: 0;
+  transition: top 250ms;
+  width: 240px;
+}
+.RecipeList-recipe:hover {
+  top: -5px;
+}
+.RecipeList-recipe:active,
+.RecipeList-recipe:focus {
+  outline: none;
+}
+.RecipeList-recipe::after {
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px #33333f, 0 0 0 3px #FEF0BF, 0 0 0 4px #33333f;
+  box-shadow: 0 0 0 1px #33333f;
+  box-shadow: 0 0 0 1px #5C8E89;
+  content: '';
+  height: 240px;
+  left: 14px;
+  position: absolute;
+  right: 14px;
+  transition: top 250ms;
+  top: 14px;
+  transform: perspective(200px) rotateX(-11deg);
+}
+.RecipeList-recipe:focus::after {
+  box-shadow: 0 0 0 1px #33333f, 0 0 0 3px #FEF0BF, 0 0 0 4px #4834d4;
+  box-shadow: 0 0 0 1px #5C8E89, 0 0 0 2px #fff, 0 0 0 3px #BED2A8;
+}
+.RecipeList-recipe:hover::after {
+  top: 9px;
+}
+.RecipeList-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 6px;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+  clip-path: polygon(0 0, 100% 0, 90% 99%, 89% 100%, 11% 100%, 10% 99%);
+  flex-shrink: 0;
+  height: 240px;
+  position: relative;
+  top: 0;
+  transition: top 250ms;
+  width: 240px;
+}
+.RecipeList-recipe:hover .RecipeList-image {
+  top: -5px;
+}
+.RecipeList-image .Strength {
+  bottom: 3px;
+  color: #fff;
+  position: absolute;
+  right: 28px;
+}
+.RecipeList-description {
+  margin-top: 10px;
+  padding: 0 22px;
+}
+.RecipeList-header {
+  font-family: 'Poiret One', cursive;
+  font-size: 24px;
+  margin: 0;
+}
+.RecipeList-ingredients {
+  font-size: 14px;
+  line-height: 1.2;
+  list-style-type: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+.RecipeList-ingredient {
+  white-space: nowrap;
+}
+.RecipeList-ingredient--selected {
+  color: #5C8E89;
+  font-weight: 500;
+}

@@ -1,7 +1,7 @@
 .CategoryPicker-title {
-  font-size: 0.875rem;
+  font-size: 14px;
+  font-weight: 500;
   margin-bottom: 0;
-  text-transform: uppercase;
 }
 .CategoryPicker-list {
   display: flex;
@@ -12,11 +12,38 @@
   padding: 0;
 }
 .CategoryPicker-listItem {
-  margin-right: 10px;
-  margin-top: 10px;
+  margin-right: 4px;
+  padding-bottom: 1px;
+}
+.CategoryPicker-listItem .MuiButton-label {
+  text-transform: lowercase;
 }
 .CategoryPicker-list + .CategoryPicker-title {
   border-top: 1px solid rgba(0, 0, 0, 0.23);
   margin-top: 20px;
   padding-top: 14px;
+}
+.CategoryPicker-toggle {
+  background: none;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px #5C8E89;
+  cursor: pointer;
+  font-family: inherit;
+  /*font-weight: 500;*/
+  transition: color 150ms, background-color 150ms;
+  padding: 1px 6px 0;
+}
+.CategoryPicker-toggle:active {
+  background-color: #3F6B74;
+  color: #fff;
+}
+.CategoryPicker-toggle:focus {
+  box-shadow: 0 0 0 1px #BED2A8;
+  outline: none;
+}
+.CategoryPicker-toggle--selected {
+  background-color: #5C8E89;
+  color: #fff;
+  font-weight: 500;
 }

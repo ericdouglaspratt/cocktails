@@ -1,0 +1,53 @@
+.ActiveFilters {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 20px;
+}
+.ActiveFilters-numResults {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 20px 0 0;
+  padding: 1px 0 0;
+}
+.ActiveFilters-list {
+  display: flex;
+  flex-flow: row wrap;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.ActiveFilters-listItem + .ActiveFilters-listItem {
+  margin-left: 10px;
+}
+.ActiveFilters-button {
+  align-items: center;
+  background-color: #5C8E89;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: 'Hind', sans-serif;
+  font-weight: 500;
+  padding: 1px 6px 0;
+  transition: background-color 150ms;
+}
+.ActiveFilters-button:hover {
+  background-color: #3F6B74;
+}
+.ActiveFilters-button:focus {
+  box-shadow: 0 0 0 1px #BED2A8;
+  outline: none;
+}
+.ActiveFilters-button .MuiSvgIcon-root {
+  height: 12px;
+  margin-right: 4px;
+  position: relative;
+  top: -1px;
+  transition: transform 150ms;
+  width: 12px;
+}
+.ActiveFilters-button:hover .MuiSvgIcon-root {
+  transform: scale(1.2);
+}

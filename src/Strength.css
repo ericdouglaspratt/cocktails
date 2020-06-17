@@ -1,0 +1,19 @@
+.Strength {
+  position: relative;
+}
+.Strength .MuiSvgIcon-root {
+  height: 16px;
+  width: 16px;
+}
+.Strength-shadow {
+  color: #33333f;
+  left: -0.5px;
+  position: absolute;
+  top: -0.5px;
+  white-space: nowrap;
+  z-index: 1;
+}
+.Strength-icons {
+  position: relative;
+  z-index: 2;
+}

@@ -1,0 +1,16 @@
+.IngredientSearch-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+.IngredientSearch-input {
+  border: 1px solid #5C8E89;
+  border-radius: 4px;
+  font-family: 'Hind', sans-serif;
+  font-size: 18px;
+  padding: 8px;
+  width: 100%;
+}
+.IngredientSearch-input:focus {
+  border-color: #BED2A8;
+  outline: none;
+}

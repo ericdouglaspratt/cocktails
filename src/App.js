@@ -1,114 +1,83 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import { Button, TextField } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
+import {
+  addItemAndSort,
+  createRecipesPair,
+  determineAvailableIngredients,
+  determineNumMatches,
+  determineRecipeStrength,
+  generateIngredientTagMap,
+  generateRecipeTagMap,
+  removeItemFromArray,
+  useStateRef
+} from './helpers';
 import ingredients from './data/ingredients';
-import recipes from './data/recipes';
+import RAW_RECIPES from './data/recipes';
 
+import ActiveFilters from './ActiveFilters';
 import CategoryPicker from './CategoryPicker';
-import SelectedIngredients from './SelectedIngredients';
-import Recipe from './Recipe';
+import IngredientSearch from './IngredientSearch';
+import RecipeList from './RecipeList';
+import RecipeModal from './RecipeModal';
+import StrengthSlider from './StrengthSlider';
+
+// initial data prep
+const initialIngredientTagMap = generateIngredientTagMap(ingredients);
+const recipesWithStrength = RAW_RECIPES.map(recipe => determineRecipeStrength(recipe, initialIngredientTagMap));
+const recipes = createRecipesPair(recipesWithStrength);
+const recipeTagMap = generateRecipeTagMap(recipes.list);
+const availableIngredients = determineAvailableIngredients(recipes.list);
+
+// in modal under recipe, recommended
+// --> more tart [recipe]
+// --> more herbal [recipe]
+// --> more citrus [recipe]
 
 function App() {
-  const [ingredientMap, setIngredientMap] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-  const [selectedTags, setSelectedTags] = useState([]);
-  const [recipeMap, setRecipeMap] = useState({});
-  const [recipeTags, setRecipeTags] = useState([]);
-  const [remainingTags, setRemainingTags] = useState([]);
-  const [visibleRecipes, setVisibleRecipes] = useState(recipes);
+  const [activeRecipeId, setActiveRecipeId] = useState(null);
+  const [selectedTagsRef, setSelectedTags] = useStateRef([]);
+  const [visibleRecipes, setVisibleRecipes] = useState(recipes.list.sort((a, b) => a.name.localeCompare(b.name)));
 
   useEffect(() => {
-    setIngredientMap(ingredients.reduce((map, ingredient) => {
-      if (ingredient && ingredient.tags && ingredient.tags.forEach) {
-        ingredient.tags.forEach(tag => {
-          if (!map[tag]) {
-            map[tag] = [];
-          }
-          map[tag].push(ingredient);
-        });
-      }
-      return map;
-    }, {}));
-
-    setRecipeMap(recipes.reduce((map, recipe) => {
-      if (recipe && recipe.ingredients && recipe.ingredients.forEach) {
-        recipe.ingredients.forEach(ingredient => {
-          if (!map[ingredient.tag]) {
-            map[ingredient.tag] = [];
-          }
-          map[ingredient.tag].push(recipe);
-        });
-      }
-      return map;
-    }, {}));
-
-    setIsLoading(false);
-
-    const tags = Object.keys(recipes.reduce((result, recipe) => {
-      if (recipe && recipe.ingredients && recipe.ingredients.forEach) {
-        recipe.ingredients.forEach(ingredient => {
-          result[ingredient.tag] = true;
-        });
-      }
-      return result;
-    }, {}));
-    tags.sort();
-    setRecipeTags(tags);
-    setRemainingTags(tags);
+    document.addEventListener('keydown', handleGlobalKeyDown);
   }, []);
 
-  const addItemAndSort = (item, arr) => {
-    const newArr = [
-      ...arr,
-      item
-    ];
-    newArr.sort();
-    return newArr;
-  };
-
-  const handleClearAll = () => {
-    setSelectedTags([]);
-    updateVisibleRecipes([]);
-    setRemainingTags(recipeTags);
-  };
+  const handleClickCloseRecipe = () => setActiveRecipeId(null);
+  const handleClickRecipe = id => setActiveRecipeId(id);
 
   const handleDeselectTag = tag => {
     if (tag) {
       // deselect the tag and update the recipes accordingly
-      const newSelectedTags = removeItemFromArray(tag, selectedTags);
+      const newSelectedTags = removeItemFromArray(tag, selectedTagsRef.current);
       setSelectedTags(newSelectedTags);
       updateVisibleRecipes(newSelectedTags);
+    }
+  };
 
-      // add it back to the dropdown
-      setRemainingTags(addItemAndSort(tag, remainingTags));
+  const handleGlobalKeyDown = e => {
+    // clear filters when escape key is hit
+    if (e.keyCode === 27 && selectedTagsRef.current.length > 0) {
+      setSelectedTags([]);
+      updateVisibleRecipes([]);
     }
   };
 
   const handleSelectTag = tag => {
     if (tag) {
       // select the tag and update the recipes accordingly
-      const newSelectedTags = addItemAndSort(tag, selectedTags);
+      const newSelectedTags = addItemAndSort(tag, selectedTagsRef.current);
       setSelectedTags(newSelectedTags);
       updateVisibleRecipes(newSelectedTags);
-
-      // remove it from the dropdown
-      setRemainingTags(removeItemFromArray(tag, remainingTags));
     }
   };
 
-  const removeItemFromArray = (item, arr) => {
-    const index = arr.indexOf(item);
-    return (index < 0) ? arr : arr.slice(0, index).concat(arr.slice(index + 1, arr.length));
-  };
-
-  const updateVisibleRecipes = (selected) => {
+  const updateVisibleRecipes = selected => {
     if (selected && selected.length > 0) {
       // find the recipes with matching tags and dedupe
       const uniqueMatchingRecipes = Object.values(selected.reduce((result, selectedTag) => {
-        if (recipeMap[selectedTag] && recipeMap[selectedTag].forEach) {
-          recipeMap[selectedTag].forEach(recipe => {
+        if (recipeTagMap[selectedTag] && recipeTagMap[selectedTag].forEach) {
+          recipeTagMap[selectedTag].forEach(recipe => {
             result[recipe.name] = recipe;
           });
         }
@@ -118,18 +87,14 @@ function App() {
       // compute the number of ingredient matches per matching recipe
       const recipesByNumMatches = uniqueMatchingRecipes.map(recipe => ({
         ...recipe,
-        numMatches: recipe.ingredients.reduce((sum, ingredient) => {
-          return sum + (selected.find(selectedTag => selectedTag === ingredient.tag) ? 1 : 0);
-        }, 0)
+        numMatches: determineNumMatches(recipe, selected)
       }));
+
+      // sort by number of ingredient matches
       recipesByNumMatches.sort((a, b) => {
         if (a.numMatches > b.numMatches) {
           return -1;
         } else if (a.numMatches < b.numMatches) {
-          return 1;
-        } else if (a.verified && !b.verified) {
-          return -1;
-        } else if (!a.verified && b.verified) {
           return 1;
         } else {
           return 0;
@@ -144,62 +109,47 @@ function App() {
 
       setVisibleRecipes(recipesByNumMatches);
     } else {
-      setVisibleRecipes(recipes);
+      setVisibleRecipes(recipes.list.slice().sort((a, b) => a.name.localeCompare(b.name)));
     }
   };
 
   return (
-    <Fragment>
-      <h1>Eric's Cocktail Recipes</h1>
-
-      <div className="layout">
-        <div className="interactive">
-          <Autocomplete
-            id="free-solo-demo"
-            options={remainingTags}
-            onChange={(e, tag) => handleSelectTag(tag)}
-            renderInput={(params) => (
-              <TextField {...params} label="Search ingredients" margin="normal" variant="outlined" />
-            )}
-            value=""
+    <>
+      <div className="BrowseLayout">
+        <div className="FilterPane">
+          <IngredientSearch
+            availableIngredients={availableIngredients}
+            onSelectIngredient={handleSelectTag}
           />
-          <Button
-            disabled={!selectedTags || selectedTags.length < 1}
-            onClick={handleClearAll}
-            size="small"
-            variant="outlined"
-          >
-            Clear All
-          </Button>
           <CategoryPicker
             onDeselect={handleDeselectTag}
             onSelect={handleSelectTag}
-            recipeTags={recipeTags}
-            selected={selectedTags}
+            selected={selectedTagsRef.current}
+          />
+          {/*<StrengthSlider />*/}
+        </div>
+        <div className="ResultsPane">
+          {selectedTagsRef.current && selectedTagsRef.current.length > 0 && (
+            <ActiveFilters
+              numResults={visibleRecipes.length}
+              onDeselect={handleDeselectTag}
+              selectedTags={selectedTagsRef.current}
+            />
+          )}
+          <RecipeList
+            onClickRecipe={handleClickRecipe}
+            recipes={visibleRecipes}
+            selectedTags={selectedTagsRef.current}
           />
         </div>
-        <div className="display">
-          {selectedTags && selectedTags.length > 0 && (
-            <SelectedIngredients onRemove={handleDeselectTag} selected={selectedTags} />
-          )}
-          <div className="recipes">
-            {!isLoading && (
-              <Fragment>
-                {visibleRecipes.map(recipe => (
-                  <Recipe
-                    key={recipe.name}
-                    ingredientMap={ingredientMap}
-                    selected={selectedTags}
-                    {...recipe}
-                  />
-                ))}
-              </Fragment>
-            )}
-          </div>
-          </div>
       </div>
-    </Fragment>
+      <RecipeModal
+        id={activeRecipeId}
+        onClose={handleClickCloseRecipe}
+        recipe={!!activeRecipeId && recipes.lookup[activeRecipeId]}
+      />
+    </>
   );
-}
+};
 
 export default App;

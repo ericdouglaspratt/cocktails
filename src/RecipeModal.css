@@ -1,0 +1,71 @@
+.RecipeModal .MuiPaper-root {
+  border-radius: 10px;
+}
+.RecipeModal-content {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 60px;
+}
+.RecipeModal-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 1px solid #5C8E89;
+  border-radius: 8px;
+  flex-shrink: 0;
+  height: 340px;
+  position: relative;
+  width: 300px;
+}
+.RecipeModal-image .Strength {
+  bottom: 2px;
+  color: #fff;
+  position: absolute;
+  right: 10px;
+}
+.RecipeModal-image .Strength .MuiSvgIcon-root {
+  height: 20px;
+  width: 20px;
+}
+.RecipeModal-text {
+  padding-left: 60px;
+}
+.RecipeModal-header {
+  font-family: 'Poiret One', cursive;
+  font-size: 42px;
+  margin: 0;
+}
+.RecipeModal-ingredients,
+.RecipeModal-instructions {
+  font-size: 24px;
+  font-weight: 300;
+}
+.RecipeModal-ingredients {
+  list-style-type: none;
+  margin: 40px 0;
+  padding: 0;
+}
+.RecipeModal-instructions {
+  line-height: 1.3em;
+  max-width: 30em;
+}
+.RecipeModal-closeButton {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+.RecipeModal-closeButton:focus {
+  outline: 1px solid #3434d4;
+}
+.RecipeModal-closeButton .MuiSvgIcon-root {
+  height: 48px;
+  width: 48px;
+}
+.RecipeModal-accessibleText {
+  left: -9999em;
+  position: absolute;
+}
