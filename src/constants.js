@@ -3,7 +3,12 @@ export const ALCOHOL_PER_SHOT_IN_OZ = 0.4 * 1.5;
 export const CORE_SPIRITS = ['gin', 'tequila', 'rum', 'vodka', 'whiskey'];
 
 export const CORE_SPIRIT_VARIATION_MAP = {
+  'añejo tequila': 'tequila',
+  'blanco tequila': 'tequila',
   'bourbon': 'whiskey',
+  'dark rum': 'rum',
+  'light rum': 'rum',
+  'reposado tequila': 'tequila',
   'rye': 'whiskey'
 };
 

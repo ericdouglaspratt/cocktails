@@ -28,7 +28,7 @@
   color: #fff;
   cursor: pointer;
   display: flex;
-  font-family: 'Hind', sans-serif;
+  font-family: inherit;
   font-weight: 500;
   padding: 1px 6px 0;
   transition: background-color 150ms;
@@ -39,6 +39,10 @@
 .ActiveFilters-button:focus {
   box-shadow: 0 0 0 1px #BED2A8;
   outline: none;
+}
+.ActiveFilters-buttonExclude {
+  background-color: #87B198;
+  text-decoration: line-through;
 }
 .ActiveFilters-button .MuiSvgIcon-root {
   height: 12px;

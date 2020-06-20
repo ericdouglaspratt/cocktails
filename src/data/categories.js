@@ -1,7 +1,28 @@
 export default [
   {
     name: 'Base Spirits',
-    tags: ['gin', 'tequila', 'rum', 'vodka', 'whiskey']
+    tags: [
+      {
+        image: 'images/gin-juniper.jpg',
+        tag: 'gin'
+      },
+      {
+        image: 'images/tequila-agave.jpg',
+        tag: 'tequila'
+      },
+      {
+        image: 'images/rum-sugar-cane.jpg',
+        tag: 'rum'
+      },
+      {
+        image: 'images/vodka-wheat.jpg',
+        tag: 'vodka'
+      },
+      {
+        image: 'images/whiskey-barley.jpg',
+        tag: 'whiskey'
+      }
+    ]
   },
   /*{
     name: 'Juice',

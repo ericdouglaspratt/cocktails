@@ -76,7 +76,7 @@ export default [
   {
     name: 'Margarita',
     image: 'images/margarita.jpg',
-    instructions: 'Rim a coupe glass with lime and dip into salt or sugar as desired. Shake ingredients with ice and strain into glass. Garnish with lime wheel.',
+    instructions: 'Shake with ice and strain into a chilled coupe glass rimmed with salt. Garnish with lime wheel.',
     dateVerified: '2019-05-26',
     verified: true,
     ingredients: [

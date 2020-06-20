@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
+import {CORE_SPIRIT_VARIATION_MAP} from './constants';
 import {
-  addItemAndSort,
+  addTagsAndSort,
   createRecipesPair,
   determineAvailableIngredients,
-  determineNumMatches,
+  determineNumInclusiveMatches,
   determineRecipeStrength,
   generateIngredientTagMap,
   generateRecipeTagMap,
-  removeItemFromArray,
-  useStateRef
+  removeTagsFromArray,
+  sortByName,
 } from './helpers';
 import ingredients from './data/ingredients';
 import RAW_RECIPES from './data/recipes';
@@ -21,6 +22,7 @@ import IngredientSearch from './IngredientSearch';
 import RecipeList from './RecipeList';
 import RecipeModal from './RecipeModal';
 import StrengthSlider from './StrengthSlider';
+import SuggestedFilters from './SuggestedFilters';
 
 // initial data prep
 const initialIngredientTagMap = generateIngredientTagMap(ingredients);
@@ -36,8 +38,8 @@ const availableIngredients = determineAvailableIngredients(recipes.list);
 
 function App() {
   const [activeRecipeId, setActiveRecipeId] = useState(null);
-  const [selectedTagsRef, setSelectedTags] = useStateRef([]);
-  const [visibleRecipes, setVisibleRecipes] = useState(recipes.list.sort((a, b) => a.name.localeCompare(b.name)));
+  const [selectedTags, setSelectedTags] = useState([]);
+  const [visibleRecipes, setVisibleRecipes] = useState(sortByName(recipes.list));
 
   useEffect(() => {
     document.addEventListener('keydown', handleGlobalKeyDown);
@@ -49,45 +51,86 @@ function App() {
   const handleDeselectTag = tag => {
     if (tag) {
       // deselect the tag and update the recipes accordingly
-      const newSelectedTags = removeItemFromArray(tag, selectedTagsRef.current);
-      setSelectedTags(newSelectedTags);
-      updateVisibleRecipes(newSelectedTags);
+      setSelectedTags(prevState => {
+        const newSelectedTags = removeTagsFromArray([tag], prevState);
+        updateVisibleRecipes(newSelectedTags);
+        return newSelectedTags;
+      });
     }
+  };
+
+  const handleDeselectTags = tags => {
+      // deselect the tags and update the recipes accordingly
+      setSelectedTags(prevState => {
+        const newSelectedTags = removeTagsFromArray(tags, prevState);
+        updateVisibleRecipes(newSelectedTags);
+        return newSelectedTags;
+      });
   };
 
   const handleGlobalKeyDown = e => {
     // clear filters when escape key is hit
-    if (e.keyCode === 27 && selectedTagsRef.current.length > 0) {
-      setSelectedTags([]);
-      updateVisibleRecipes([]);
+    if (e.keyCode === 27) {
+      setSelectedTags(prevState => {
+        if (prevState.length > 0) {
+          updateVisibleRecipes([]);
+          return [];
+        } else {
+          return prevState;
+        }
+      });
     }
   };
 
-  const handleSelectTag = tag => {
+  const handleSelectTag = (tag, include = true) => {
     if (tag) {
       // select the tag and update the recipes accordingly
-      const newSelectedTags = addItemAndSort(tag, selectedTagsRef.current);
-      setSelectedTags(newSelectedTags);
-      updateVisibleRecipes(newSelectedTags);
+      setSelectedTags(prevState => {
+        const newSelectedTags = addTagsAndSort([{
+          include,
+          tag
+         }], prevState);
+        updateVisibleRecipes(newSelectedTags);
+        return newSelectedTags;
+      });
     }
+  };
+
+  const handleSelectTags = (tags, include = true) => {
+    // select the tags and update the recipes accordingly
+    setSelectedTags(prevState => {
+      const newSelectedTags = addTagsAndSort(tags.map(tag => ({include, tag})), prevState);
+      updateVisibleRecipes(newSelectedTags);
+      return newSelectedTags;
+    });
   };
 
   const updateVisibleRecipes = selected => {
     if (selected && selected.length > 0) {
-      // find the recipes with matching tags and dedupe
-      const uniqueMatchingRecipes = Object.values(selected.reduce((result, selectedTag) => {
-        if (recipeTagMap[selectedTag] && recipeTagMap[selectedTag].forEach) {
-          recipeTagMap[selectedTag].forEach(recipe => {
+      const inclusionTags = selected.filter(item => item.include).map(item => item.tag);
+      const exclusionTags = selected.filter(item => !item.include).map(item => item.tag);
+
+      // find the recipes with matching inclusive tags and dedupe
+      const uniqueInclusiveRecipes = inclusionTags.length > 0 ? Object.values(selected.reduce((result, {include, tag}) => {
+        if (include && recipeTagMap[tag] && recipeTagMap[tag].forEach) {
+          recipeTagMap[tag].forEach(recipe => {
             result[recipe.name] = recipe;
           });
         }
         return result;
-      }, {}));
+      }, {})) : recipes.list;
+
+      // remove the recipes that match the exclusion tags, if any
+      const recipesAfterExclusion = exclusionTags.length > 0 ? uniqueInclusiveRecipes.filter(recipe => {
+        return !recipe.ingredients.find(ingredient => {
+          return exclusionTags.includes(ingredient.tag) || exclusionTags.includes(CORE_SPIRIT_VARIATION_MAP[ingredient.tag]);
+        });
+      }) : uniqueInclusiveRecipes;
 
       // compute the number of ingredient matches per matching recipe
-      const recipesByNumMatches = uniqueMatchingRecipes.map(recipe => ({
+      const recipesByNumMatches = recipesAfterExclusion.map(recipe => ({
         ...recipe,
-        numMatches: determineNumMatches(recipe, selected)
+        numMatches: determineNumInclusiveMatches(recipe, inclusionTags)
       }));
 
       // sort by number of ingredient matches
@@ -97,7 +140,7 @@ function App() {
         } else if (a.numMatches < b.numMatches) {
           return 1;
         } else {
-          return 0;
+          return a.name.localeCompare(b.name);
         }
       });
 
@@ -109,7 +152,7 @@ function App() {
 
       setVisibleRecipes(recipesByNumMatches);
     } else {
-      setVisibleRecipes(recipes.list.slice().sort((a, b) => a.name.localeCompare(b.name)));
+      setVisibleRecipes(sortByName(recipes.list));
     }
   };
 
@@ -123,23 +166,27 @@ function App() {
           />
           <CategoryPicker
             onDeselect={handleDeselectTag}
+            onDeselectMultiple={handleDeselectTags}
             onSelect={handleSelectTag}
-            selected={selectedTagsRef.current}
+            onSelectMultiple={handleSelectTags}
+            selected={selectedTags}
           />
           {/*<StrengthSlider />*/}
         </div>
         <div className="ResultsPane">
-          {selectedTagsRef.current && selectedTagsRef.current.length > 0 && (
+          {selectedTags && selectedTags.length > 0 && (
             <ActiveFilters
               numResults={visibleRecipes.length}
               onDeselect={handleDeselectTag}
-              selectedTags={selectedTagsRef.current}
+              onSelect={handleSelectTag}
+              selected={selectedTags}
+              visibleRecipes={visibleRecipes}
             />
           )}
           <RecipeList
             onClickRecipe={handleClickRecipe}
             recipes={visibleRecipes}
-            selectedTags={selectedTagsRef.current}
+            selectedTags={selectedTags}
           />
         </div>
       </div>

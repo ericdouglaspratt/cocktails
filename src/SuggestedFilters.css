@@ -1,0 +1,81 @@
+.SuggestedFilters {
+  display: flex;
+  flex-flow: row wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.SuggestedFilters-listItem {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 10px;
+  position: relative;
+}
+.SuggestedFilters-listItem::before {
+  border: 1px dotted #5C8E89;
+  border-radius: 8px;
+  bottom: 0;
+  content: '';
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.SuggestedFilters-button {
+  align-items: center;
+  background: none;
+  border: none;
+  color: #5C8E89;
+  cursor: pointer;
+  display: flex;
+  font-family: inherit;
+  font-weight: 500;
+  justify-content: center;
+  padding: 1px 6px 0;
+  transition: color 150ms, border-color 150ms;
+}
+.SuggestedFilters-button:focus {
+  box-shadow: 0 0 0 1px #BED2A8;
+  outline: none;
+}
+.SuggestedFilters-button:hover {
+  color: #3F6B74;
+}
+.SuggestedFilters-buttonInclude {
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+}
+.SuggestedFilters-buttonExclude {
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+  position: relative;
+}
+.SuggestedFilters-buttonExclude::before {
+  border-left: 1px dotted #5C8E89;
+  bottom: 3px;
+  content: '';
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 3px;
+}
+.SuggestedFilters-button .MuiSvgIcon-root {
+  height: 14px;
+  position: relative;
+  top: -1px;
+  transition: transform 150ms;
+  width: 14px;
+}
+.SuggestedFilters-buttonInclude .MuiSvgIcon-root {
+  margin-right: 4px;
+}
+.SuggestedFilters-button:hover .MuiSvgIcon-root {
+  transform: scale(1.2);
+}
+.SuggestedFilters-buttonLabel {
+  left: -9999em;
+  position: absolute;
+}

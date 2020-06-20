@@ -62,7 +62,7 @@ const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
                     </h6>
                     <p className="RecipeList-ingredients">
                       {dedeupedIngredients.map((name, index) => {
-                        const isSelected = selectedTags.includes(name) || selectedTags.includes(CORE_SPIRIT_VARIATION_MAP[name]) || selectedTags.find(tag => name.split(' ').includes(tag));
+                        const isSelected = selectedTags.find(item => item.tag === name) || selectedTags.find(item => item.tag === CORE_SPIRIT_VARIATION_MAP[name]);
                         const className = `RecipeList-ingredient${isSelected ? ' RecipeList-ingredient--selected' : ''}`;
                         return (
                           <Fragment key={name}>

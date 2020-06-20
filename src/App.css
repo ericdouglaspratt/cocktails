@@ -10,15 +10,24 @@ body {
 
 .BrowseLayout {
   display: flex;
-  flex-flow: row nowrap;
-  padding: 60px;
+  flex-flow: column nowrap;
+  padding: 20px;
 }
 .FilterPane {
-  border-right: 2px solid #5C8E89;
   flex-shrink: 0;
-  padding-right: 60px;
-  width: 320px;
 }
-.ResultsPane {
-  padding-left: 60px;
+
+@media (min-width: 1024px) {
+  .BrowseLayout {
+    flex-flow: row nowrap;
+    padding: 60px;
+  }
+  .FilterPane {
+    border-right: 2px solid #5C8E89;
+    padding-right: 58px;
+    width: 320px;
+  }
+  .ResultsPane {
+    padding-left: 60px;
+  }
 }

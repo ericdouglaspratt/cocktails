@@ -8,12 +8,12 @@ import {
   UNIT_DISPLAY
 } from './constants';
 
-export const addItemAndSort = (item, arr) => {
+export const addTagsAndSort = (tags, arr) => {
   const newArr = [
     ...arr,
-    item
+    ...tags
   ];
-  newArr.sort();
+  newArr.sort((a, b) => a.tag.localeCompare(b.tag));
   return newArr;
 };
 
@@ -57,12 +57,12 @@ export const determineAvailableIngredients = recipes => {
   return Object.keys(uniqueIngredients).sort();
 };
 
-export const determineNumMatches = (recipe, selectedTags) => {
+export const determineNumInclusiveMatches = (recipe, inclusiveTags) => {
   return recipe.ingredients.reduce((sum, ingredient) => {
-    return sum + (selectedTags.find(selectedTag =>
-      selectedTag === ingredient.tag ||
-      selectedTag === CORE_SPIRIT_VARIATION_MAP[ingredient.tag] ||
-      ingredient.tag.split(' ').includes(selectedTag)
+    return sum + (inclusiveTags.find(tag =>
+      tag === ingredient.tag ||
+      tag === CORE_SPIRIT_VARIATION_MAP[ingredient.tag] ||
+      ingredient.tag.split(' ').includes(tag)
     ) ? 1 : 0);
   }, 0);
 };
@@ -148,10 +148,14 @@ export const generateRecipeTagMap = recipes =>
     return result;
   }, {});
 
-export const removeItemFromArray = (item, arr) => {
-  const index = arr.indexOf(item);
-  return (index < 0) ? arr : arr.slice(0, index).concat(arr.slice(index + 1, arr.length));
+export const removeTagsFromArray = (tags, arr) => {
+  return tags.reduce((result, tag) => {
+    const index = result.findIndex(item => item.tag === tag);
+    return (index < 0) ? result : result.slice(0, index).concat(result.slice(index + 1, result.length));
+  }, arr);
 };
+
+export const sortByName = recipes => recipes.slice().sort((a, b) => a.name.localeCompare(b.name));
 
 export const useStateRef = (defaultValue) => {
   const [value, _setValue] = useState(defaultValue);

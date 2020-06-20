@@ -1,6 +1,7 @@
 .RecipeList {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   padding: 1.5px 0 0 0;
 }
 .RecipeList-numMatches {
@@ -99,4 +100,10 @@
 .RecipeList-ingredient--selected {
   color: #5C8E89;
   font-weight: 500;
+}
+
+@media (min-width: 1024px) {
+  .RecipeList {
+    justify-content: flex-start;
+  }
 }

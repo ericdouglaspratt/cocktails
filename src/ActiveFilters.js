@@ -2,18 +2,21 @@ import React from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import './ActiveFilters.css';
 
-const ActiveFilters = ({ numResults, onDeselect, selectedTags }) => {
+import SuggestedFilters from './SuggestedFilters';
+
+const ActiveFilters = ({ numResults, onDeselect, onSelect, selected, visibleRecipes }) => {
   return (
     <div className="ActiveFilters">
       <p className="ActiveFilters-numResults">
         {`${numResults} ${numResults === 1 ? 'result' : 'results'}`}
       </p>
       <ul className="ActiveFilters-list">
-        {selectedTags.map(tag => {
+        {selected.map(({include, tag}) => {
+          const buttonClassName = `ActiveFilters-button${include ? '' : ' ActiveFilters-buttonExclude'}`;
           return (
             <li className="ActiveFilters-listItem" key={tag}>
               <button
-                className="ActiveFilters-button"
+                className={buttonClassName}
                 onClick={() => onDeselect(tag)}
               >
                 <CloseIcon />
@@ -23,6 +26,11 @@ const ActiveFilters = ({ numResults, onDeselect, selectedTags }) => {
           );
         })}
       </ul>
+      <SuggestedFilters
+        onSelect={onSelect}
+        selected={selected}
+        visibleRecipes={visibleRecipes}
+      />
     </div>
   );
 };
