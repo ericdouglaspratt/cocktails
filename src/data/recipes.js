@@ -4,6 +4,7 @@ export default [
     image: 'images/winter-in-rome.jpg',
     instructions: 'Put sphere of ice into stirring glass. Combine ingredients in stirring glass. Stir 50 times with barspoon. Transfer sphere of ice into rocks glass. Pour drink into rocks glass. Serve and enjoy!',
     rating: 5,
+    season: 'winter',
     dateVerified: '2019-12-31',
     verified: true,
     ingredients: [
@@ -32,6 +33,7 @@ export default [
     image: 'images/vieux-carre.jpg',
     instructions: 'Combine all ingredients over a sphere of ice in a mixing glass. Stir with a barspoon until chilled. Move the ice sphere into a rocks glass. Pour over the ice into the glass.',
     rating: 5,
+    season: 'winter',
     dateVerified: '2019-09-27',
     verified: true,
     ingredients: [
@@ -137,6 +139,7 @@ export default [
   {
     name: 'Japanese Courage',
     instructions: 'Warm up the sake on the stove. Combine all other ingredients in a heatproof glass, then pour in the sake. Garnish with lemon (optional) and ground cloves.',
+    season: 'winter',
     dateVerified: '2020-03-21',
     verified: true,
     ingredients: [
@@ -197,7 +200,8 @@ export default [
     image: 'images/the-andy-special.jpg',
     instructions: 'Shake with ice and strain into a chilled Collins glass. No garnish.',
     dateVerified: '2017-12-29',
-    verified: true,
+    isExclusive: true,
+    isVerified: true,
     ingredients: [
       {
         amount: 3,
@@ -206,20 +210,22 @@ export default [
         unit: 'oz'
       },
       {
-        amount: 2.75,
+        amount: 3,
         tag: 'lemon juice',
         unit: 'oz'
       },
       {
-        amount: 2,
-        tag: 'cane sugar',
-        unit: 'Tbsp'
+        amount: 1,
+        tag: 'simple syrup',
+        unit: 'oz'
       }
     ]
   },
   {
     name: 'Blue Hawaiian',
-    instructions: 'Put all ingredients in blender. Blend and serve.',
+    image: 'images/blue-hawaiian.jpg',
+    instructions: 'Blend and pour into a chilled rocks glass. Garnish with pineapple wedge and a cherry.',
+    season: 'summer',
     dateVerified: '2012-07-07',
     verified: true,
     ingredients: [
@@ -230,13 +236,13 @@ export default [
         unit: 'oz'
       },
       {
-        amount: 2,
-        tag: 'pineapple juice',
+        amount: 1,
+        tag: 'blue curacao',
         unit: 'oz'
       },
       {
-        amount: 1,
-        tag: 'blue curacao',
+        amount: 2,
+        tag: 'pineapple juice',
         unit: 'oz'
       },
       {
@@ -448,8 +454,10 @@ export default [
     name: 'Backyard Cocktail',
     image: 'images/backyard-cocktail.jpg',
     instructions: 'Muddle sauvignon blanc, elderflower liqueur, and cucumber in a shaker. Shake with ice, strain into a chilled Collins glass filled with ice, and top with club soda and prosecco. Garnish with cucumber slice.',
+    season: 'summer',
     dateVerified: '2011-04-30',
-    verified: true,
+    isExclusive: true,
+    isVerified: true,
     ingredients: [
       {
         amount: 2,
@@ -662,6 +670,7 @@ export default [
   },
   {
     name: 'Coda',
+    image: 'images/coda.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled fizz glass. Garnish with grated nutmeg.',
     ingredients: [
       {
@@ -993,7 +1002,8 @@ export default [
     ]
   },
   {
-    name: 'May Daisy',
+    name: 'May Daisy', // less simple syrup, add club soda? needs less syrupy and more fizz
+    image: 'images/may-daisy.jpg',
     instructions: 'Shake with ice and strain into a chilled wine glass filled with ice. Garnish with a mint sprig.',
     ingredients: [
       {
@@ -1021,7 +1031,11 @@ export default [
   },
   {
     name: 'Mary Pickford',
+    image: 'images/mary-pickford.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
+    dateVerified: '2020-06-27',
+    verified: true,
+    season: 'summer',
     ingredients: [
       {
         amount: 2,
@@ -1067,7 +1081,7 @@ export default [
       },
       {
         amount: 2,
-        tag: 'boker\'s bitters',
+        tag: 'bokers bitters',
         unit: 'dash'
       }
     ]
@@ -1090,7 +1104,9 @@ export default [
   },
   {
     name: 'Rum Punch',
+    image: 'images/rum-punch.jpg',
     instructions: 'Shake with ice and strain into a chilled rocks glass. No garnish.',
+    season: 'summer',
     dateVerified: '2012-02-25',
     verified: true,
     ingredients: [
@@ -1156,6 +1172,7 @@ export default [
   },
   {
     name: 'Little Italy',
+    image: 'images/little-italy.jpg',
     instructions: 'Stir with ice and strain over a chilled coupe glass. Garnish with a flamed orange twist and a cherry.',
     ingredients: [
       {
@@ -1177,6 +1194,7 @@ export default [
   },
   {
     name: 'Old Fashioned',
+    image: 'images/old-fashioned.jpg',
     instructions: 'Stir water, simple syrup, and bitters in a chilled rocks glass. Add cherry and muddle. Add large ice, bourbon, and stir. Garnish with orange peel.',
     dateVerified: '2019-05-27',
     verified: true,
@@ -1204,13 +1222,16 @@ export default [
       },
       {
         amount: 1,
-        tag: 'cherry'
+        tag: 'cherry',
+        unit: 'cherry'
       }
     ]
   },
   {
     name: 'Pearl Button',
+    image: 'images/pearl-button.jpg',
     instructions: 'Shake with ice and strain into a chilled Collins glass filled with ice. Top with 1.5 oz of San Pellegrino Limonata. Garnish with half a grapefruit wheel.',
+    season: 'summer',
     ingredients: [
       {
         amount: 2,
@@ -1265,9 +1286,304 @@ export default [
         unit: 'barspoon'
       }
     ]
+  },
+  {
+    name: 'Gin & Tonic',
+    image: 'images/gin-and-tonic.jpg',
+    instructions: 'Add to a chilled Collins glass filled with ice and stir briefly. Garnish with a lime wedge.',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 4,
+        tag: 'tonic water',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Caprice',
+    image: 'images/caprice.jpg',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with an orange twist.',
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 1.5,
+        tag: 'dry vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'benedictine',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'orange bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Bobby Burns',
+    image: 'images/bobby-burns.jpg',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with a lemon twist.',
+    dateVerified: '2020-07-02',
+    verified: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'single malt scotch',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'sweet vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'benedictine',
+        unit: 'barspoon'
+      }
+    ]
+  },
+  {
+    name: 'Aperol Spritz',
+    image: 'images/aperol-spritz.jpg',
+    instructions: 'Add to a chilled wine glass filled with ice. Stir and garnish with half an orange wheel.',
+    season: 'summer',
+    rating: 5,
+    dateVerified: '2020-06-24',
+    verified: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'aperol',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'prosecco',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'club soda',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'orange juice',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Bronx',
+    image: 'images/bronx.jpg',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with an orange twist.',
+    dateVerified: '2020-07-02',
+    verified: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'sweet vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'dry vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'orange juice',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'orange bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Tom Collins',
+    image: 'images/tom-collins.jpg',
+    instructions: 'Shake with ice and strain into an ice-filled collins glass. Top with club soda. Garnish with half lemon wheel and cherry.',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'gin',
+        preferred: 'old tom',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Casino Royale',
+    image: 'images/casino-royale.jpg',
+    instructions: 'Stir with large ice in a large rocks glass. Garnish with orange peel.',
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'bourbon',
+        preferred: 'bulleit',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'benedictine',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'chocolate bitters',
+        preferred: 'scrappy\'s',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'walnut bitters',
+        unit: 'oz'
+      },
+      {
+        amount: 4,
+        tag: 'angostura',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Corpse Reviver No. 2',
+    image: 'images/corpse-reviver-no-2.jpg',
+    instructions: 'Shake with ice and strain into an absinthe-rinsed coupe glass. No garnish.',
+    ingredients: [
+      {
+        amount: 0.75,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'triple sec',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'cocchi americano',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Eventide',
+    instructions: 'Stir with ice and strain into chilled coupe glass. Garnish with lemon twist.',
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 1.5,
+        tag: 'cocchi americano',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'orange bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Revolver',
+    image: 'images/revolver.jpg',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with a flamed orange peel.',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'bourbon',
+        preferred: 'bulleit',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'coffee liqueur',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'orange bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Thunderball',
+    image: 'images/thunderball.jpg',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with two blackberries on a pick.',
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'brandy',
+        unit: 'oz',
+      },
+      {
+        amount: 1,
+        tag: 'blackberry puree',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'sweet vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'lemon juice',
+        unit: 'oz'
+      }
+    ]
   }
 
   // Pegu Club, Clover Club, Colleen Bawn, Pimm's Cup, Mamie Taylor
-  // French Pearl, Pearl of Puebla
+  // French Pearl
+  // Dark and Stormy
   // Cuarto Vides by John McCarthy, with Pisco Portón, Cappelletti, Carpano Bianco, Verjus and seltzer.
+  // Boulevardier
 ];

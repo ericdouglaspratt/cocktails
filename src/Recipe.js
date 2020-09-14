@@ -1,40 +1,37 @@
 import React from 'react';
+import CloseIcon from '@material-ui/icons/Close';
 import './Recipe.css';
 
-import { useParams } from "react-router-dom";
+import { determineUnitDisplay } from './helpers';
 
 import RecipeAmount from './RecipeAmount';
+import Strength from './Strength';
 
-const UNITS = {
-  DASH: 'dash',
-  OUNCE: 'oz'
-};
-
-const Recipe = ({recipes}) => {
-  let { id } = useParams();
-  const recipe = recipes.lookup[id];
-
+const Recipe = ({onClose, recipe}) => {
   return (
     <div className="Recipe">
+      <div className="Recipe-image" style={{ backgroundImage: `url(${`${process.env.PUBLIC_URL}/${recipe.image || 'images/default.jpg'}`})` }}>
+        {!!recipe.strength && (
+          <Strength strength={recipe.strength} totalVolume={recipe.totalVolume} />
+        )}
+      </div>
       <div className="Recipe-content">
-        <div className="Recipe-image" style={{backgroundImage: `url(${process.env.PUBLIC_URL}/images/frame.png`}}>
-          <div className="Recipe-imagePhoto" style={{backgroundImage: `url(${`${process.env.PUBLIC_URL}/${recipe.image || 'images/default.jpg'}`})`}} />
-        </div>
-        <div className="Recipe-text">
-          <h1 className="Recipe-name">{recipe.name}</h1>
-          <ol className="Recipe-ingredients">
-            {recipe.ingredients.map(ingredient => {
-              const unit = ingredient.unit === UNITS.DASH ? ingredient.amount === 1 ? 'dash' : 'dashes' : ingredient.unit;
-              return (
-                <li className="Recipe-ingredient" key={ingredient.tag}>
-                  <RecipeAmount amount={ingredient.amount} />
-                  {` ${unit} ${ingredient.tag}`}
-                </li>
-              );
-            })}
-          </ol>
-          <p className="Recipe-instructions">{recipe.instructions}</p>
-        </div>
+        <h2 className="Recipe-header">{recipe.name}</h2>
+        <button className="Recipe-closeButton" onClick={onClose}>
+          <span className="Recipe-accessibleText">Close</span>
+          <CloseIcon />
+        </button>
+        <ol className="Recipe-ingredients">
+          {recipe.ingredients.map(ingredient => (
+            <li className="Recipe-ingredient" key={ingredient.tag}>
+              <RecipeAmount amount={ingredient.amount} />
+              {` ${determineUnitDisplay(ingredient.unit, ingredient.amount)} ${ingredient.tag}`}
+            </li>
+          ))}
+        </ol>
+        <p className="Recipe-instructions">
+          {recipe.instructions}
+        </p>
       </div>
     </div>
   );

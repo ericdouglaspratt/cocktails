@@ -1,9 +1,11 @@
-import { useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import {
+  BREAKPOINTS,
   CORE_SPIRITS,
   CORE_SPIRIT_VARIATION_MAP,
-  NONALCOHOLIC_INGREDIENT_LOOKUP,
+  NONALCOHOLIC_INGREDIENTS,
+  SEASONS,
   UNIT_CONVERSION_TO_OZ,
   UNIT_DISPLAY
 } from './constants';
@@ -33,14 +35,6 @@ export const createRecipesPair = rawRecipes => {
 
 export const createUrlSlug = name => name.toLowerCase().replace(/[\s]/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, '');
 
-export const determineUnitDisplay = (unit, amount) => {
-  const unitDisplay = UNIT_DISPLAY.find(possibleUnit => possibleUnit.SINGULAR === unit);
-  if (unitDisplay) {
-    return amount === 1 ? unitDisplay.SINGULAR : unitDisplay.PLURAL;
-  } else {
-    return unit;
-  }
-};
 
 export const determineAvailableIngredients = recipes => {
   const uniqueIngredients = recipes.reduce((result, recipe) => {
@@ -55,6 +49,10 @@ export const determineAvailableIngredients = recipes => {
     uniqueIngredients[ingredient] = true;
   });
   return Object.keys(uniqueIngredients).sort();
+};
+
+export const determineCurrentSeason = () => {
+  return null; // SEASONS.SUMMER;
 };
 
 export const determineNumInclusiveMatches = (recipe, inclusiveTags) => {
@@ -79,7 +77,7 @@ export const determineRecipeStrength = (recipe, ingredientTagMap) => {
         ...ingredient,
         abv: possibleIngredients.map(ingredient => ingredient.abv).reduce((sum, abv) => sum + abv, 0) / possibleIngredients.length
       };
-    } else if (NONALCOHOLIC_INGREDIENT_LOOKUP[ingredient.tag]) {
+    } else if (NONALCOHOLIC_INGREDIENTS[ingredient.tag]) {
       return {
         ...ingredient,
         abv: 0
@@ -91,7 +89,7 @@ export const determineRecipeStrength = (recipe, ingredientTagMap) => {
   });
 
   if (!ingredientInfo.includes(null)) {
-    const unconvertableUnits = ingredientInfo.filter(ingredient => ingredient.unit && UNIT_CONVERSION_TO_OZ[ingredient.unit] == null);
+    const unconvertableUnits = ingredientInfo.filter(ingredient => ingredient.unit && !UNIT_CONVERSION_TO_OZ[ingredient.unit] && UNIT_CONVERSION_TO_OZ[ingredient.unit] !== 0);
     if (unconvertableUnits.length === 0) {
 
       totalVolume = ingredientInfo.reduce((sum, ingredient) => sum + (ingredient.amount * UNIT_CONVERSION_TO_OZ[ingredient.unit]), 0);
@@ -118,6 +116,19 @@ export const determineRecipeStrength = (recipe, ingredientTagMap) => {
     strengthAudit,
     totalVolume
   };
+};
+
+export const determineRecipeTastes = (recipe, ingredients) => {
+  // NONALCOHOLIC_INGREDIENTS
+};
+
+export const determineUnitDisplay = (unit, amount) => {
+  const unitDisplay = UNIT_DISPLAY.find(possibleUnit => possibleUnit.SINGULAR === unit);
+  if (unitDisplay) {
+    return amount === 1 ? unitDisplay.SINGULAR : unitDisplay.PLURAL;
+  } else {
+    return unit;
+  }
 };
 
 export const generateIngredientTagMap = ingredients => ingredients.reduce((result, ingredient) => {
@@ -157,12 +168,40 @@ export const removeTagsFromArray = (tags, arr) => {
 
 export const sortByName = recipes => recipes.slice().sort((a, b) => a.name.localeCompare(b.name));
 
-export const useStateRef = (defaultValue) => {
-  const [value, _setValue] = useState(defaultValue);
-  const valueRef = useRef(value);
-  const setValue = val => {
-    valueRef.current = val;
-    _setValue(val);
+export const useBreakpoint = () => useMedia(
+  ['(max-width: 767px)', '(min-width: 768px)'],
+  [BREAKPOINTS.MOBILE, BREAKPOINTS.DESKTOP],
+  BREAKPOINTS.MOBILE
+);
+
+export const useMedia = (queries, values, defaultValue) => {
+  // Array containing a media query list for each query
+  const mediaQueryLists = queries.map(q => window.matchMedia(q));
+
+  // Function that gets value based on matching media query
+  const getValue = () => {
+    // Get index of first media query that matches
+    const index = mediaQueryLists.findIndex(mql => mql.matches);
+    // Return related value or defaultValue if none
+    return typeof values[index] !== 'undefined' ? values[index] : defaultValue;
   };
-  return [valueRef, setValue];
+
+  // State and setter for matched value
+  const [value, setValue] = useState(getValue);
+
+  useEffect(
+    () => {
+      // Event listener callback
+      // Note: By defining getValue outside of useEffect we ensure that it has ...
+      // ... current values of hook args (as this hook callback is created once on mount).
+      const handler = () => setValue(getValue);
+      // Set a listener for each media query with above handler as callback.
+      mediaQueryLists.forEach(mql => mql.addListener(handler));
+      // Remove listeners on cleanup
+      return () => mediaQueryLists.forEach(mql => mql.removeListener(handler));
+    },
+    [] // Empty array ensures effect is only run on mount and unmount
+  );
+
+  return value;
 };

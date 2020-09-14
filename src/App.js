@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import Drawer from '@material-ui/core/Drawer';
 import './App.css';
 
-import {CORE_SPIRIT_VARIATION_MAP} from './constants';
+import {BREAKPOINTS, CORE_SPIRIT_VARIATION_MAP} from './constants';
 import {
   addTagsAndSort,
   createRecipesPair,
@@ -12,6 +13,7 @@ import {
   generateRecipeTagMap,
   removeTagsFromArray,
   sortByName,
+  useBreakpoint
 } from './helpers';
 import ingredients from './data/ingredients';
 import RAW_RECIPES from './data/recipes';
@@ -19,10 +21,10 @@ import RAW_RECIPES from './data/recipes';
 import ActiveFilters from './ActiveFilters';
 import CategoryPicker from './CategoryPicker';
 import IngredientSearch from './IngredientSearch';
+import Recipe from './Recipe';
 import RecipeList from './RecipeList';
 import RecipeModal from './RecipeModal';
 import StrengthSlider from './StrengthSlider';
-import SuggestedFilters from './SuggestedFilters';
 
 // initial data prep
 const initialIngredientTagMap = generateIngredientTagMap(ingredients);
@@ -30,23 +32,70 @@ const recipesWithStrength = RAW_RECIPES.map(recipe => determineRecipeStrength(re
 const recipes = createRecipesPair(recipesWithStrength);
 const recipeTagMap = generateRecipeTagMap(recipes.list);
 const availableIngredients = determineAvailableIngredients(recipes.list);
+//console.log('available', availableIngredients);
+//console.log('recipetag', recipeTagMap);
+
+const availableIngredientsByFrequency = Object.keys(recipeTagMap).map(tag => {
+  return {
+    numRecipes: Object.keys(recipeTagMap[tag].reduce((result, recipe) => {
+      result[recipe.name] = true;
+      return result;
+    }, {})).length,
+    tag
+  };
+}).sort((a, b) => {
+  if (a.numRecipes > b.numRecipes) {
+    return -1;
+  } else if (a.numRecipes < b.numRecipes) {
+    return 1;
+  } else {
+    return a.tag.localeCompare(b.tag);
+  }
+});
+
+//console.log(availableIngredientsByFrequency);
+
+
 
 // in modal under recipe, recommended
 // --> more tart [recipe]
 // --> more herbal [recipe]
 // --> more citrus [recipe]
+// citrus, sweet, herbal, bitter, tart, spicy
+
+// out of stock / stock status
+// keep a running tally of what i can make, use that to quickly find drinks for people when they come over
+// php / mysql simple
+
+// also use it for a random top featured recommendation?
+
+// recipe history
+// recommended ingredients for each, with tasting notes, which is better than another
+// be able to store and actively write the drink journal on there
 
 function App() {
   const [activeRecipeId, setActiveRecipeId] = useState(null);
+  const [isRecipeOpen, setIsRecipeOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState([]);
   const [visibleRecipes, setVisibleRecipes] = useState(sortByName(recipes.list));
+
+  const breakpoint = useBreakpoint();
 
   useEffect(() => {
     document.addEventListener('keydown', handleGlobalKeyDown);
   }, []);
 
-  const handleClickCloseRecipe = () => setActiveRecipeId(null);
-  const handleClickRecipe = id => setActiveRecipeId(id);
+  const handleClickCloseRecipe = () => {
+    setIsRecipeOpen(false);
+    setTimeout(() => {
+      setActiveRecipeId(null);
+    }, 250);
+  };
+
+  const handleClickRecipe = id => {
+    setActiveRecipeId(id);
+    setIsRecipeOpen(true);
+  };
 
   const handleDeselectTag = tag => {
     if (tag) {
@@ -156,6 +205,8 @@ function App() {
     }
   };
 
+  const activeRecipe = activeRecipeId ? recipes.lookup[activeRecipeId] : null;
+
   return (
     <>
       <div className="BrowseLayout">
@@ -190,11 +241,28 @@ function App() {
           />
         </div>
       </div>
-      <RecipeModal
-        id={activeRecipeId}
-        onClose={handleClickCloseRecipe}
-        recipe={!!activeRecipeId && recipes.lookup[activeRecipeId]}
-      />
+      {breakpoint === BREAKPOINTS.MOBILE && (
+        <Drawer
+          anchor="bottom"
+          open={isRecipeOpen}
+          onClose={handleClickCloseRecipe}
+        >
+          {activeRecipe && (
+            <Recipe
+              onClose={handleClickCloseRecipe}
+              recipe={activeRecipe}
+            />
+          )}
+        </Drawer>
+      )}
+      {breakpoint === BREAKPOINTS.DESKTOP && (
+        <RecipeModal
+          id={activeRecipeId}
+          isOpen={isRecipeOpen}
+          onClose={handleClickCloseRecipe}
+          recipe={activeRecipe}
+        />
+      )}
     </>
   );
 };

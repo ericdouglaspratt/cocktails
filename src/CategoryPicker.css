@@ -13,8 +13,8 @@
   padding: 0;
 }
 .CategoryPicker-listItem {
-  margin-bottom: 8px;
-  width: 81px;
+  margin-bottom: 10px;
+  width: 31%;
 }
 .CategoryPicker-listItem .MuiButton-label {
   text-transform: lowercase;
@@ -77,4 +77,8 @@
 .CategoryPicker-toggleLabel {
   position: relative;
   z-index: 5;
+}
+
+@media (min-width: 768px) {
+
 }

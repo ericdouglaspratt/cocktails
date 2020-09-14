@@ -52,7 +52,7 @@ const SuggestedFilters = ({ onSelect, selected, visibleRecipes }) => {
   }, [selected, visibleRecipes]);
 
   return (
-    <ul className="SuggestedFilters">
+    <>
       {availableSuggestions.map(({ occurrences, tag }) => {
         return (
           <li className="SuggestedFilters-listItem" key={tag}>
@@ -81,7 +81,7 @@ const SuggestedFilters = ({ onSelect, selected, visibleRecipes }) => {
           </li>
         );
       })}
-    </ul>
+    </>
   );
 };
 

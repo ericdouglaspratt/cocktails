@@ -1,9 +1,19 @@
+import { TASTES } from '../constants';
+
 export default [
 
   // ----------
   // SPIRITS
   // ----------
 
+  // brandy
+  {
+    name: 'Germain-Robin Brandy',
+    fullName: 'Germain-Robin Craft-Method Brandy',
+    tags: ['brandy'],
+    abv: 40,
+    origin: 'Ukiah, CA, USA'
+  },
   // cognac
   {
     name: 'Courvoisier Cognac',
@@ -102,6 +112,29 @@ export default [
     abv: 40,
     origin: 'Kentucky, USA'
   },
+  // scotch whiskey
+  {
+    name: 'Aberlour Highland Single Malt Scotch Whisky, 16 Years Old',
+    fullName: 'Aberlour Highland Single Malt Scotch Whisky, Double Cask Matured, 16 Years Old',
+    tags: ['whiskey', 'scotch', 'single malt scotch'],
+    abv: 43,
+    origin: 'Speyside, Scotland'
+  },
+  {
+    name: 'The Balvenie Single Malt Scotch Whisky, Aged 17 Years',
+    fullName: 'Single Malt Scotch Whisky, Distilled at The Balvenie Distillery Banffshire, Scotland, Finished in Jamaican Rum Barrels, Aged 17 Years',
+    tags: ['whiskey', 'scotch', 'single malt scotch'],
+    abv: 43,
+    origin: 'Banffshire, Scotland'
+  },
+  // mezcal
+  {
+    name: 'Casamigos Mezcal',
+    fullName: 'Casamigos Mezcal',
+    tags: ['mezcal'],
+    abv: 40,
+    origin: 'Oaxaca, Mexico'
+  },
   // pisco
   {
     name: 'Macchu Pisco',
@@ -125,6 +158,28 @@ export default [
     tags: ['aquavit'],
     abv: 40,
     origin: 'Portland, OR, USA'
+  },
+  {
+    name: 'Ricard Pastis de Marseille',
+    fullName: 'Ricard Pastis de Marseille',
+    tags: ['pastis'],
+    abv: 45,
+    origin: 'Marseille, France'
+  },
+  // cachaça
+  {
+    name: 'Leblon Cachaça',
+    fullName: 'Leblon Cachaça',
+    tags: ['cachaça'],
+    abv: 40,
+    origin: 'Minas Gerais, Brazil'
+  },
+  {
+    name: '51 Cachaça',
+    fullName: '51 Cachaça',
+    tags: ['cachaça'],
+    abv: 39,
+    origin: 'Brazil'
   },
 
   // ----------
@@ -159,7 +214,8 @@ export default [
     fullName: 'Tempus Fugit Spirits Liqueur de Violettes',
     tags: ['liqueur', 'floral', 'creme de violette'],
     abv: 22,
-    origin: 'Switzerland'
+    origin: 'Switzerland',
+    tastes: [TASTES.FLORAL]
   },
   {
     name: 'St. Germain Elderflower Liqueur',
@@ -181,7 +237,8 @@ export default [
     fullName: 'Lejay Creme de Cassis Blackcurrant Liqueur',
     tags: ['liqueur', 'blackcurrant liqueur', 'creme de cassis'],
     abv: 18,
-    origin: 'France'
+    origin: 'France',
+    tastes: [TASTES.TART]
   },
   // ginger liqueurs
   {
@@ -197,28 +254,40 @@ export default [
     fullName: 'D.O.M. Benedictine Liqueur',
     tags: ['liqueur', 'herbal', 'benedictine'],
     abv: 40,
-    origin: 'France'
+    origin: 'France',
+    tastes: [TASTES.HERBAL]
   },
   {
     name: 'Green Chartreuse',
     fullName: 'Chartreuse Liqueur Fabriquée par les pères Chartreux, Green',
     tags: ['liqueur', 'herbal', 'green chartreuse'],
     abv: 55,
-    origin: 'France'
+    origin: 'France',
+    tastes: [TASTES.HERBAL]
   },
   {
     name: 'Yellow Chartreuse',
     fullName: 'Chartreuse Liqueur Fabriquée par les pères Chartreux, Yellow',
     tags: ['liqueur', 'herbal', 'yellow chartreuse'],
     abv: 55,
-    origin: 'France'
+    origin: 'France',
+    tastes: [TASTES.HERBAL]
+  },
+  {
+    name: 'Aperol',
+    fullName: 'Aperol Aperitivo Liqueur',
+    tags: ['liqueur', 'herbal', 'aperol'],
+    abv: 11,
+    origin: 'Italy',
+    tastes: [TASTES.BITTER, TASTES.HERBAL]
   },
   {
     name: 'Campari',
     fullName: 'Campari',
     tags: ['liqueur', 'herbal', 'campari'],
     abv: 24,
-    origin: 'Italy'
+    origin: 'Italy',
+    tastes: [TASTES.BITTER, TASTES.HERBAL]
   },
   {
     name: 'St. Elizabeth Allspice Dram',
@@ -226,6 +295,21 @@ export default [
     tags: ['liqueur', 'herbal', 'allspice', 'allspice dram'],
     abv: 22.5,
     origin: 'Austria'
+  },
+  // coffee
+  {
+    name: 'Boston Harbor Distillery Coffee Liqueur',
+    fullName: 'Boston Harbor Distillery Coffee Liqueur',
+    tags: ['coffee liqueur'],
+    abv: 23,
+    origin: 'Boston, MA, USA'
+  },
+  {
+    name: 'Patrón XO Cafe',
+    fullName: 'Patrón XO Cafe Dark Cocoa Chocolate Coffee Liqueur',
+    tags: ['coffee liqueur'],
+    abv: 30,
+    origin: 'Mexico'
   },
   // triple secs
   {
@@ -241,6 +325,20 @@ export default [
     tags: ['triple sec', 'combier'],
     abv: 40,
     origin: 'Saumur, France'
+  },
+  {
+    name: 'Short Path Triple Sec',
+    fullName: 'Short Path Distillery Triple Sec',
+    tags: ['triple sec'],
+    abv: 20,
+    origin: 'Everett, MA, USA'
+  },
+  {
+    name: 'Hiram Walker Blue Curacao',
+    fullName: 'Hiram Walker Blue Curacao Cocktail Mixers',
+    tags: ['liqueur', 'blue curacao'],
+    abv: 15,
+    origin: 'Arkansas, USA'
   },
   // aromatised wine / vermouth
   {
@@ -277,6 +375,13 @@ export default [
     tags: ['lillet', 'lillet blanc'],
     abv: 17,
     origin: 'France'
+  },
+  {
+    name: 'Cocchi Americano',
+    fullName: 'Aperitivo Cocchi Americano',
+    tags: ['cocchi americano'],
+    abv: 16.5,
+    origin: 'Italy'
   },
 
   // ----------
@@ -326,11 +431,32 @@ export default [
     origin: 'Rochester, NY, USA'
   },
   {
+    name: 'Fee Brothers Black Walnut Bitters',
+    fullName: 'Fee Brothers Black Walnut Bitters',
+    tags: ['bitters', 'walnut bitters', 'black walnut bitters'],
+    abv: 6.4,
+    origin: 'Rochester, NY, USA'
+  },
+  {
     name: 'Peychaud\'s Bitters',
     fullName: 'Peychaud\'s Aromatic Cocktail Bitters',
     tags: ['bitters', 'peychaud\'s'],
     abv: 35,
     origin: 'New Orleans, LA, USA'
+  },
+  {
+    name: 'Bokers Bitters',
+    fullName: 'Dr. Adam Elmegirab\'s Bokers Bitters',
+    tags: ['bitters', 'bokers bitters'],
+    abv: 31.5,
+    origin: 'Scotland'
+  },
+  {
+    name: 'Scrappy\' Chocolate Bitters',
+    fullName: 'Scrappy\'s Bitters Old Fashion Style Chocolate',
+    tags: ['bitters', 'chocolate bitters'],
+    abv: 47.6,
+    origin: 'Seattle, WA, USA'
   }
 
 ];

@@ -1,50 +1,67 @@
 .Recipe {
-  display: flex;
-  font-size: 1.4em;
-  justify-content: center;
-  padding: 40px 0 0;
-}
-.Recipe-content {
-  display: flex;
-  flex-flow: row nowrap;
-  width: 960px;
+  position: relative;
 }
 .Recipe-image {
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: contain;
-  border-radius: 12px;
-  flex-shrink: 0;
-  margin-right: 40px;
-  height: 400px;
-  position: relative;
-  width: 340px;
-}
-.Recipe-imagePhoto {
-  background-position: center center;
-  background-repeat: no-repeat;
   background-size: cover;
-  bottom: 34px;
-  left: 57px;
-  position: absolute;
-  right: 58px;
-  top: 33px;
-  z-index: -1;
+  border-bottom: 1px solid #5C8E89;
+  flex-shrink: 0;
+  padding-bottom: 100%;
+  position: relative;
 }
-.Recipe-name {
-  font-weight: normal;
+.Recipe-image .Strength {
+  bottom: 8px;
+  color: #fff;
+  position: absolute;
+  right: 14px;
+}
+.Recipe-image .Strength .MuiSvgIcon-root {
+  height: 20px;
+  width: 20px;
+}
+
+.Recipe-closeButton {
+  background: none;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.Recipe-closeButton:focus {
+  outline: 1px solid #3434d4;
+}
+.Recipe-closeButton .MuiSvgIcon-root {
+  height: 48px;
+  width: 48px;
+}
+.Recipe-accessibleText {
+  left: -9999em;
+  position: absolute;
+}
+
+.Recipe-content {
+  padding: 20px;
+}
+.Recipe-header {
+  font-family: 'Poiret One', cursive;
+  font-size: 36px;
   margin: 0;
+}
+.Recipe-ingredients,
+.Recipe-instructions {
+  font-size: 20px;
+  font-weight: 300;
 }
 .Recipe-ingredients {
   list-style-type: none;
-  padding-left: 40px;
-}
-.Recipe-ingredient {
-  align-items: center;
-  display: flex;
-  flex-flow: row nowrap;
-  height: 1.8em;
+  margin: 0;
+  padding: 20px;
 }
 .Recipe-instructions {
-  max-width: 20em;
+  line-height: 1.3em;
+  max-width: 30em;
 }

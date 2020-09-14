@@ -1,16 +1,9 @@
-.SuggestedFilters {
-  display: flex;
-  flex-flow: row wrap;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
 .SuggestedFilters-listItem {
   display: flex;
   flex-flow: row wrap;
   font-size: 14px;
   font-weight: 500;
-  margin-left: 10px;
+  margin: 0 10px 10px 0;
   position: relative;
 }
 .SuggestedFilters-listItem::before {

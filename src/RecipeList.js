@@ -2,6 +2,7 @@ import React, {Fragment, useState, useEffect} from 'react';
 import './RecipeList.css';
 
 import { CORE_SPIRIT_VARIATION_MAP } from './constants';
+import { determineCurrentSeason } from './helpers';
 
 import Strength from './Strength';
 
@@ -9,8 +10,10 @@ const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
   const [groups, setGroups] = useState([{recipes}]);
 
   useEffect(() => {
-    // if we're displaying recipes that match a filter
+    const currentSeason = determineCurrentSeason();
+
     if (recipes && recipes.length > 0 && recipes[0].numMatches) {
+      // if we're displaying recipes that match a filter
       const groupMap = recipes.reduce((result, recipe) => {
         if (!result[recipe.numMatches]) {
           result[recipe.numMatches] = [];
@@ -24,6 +27,25 @@ const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
       })).sort((a, b) => {
         return a.numMatches > b.numMatches ? -1 : a.numMatches < b.numMatches ? 1 : 0;
       }));
+    } else if (selectedTags.length === 0 && currentSeason && recipes.find(recipe => recipe.season === currentSeason)) {
+      // if at least one recipe matches the current season
+      const recipesBySeason = recipes.reduce((result, recipe) => {
+        result[recipe.season === currentSeason ? currentSeason : 'other'].push(recipe);
+        return result;
+      }, {
+        [currentSeason]: [],
+        other: []
+      });
+      setGroups([
+        {
+          season: currentSeason,
+          recipes: recipesBySeason[currentSeason]
+        },
+        {
+          season: 'other',
+          recipes: recipesBySeason['other']
+        }
+      ])
     } else {
       setGroups([{recipes}]);
     }
@@ -36,6 +58,11 @@ const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
           {groups.length > 1 && !!group.numMatches && (
             <h3 className="RecipeList-numMatches">
               {`${group.numMatches} matching ${group.numMatches === 1 ? 'ingredient' : 'ingredients'}`}
+            </h3>
+          )}
+          {groups.length > 1 && !!group.season && (
+            <h3 className="RecipeList-numMatches">
+              {group.season === determineCurrentSeason() ? 'Featured for the Season' : 'Additional Libations'}
             </h3>
           )}
           <div className="RecipeList">

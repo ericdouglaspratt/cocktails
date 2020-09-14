@@ -24,6 +24,8 @@
   padding: 0;
   position: relative;
   top: 0;
+  transform: translateZ(-1000px);
+  transform-style: preserve-3d;
   transition: top 250ms;
   width: 240px;
 }

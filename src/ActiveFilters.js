@@ -25,12 +25,12 @@ const ActiveFilters = ({ numResults, onDeselect, onSelect, selected, visibleReci
             </li>
           );
         })}
+        <SuggestedFilters
+          onSelect={onSelect}
+          selected={selected}
+          visibleRecipes={visibleRecipes}
+        />
       </ul>
-      <SuggestedFilters
-        onSelect={onSelect}
-        selected={selected}
-        visibleRecipes={visibleRecipes}
-      />
     </div>
   );
 };
