@@ -1,19 +1,17 @@
-import React, {Fragment, useState, useEffect} from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import './RecipeList.css';
 
-import { CORE_SPIRIT_VARIATION_MAP } from './constants';
+import { CORE_SPIRIT_VARIATION_MAP, RECIPE_GROUP_TYPES } from './constants';
 import { determineCurrentSeason } from './helpers';
 
 import Strength from './Strength';
 
 const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
-  const [groups, setGroups] = useState([{recipes}]);
+  const [groups, setGroups] = useState([{ recipes }]);
 
   useEffect(() => {
-    const currentSeason = determineCurrentSeason();
-
-    if (recipes && recipes.length > 0 && recipes[0].numMatches) {
-      // if we're displaying recipes that match a filter
+    if (selectedTags.length > 0) {
+      // filter results
       const groupMap = recipes.reduce((result, recipe) => {
         if (!result[recipe.numMatches]) {
           result[recipe.numMatches] = [];
@@ -27,27 +25,32 @@ const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
       })).sort((a, b) => {
         return a.numMatches > b.numMatches ? -1 : a.numMatches < b.numMatches ? 1 : 0;
       }));
-    } else if (selectedTags.length === 0 && currentSeason && recipes.find(recipe => recipe.season === currentSeason)) {
-      // if at least one recipe matches the current season
-      const recipesBySeason = recipes.reduce((result, recipe) => {
-        result[recipe.season === currentSeason ? currentSeason : 'other'].push(recipe);
-        return result;
-      }, {
-        [currentSeason]: [],
-        other: []
-      });
-      setGroups([
-        {
-          season: currentSeason,
-          recipes: recipesBySeason[currentSeason]
-        },
-        {
-          season: 'other',
-          recipes: recipesBySeason['other']
-        }
-      ])
     } else {
-      setGroups([{recipes}]);
+      // no active filters
+      const groups = [];
+      const currentSeason = determineCurrentSeason();
+      const haveSeasonalRecipes = currentSeason && recipes.find(recipe => recipe.season === currentSeason);
+      if (haveSeasonalRecipes) {
+        groups.push({
+          recipes: recipes.filter(recipe => recipe.season === currentSeason && !recipe.inHoldingPen),
+          type: RECIPE_GROUP_TYPES.SEASONAL
+        });
+      }
+
+      groups.push({
+        recipes: recipes.filter(recipe => !recipe.inHoldingPen && (!haveSeasonalRecipes || recipe.season !== currentSeason)),
+        type: RECIPE_GROUP_TYPES.MAIN
+      });
+
+      const haveHoldingPenRecipes = recipes.find(recipe => recipe.inHoldingPen);
+      if (haveHoldingPenRecipes) {
+        groups.push({
+          recipes: recipes.filter(recipe => recipe.inHoldingPen),
+          type: RECIPE_GROUP_TYPES.HOLDING_PEN
+        });
+      }
+
+      setGroups(groups);
     }
   }, [recipes]);
 
@@ -60,9 +63,13 @@ const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
               {`${group.numMatches} matching ${group.numMatches === 1 ? 'ingredient' : 'ingredients'}`}
             </h3>
           )}
-          {groups.length > 1 && !!group.season && (
+          {groups.length > 1 && !!group.type && (
             <h3 className="RecipeList-numMatches">
-              {group.season === determineCurrentSeason() ? 'Featured for the Season' : 'Additional Libations'}
+              {group.type === RECIPE_GROUP_TYPES.SEASONAL
+                ? 'Featured for the Season'
+                : group.type === RECIPE_GROUP_TYPES.HOLDING_PEN
+                  ? 'In Clinical Trials'
+                  : 'Additional Libations'}
             </h3>
           )}
           <div className="RecipeList">

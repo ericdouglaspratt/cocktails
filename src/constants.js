@@ -19,6 +19,12 @@ export const CORE_SPIRIT_VARIATION_MAP = {
   'single malt scotch': 'whiskey'
 };
 
+export const RECIPE_GROUP_TYPES = {
+  HOLDING_PEN: 'holding pen',
+  MAIN: 'main',
+  SEASONAL: 'seasonal'
+};
+
 export const SEASONS = {
   AUTUMN: 'autumn',
   SPRING: 'spring',
@@ -75,6 +81,7 @@ export const NONALCOHOLIC_INGREDIENTS = {
   'blackberry puree': [TASTES.SWEET],
   'cane sugar': [TASTES.SWEET],
   'cherry': true,
+  'cinnamon': true,
   'club soda': true,
   'cranberry juice': [TASTES.TART],
   'cream of coconut': true,
@@ -82,16 +89,20 @@ export const NONALCOHOLIC_INGREDIENTS = {
   'demerara syrup': [TASTES.SWEET],
   'egg white': true,
   'fresh oregano': true,
+  'ginger': true,
   'ginger beer': true,
   'grenadine': true,
   'ground nutmeg': true,
   'heavy cream': true,
+  'honey': true,
   'ice': true,
   'lemon juice': [TASTES.CITRUS],
   'lime juice': [TASTES.CITRUS],
+  'maple syrup': true,
   'orange flower water': [TASTES.FLORAL],
   'orange juice': [TASTES.CITRUS, TASTES.SWEET],
   'pineapple juice': [TASTES.SWEET],
+  'pumpkin puree': true,
   'simple syrup': [TASTES.SWEET],
   'tonic water': true,
   'water': true

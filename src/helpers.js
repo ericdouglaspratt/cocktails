@@ -52,7 +52,7 @@ export const determineAvailableIngredients = recipes => {
 };
 
 export const determineCurrentSeason = () => {
-  return null; // SEASONS.SUMMER;
+  return SEASONS.AUTUMN;
 };
 
 export const determineNumInclusiveMatches = (recipe, inclusiveTags) => {

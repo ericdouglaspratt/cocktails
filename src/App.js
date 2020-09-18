@@ -55,7 +55,7 @@ const availableIngredientsByFrequency = Object.keys(recipeTagMap).map(tag => {
 
 //console.log(availableIngredientsByFrequency);
 
-
+// toggle to show hidden recipes, works in progress, not ready for primetime, pending evaluation
 
 // in modal under recipe, recommended
 // --> more tart [recipe]

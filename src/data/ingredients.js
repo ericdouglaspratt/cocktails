@@ -14,6 +14,20 @@ export default [
     abv: 40,
     origin: 'Ukiah, CA, USA'
   },
+  {
+    name: 'Laird\'s Applejack',
+    fullName: 'Laird\'s Applejack',
+    tags: ['brandy', 'applejack', 'apple brandy'],
+    abv: 40,
+    origin: 'Scobeyville, NJ, USA'
+  },
+  {
+    name: 'Eau de Vie Apricot Brandy',
+    fullName: 'Eau de Vie Un-Aged Fruit Brandy Apricot',
+    tags: ['brandy', 'apricot brandy'],
+    abv: 40,
+    origin: 'Petersham, MA, USA'
+  },
   // cognac
   {
     name: 'Courvoisier Cognac',
@@ -207,6 +221,13 @@ export default [
     tags: ['liqueur', 'herbal', 'amaro', 'fernet', 'fernet branca'],
     abv: 39,
     origin: 'Italy'
+  },
+  {
+    name: 'Short Path Autumn Amaro',
+    fullName: 'Short Path Distillery Autumn Amaro Liqueur',
+    tags: ['liqueur', 'short path autumn amaro'],
+    abv: 20,
+    origin: 'Everett, MA, USA'
   },
   // floral liqueurs
   {
@@ -457,6 +478,13 @@ export default [
     tags: ['bitters', 'chocolate bitters'],
     abv: 47.6,
     origin: 'Seattle, WA, USA'
+  },
+  {
+    name: 'Dashfire Cinnamon Bitters',
+    fullName: 'Dashfire Bitters Cinnamon Bitters',
+    tags: ['bitters', 'cinnamon bitters'],
+    abv: 38,
+    origin: 'Minnetonka, MN, USA'
   }
 
 ];

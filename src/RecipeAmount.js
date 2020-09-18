@@ -16,6 +16,8 @@ const RecipeAmount = ({amount}) => {
     formattedFraction = <span className="RecipeAmount-fraction">⅓</span>;
   } else if (fraction === 0.67) {
     formattedFraction = <span className="RecipeAmount-fraction">⅔</span>;
+  } else if (fraction === 0.125) {
+    formattedFraction = <span className="RecipeAmount-fraction">⅛</span>;
   }
   return (
     <span className="RecipeAmount">

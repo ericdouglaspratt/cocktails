@@ -1,10 +1,12 @@
+import {SEASONS} from '../constants';
+
 export default [
   {
     name: 'Winter in Rome',
     image: 'images/winter-in-rome.jpg',
     instructions: 'Put sphere of ice into stirring glass. Combine ingredients in stirring glass. Stir 50 times with barspoon. Transfer sphere of ice into rocks glass. Pour drink into rocks glass. Serve and enjoy!',
     rating: 5,
-    season: 'winter',
+    season: SEASONS.WINTER,
     dateVerified: '2019-12-31',
     verified: true,
     ingredients: [
@@ -33,7 +35,7 @@ export default [
     image: 'images/vieux-carre.jpg',
     instructions: 'Combine all ingredients over a sphere of ice in a mixing glass. Stir with a barspoon until chilled. Move the ice sphere into a rocks glass. Pour over the ice into the glass.',
     rating: 5,
-    season: 'winter',
+    season: SEASONS.WINTER,
     dateVerified: '2019-09-27',
     verified: true,
     ingredients: [
@@ -139,7 +141,7 @@ export default [
   {
     name: 'Japanese Courage',
     instructions: 'Warm up the sake on the stove. Combine all other ingredients in a heatproof glass, then pour in the sake. Garnish with lemon (optional) and ground cloves.',
-    season: 'winter',
+    season: SEASONS.WINTER,
     dateVerified: '2020-03-21',
     verified: true,
     ingredients: [
@@ -225,7 +227,7 @@ export default [
     name: 'Blue Hawaiian',
     image: 'images/blue-hawaiian.jpg',
     instructions: 'Blend and pour into a chilled rocks glass. Garnish with pineapple wedge and a cherry.',
-    season: 'summer',
+    season: SEASONS.SUMMER,
     dateVerified: '2012-07-07',
     verified: true,
     ingredients: [
@@ -454,7 +456,7 @@ export default [
     name: 'Backyard Cocktail',
     image: 'images/backyard-cocktail.jpg',
     instructions: 'Muddle sauvignon blanc, elderflower liqueur, and cucumber in a shaker. Shake with ice, strain into a chilled Collins glass filled with ice, and top with club soda and prosecco. Garnish with cucumber slice.',
-    season: 'summer',
+    season: SEASONS.SUMMER,
     dateVerified: '2011-04-30',
     isExclusive: true,
     isVerified: true,
@@ -491,6 +493,7 @@ export default [
   {
     name: 'Periodista',
     instructions: 'Shake with ice and strain into chilled coupe glass. No garnish.',
+    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -518,7 +521,8 @@ export default [
   },
   {
     name: 'Ramos Gin Fizz',
-    instructions: 'Dry shake without club soda, then shake with ice. Pour club soda into chilled collins glass. Strain into glass up just beneath the rim and let sit. Tamp glass a few times to firm up the foam. If firm enough, continue pouring until foam rises in cylinder above rim of glass. No garnish.',
+    image: 'images/ramos-gin-fizz.jpg',
+    instructions: 'Dry shake with whisk ball for 1min without club soda, then shake with ice for 2min. Pour club soda into chilled collins glass. Strain into glass and let sit for 1min. Tap glass a few times with knife to release bubbles into foam. Continue pouring or, if none left, funnel additional club soda into the center until foam rises above rim of glass. Place metal straw in the middle and garnish with orange twist.',
     ingredients: [
       {
         amount: 2,
@@ -527,7 +531,7 @@ export default [
       },
       {
         amount: 1,
-        tag: 'club soda',
+        tag: 'egg white',
         unit: 'oz'
       },
       {
@@ -556,8 +560,8 @@ export default [
         unit: 'drop'
       },
       {
-        amount: 1,
-        tag: 'egg white',
+        amount: 2,
+        tag: 'club soda',
         unit: 'oz'
       }
     ]
@@ -672,6 +676,7 @@ export default [
     name: 'Coda',
     image: 'images/coda.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled fizz glass. Garnish with grated nutmeg.',
+    inHoldingPen: true,
     ingredients: [
       {
         amount: 1,
@@ -1005,6 +1010,7 @@ export default [
     name: 'May Daisy', // less simple syrup, add club soda? needs less syrupy and more fizz
     image: 'images/may-daisy.jpg',
     instructions: 'Shake with ice and strain into a chilled wine glass filled with ice. Garnish with a mint sprig.',
+    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
@@ -1035,7 +1041,7 @@ export default [
     instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
     dateVerified: '2020-06-27',
     verified: true,
-    season: 'summer',
+    season: SEASONS.SUMMER,
     ingredients: [
       {
         amount: 2,
@@ -1062,6 +1068,7 @@ export default [
   {
     name: 'Martinez',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with an orange twist.',
+    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -1106,7 +1113,7 @@ export default [
     name: 'Rum Punch',
     image: 'images/rum-punch.jpg',
     instructions: 'Shake with ice and strain into a chilled rocks glass. No garnish.',
-    season: 'summer',
+    season: SEASONS.SUMMER,
     dateVerified: '2012-02-25',
     verified: true,
     ingredients: [
@@ -1231,7 +1238,7 @@ export default [
     name: 'Pearl Button',
     image: 'images/pearl-button.jpg',
     instructions: 'Shake with ice and strain into a chilled Collins glass filled with ice. Top with 1.5 oz of San Pellegrino Limonata. Garnish with half a grapefruit wheel.',
-    season: 'summer',
+    season: SEASONS.SUMMER,
     ingredients: [
       {
         amount: 2,
@@ -1253,6 +1260,7 @@ export default [
   {
     name: 'Pearl of Puebla',
     instructions: 'Muddle the oregano and agave nectar. Add everything else, shake with ice, and strain into a chilled coupe glass. No garnish.',
+    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
@@ -1359,7 +1367,7 @@ export default [
     name: 'Aperol Spritz',
     image: 'images/aperol-spritz.jpg',
     instructions: 'Add to a chilled wine glass filled with ice. Stir and garnish with half an orange wheel.',
-    season: 'summer',
+    season: SEASONS.SUMMER,
     rating: 5,
     dateVerified: '2020-06-24',
     verified: true,
@@ -1512,6 +1520,7 @@ export default [
   {
     name: 'Eventide',
     instructions: 'Stir with ice and strain into chilled coupe glass. Garnish with lemon twist.',
+    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -1579,6 +1588,117 @@ export default [
         unit: 'oz'
       }
     ]
+  },
+  {
+    name: 'Nor\'easter',
+    image: 'images/noreaster.jpg',
+    instructions: 'Shake with ice without ginger beer and strain into a chilled collins glass filled with ice. Top with ginger beer. Garnish with a sage leaf.',
+    season: SEASONS.AUTUMN,
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'whiskey',
+        preferred: 'short path',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'ginger beer',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'lime juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'maple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'angostura',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Apple Cinner',
+    image: 'images/apple-cinner.jpg',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with a cinnamon stick.',
+    season: SEASONS.AUTUMN,
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'apple brandy',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'short path autumn amaro',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'maple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'cinnamon bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Spiced Pumpkin Punch',
+    image: 'images/spiced-pumpkin-punch.jpg',
+    instructions: 'Shake with ice and strain into a chilled rocks glass filled with ice. Garnish with sage leaves, cinnamon stick, and ground cinnamon.',
+    season: SEASONS.AUTUMN,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'bourbon',
+        unit: 'oz'
+      },
+      {
+        amount: 3,
+        tag: 'ginger beer',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'pumpkin puree',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'honey',
+        unit: 'oz',
+      },
+      {
+        amount: 0.125,
+        tag: 'ginger',
+        unit: 'tsp'
+      },
+      {
+        amount: 0.125,
+        tag: 'cinnamon',
+        unit: 'tsp'
+      }
+    ]
   }
 
   // Pegu Club, Clover Club, Colleen Bawn, Pimm's Cup, Mamie Taylor
@@ -1586,4 +1706,6 @@ export default [
   // Dark and Stormy
   // Cuarto Vides by John McCarthy, with Pisco Portón, Cappelletti, Carpano Bianco, Verjus and seltzer.
   // Boulevardier
+  // White Negroni (Day for Night at Paris, with cucumber garnish)
+  // Toronto
 ];
