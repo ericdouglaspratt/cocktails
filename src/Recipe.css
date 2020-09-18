@@ -44,11 +44,14 @@
 }
 
 .Recipe-content {
+  font-family: 'Alegreya', serif;
   padding: 20px;
 }
 .Recipe-header {
-  font-family: 'Poiret One', cursive;
+  font-family: 'Forum', cursive;
   font-size: 36px;
+  font-weight: 300;
+  line-height: 1.1em;
   margin: 0;
 }
 .Recipe-ingredients,

@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Alegreya';
+  src: url('./fonts/alegreya-regular-webfont.woff2') format('woff2'),
+       url('./fonts/alegreya-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   color: #33333f;
   font-family: 'Hind', sans-serif;

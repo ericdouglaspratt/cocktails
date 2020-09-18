@@ -4,6 +4,7 @@
 .RecipeModal-content {
   display: flex;
   flex-flow: row nowrap;
+  font-family: 'Alegreya', serif;
   padding: 60px;
 }
 .RecipeModal-image {
@@ -31,14 +32,14 @@
   padding-left: 60px;
 }
 .RecipeModal-header {
-  font-family: 'Poiret One', cursive;
-  font-size: 42px;
+  font-family: 'Forum', cursive;
+  font-size: 48px;
+  font-weight: 400;
   margin: 0;
 }
 .RecipeModal-ingredients,
 .RecipeModal-instructions {
   font-size: 24px;
-  font-weight: 300;
 }
 .RecipeModal-ingredients {
   list-style-type: none;
@@ -46,7 +47,7 @@
   padding: 0;
 }
 .RecipeModal-instructions {
-  line-height: 1.3em;
+  line-height: 1.5em;
   max-width: 30em;
 }
 .RecipeModal-closeButton {

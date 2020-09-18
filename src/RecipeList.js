@@ -68,7 +68,7 @@ const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
               {group.type === RECIPE_GROUP_TYPES.SEASONAL
                 ? 'Featured for the Season'
                 : group.type === RECIPE_GROUP_TYPES.HOLDING_PEN
-                  ? 'In Clinical Trials'
+                  ? 'Pending Evaluation / Refinement'
                   : 'Additional Libations'}
             </h3>
           )}
@@ -107,6 +107,13 @@ const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
                       })}
                     </p>
                   </div>
+                  {recipe.inHoldingPen && (
+                    <span className="RecipeList-banner RecipeList-banner--holdingPen">
+                      <span className="RecipeList-bannerInner">
+                        Work In Progress
+                      </span>
+                    </span>
+                  )}
                 </button>
               );
             })}
