@@ -1,0 +1,104 @@
+.IngredientFilterButton {
+  align-items: center;
+  background: none;
+  border: none;
+  color: #5C8E89;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-weight: 500;
+  justify-content: center;
+  padding: 1px 6px 0;
+  transition: background-color 150ms, border-color 150ms, color 150ms;
+}
+.IngredientFilterButton:focus {
+  box-shadow: 0 0 0 1px #BED2A8;
+  outline: none;
+}
+.IngredientFilterButton:hover {
+  color: #3F6B74;
+}
+.IngredientFilterButton--selected {
+  background-color: #5C8E89;
+  border-radius: 8px;
+  color: #fff;
+}
+.IngredientFilterButton--excluded {
+  background-color: #87B198;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: line-through;
+}
+.IngredientFilterButton--excluded,
+.IngredientFilterButton--selected {
+  margin-bottom: 4px;
+}
+.IngredientFilterButton--excluded:hover,
+.IngredientFilterButton--selected:hover {
+  background-color: #3F6B74;
+  color: #fff;
+}
+.IngredientFilterButton--excluded .MuiSvgIcon-root,
+.IngredientFilterButton--selected .MuiSvgIcon-root {
+  height: 12px;
+  margin-right: 4px;
+  position: relative;
+  top: -1px;
+  transition: transform 150ms;
+  width: 12px;
+}
+.IngredientFilterButton:hover .MuiSvgIcon-root {
+  transform: scale(1.2);
+}
+
+.IngredientFilterButton-group {
+  display: inline-flex;
+  flex-flow: row wrap;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+}
+.IngredientFilterButton-group::before {
+  border: 1px dotted #5C8E89;
+  border-radius: 8px;
+  bottom: 0;
+  content: '';
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.IngredientFilterButton-include {
+  border-radius: 8px 0 0 8px;
+  border-right: none;
+}
+.IngredientFilterButton-exclude {
+  border-radius: 0 8px 8px 0;
+  border-left: none;
+  position: relative;
+}
+.IngredientFilterButton-exclude::before {
+  border-left: 1px dotted #5C8E89;
+  bottom: 3px;
+  content: '';
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 3px;
+}
+.IngredientFilterButton-include .MuiSvgIcon-root,
+.IngredientFilterButton-exclude .MuiSvgIcon-root {
+  height: 14px;
+  position: relative;
+  top: -1px;
+  transition: transform 150ms;
+  width: 14px;
+}
+.IngredientFilterButton-include .MuiSvgIcon-root {
+  margin-right: 4px;
+}
+.IngredientFilterButton-ariaLabel {
+  left: -9999em;
+  position: absolute;
+}

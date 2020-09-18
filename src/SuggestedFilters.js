@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import AddIcon from '@material-ui/icons/Add';
-import NotInterestedIcon from '@material-ui/icons/NotInterested';
 import './SuggestedFilters.css';
 
 import { CORE_SPIRIT_VARIATION_MAP } from './constants';
+
+import IngredientFilterButton from './IngredientFilterButton';
 
 const SuggestedFilters = ({ onSelect, selected, visibleRecipes }) => {
   const [availableSuggestions, setAvailableSuggestions] = useState([]);
@@ -56,28 +56,10 @@ const SuggestedFilters = ({ onSelect, selected, visibleRecipes }) => {
       {availableSuggestions.map(({ occurrences, tag }) => {
         return (
           <li className="SuggestedFilters-listItem" key={tag}>
-            
-            <button
-              className="SuggestedFilters-button SuggestedFilters-buttonInclude"
-              onClick={() => onSelect(tag)}
-            >
-              <AddIcon />
-              <span aria-hidden="true">
-                {tag}
-              </span>
-              <span className="SuggestedFilters-buttonLabel">
-                {`Promote recipes containing ${tag}`}
-              </span>
-            </button>
-            <button
-              className="SuggestedFilters-button SuggestedFilters-buttonExclude"
-              onClick={() => onSelect(tag, false)}
-            >
-              <NotInterestedIcon />
-              <span className="SuggestedFilters-buttonLabel">
-                {`Exclude recipes containing ${tag}`}
-              </span>
-            </button>
+            <IngredientFilterButton
+              onSelect={onSelect}
+              tag={tag}
+            />
           </li>
         );
       })}

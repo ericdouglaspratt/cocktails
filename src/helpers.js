@@ -35,6 +35,12 @@ export const createRecipesPair = rawRecipes => {
 
 export const createUrlSlug = name => name.toLowerCase().replace(/[\s]/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, '');
 
+export const determineAlcoholicByFrequency = availableIngredientsByFrequency => {
+  return availableIngredientsByFrequency
+    .filter(ingredient => !NONALCOHOLIC_INGREDIENTS[ingredient.tag] && !CORE_SPIRITS.find(spirit => spirit === ingredient.tag))
+    .map(ingredient => ingredient.tag)
+    .slice(0, 6);
+}
 
 export const determineAvailableIngredients = recipes => {
   const uniqueIngredients = recipes.reduce((result, recipe) => {
@@ -51,8 +57,34 @@ export const determineAvailableIngredients = recipes => {
   return Object.keys(uniqueIngredients).sort();
 };
 
+export const determineAvailableIngredientsByFrequency = recipeTagMap =>
+  Object.keys(recipeTagMap).map(tag => {
+    return {
+      numRecipes: Object.keys(recipeTagMap[tag].reduce((result, recipe) => {
+        result[recipe.name] = true;
+        return result;
+      }, {})).length,
+      tag
+    };
+  }).sort((a, b) => {
+    if (a.numRecipes > b.numRecipes) {
+      return -1;
+    } else if (a.numRecipes < b.numRecipes) {
+      return 1;
+    } else {
+      return a.tag.localeCompare(b.tag);
+    }
+  });
+
 export const determineCurrentSeason = () => {
   return SEASONS.AUTUMN;
+};
+
+export const determineNonalcoholicByFrequency = availableIngredientsByFrequency => {
+  return availableIngredientsByFrequency
+    .filter(ingredient => NONALCOHOLIC_INGREDIENTS[ingredient.tag])
+    .map(ingredient => ingredient.tag)
+    .slice(0, 6);
 };
 
 export const determineNumInclusiveMatches = (recipe, inclusiveTags) => {

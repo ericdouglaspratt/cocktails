@@ -1,14 +1,16 @@
 .ActiveFilters {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-flow: row wrap;
   margin-bottom: 20px;
 }
 .ActiveFilters-numResults {
+  flex-shrink: 0;
   font-size: 14px;
   font-weight: 500;
-  margin: 0 20px 0 0;
+  margin: 0 20px 10px 0;
   padding: 1px 0 0;
+  width: 100%;
 }
 .ActiveFilters-list {
   display: flex;
@@ -20,38 +22,13 @@
 .ActiveFilters-listItem {
   margin: 0 10px 10px 0;
 }
-.ActiveFilters-button {
-  align-items: center;
-  background-color: #5C8E89;
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  font-family: inherit;
-  font-weight: 500;
-  padding: 1px 6px 0;
-  transition: background-color 150ms;
-}
-.ActiveFilters-button:hover {
-  background-color: #3F6B74;
-}
-.ActiveFilters-button:focus {
-  box-shadow: 0 0 0 1px #BED2A8;
-  outline: none;
-}
-.ActiveFilters-buttonExclude {
-  background-color: #87B198;
-  text-decoration: line-through;
-}
-.ActiveFilters-button .MuiSvgIcon-root {
-  height: 12px;
-  margin-right: 4px;
-  position: relative;
-  top: -1px;
-  transition: transform 150ms;
-  width: 12px;
-}
-.ActiveFilters-button:hover .MuiSvgIcon-root {
-  transform: scale(1.2);
+
+@media (min-width: 1024px) {
+  .ActiveFilters {
+    flex-flow: row nowrap;
+  }
+  .ActiveFilters-numResults {
+    margin-bottom: 0;
+    width: auto;
+  }
 }

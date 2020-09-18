@@ -433,7 +433,7 @@ export default [
   {
     name: 'Angostura Bitters',
     fullName: 'Angostura Aromatic Bitters',
-    tags: ['bitters', 'angostura'],
+    tags: ['bitters', 'angostura bitters'],
     abv: 44.7,
     origin: 'Trinidad & Tobago'
   },
@@ -461,7 +461,7 @@ export default [
   {
     name: 'Peychaud\'s Bitters',
     fullName: 'Peychaud\'s Aromatic Cocktail Bitters',
-    tags: ['bitters', 'peychaud\'s'],
+    tags: ['bitters', 'peychaud\'s bitters'],
     abv: 35,
     origin: 'New Orleans, LA, USA'
   },

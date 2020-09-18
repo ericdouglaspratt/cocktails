@@ -6,7 +6,10 @@ import {BREAKPOINTS, CORE_SPIRIT_VARIATION_MAP} from './constants';
 import {
   addTagsAndSort,
   createRecipesPair,
+  determineAlcoholicByFrequency,
   determineAvailableIngredients,
+  determineAvailableIngredientsByFrequency,
+  determineNonalcoholicByFrequency,
   determineNumInclusiveMatches,
   determineRecipeStrength,
   generateIngredientTagMap,
@@ -20,11 +23,11 @@ import RAW_RECIPES from './data/recipes';
 
 import ActiveFilters from './ActiveFilters';
 import CategoryPicker from './CategoryPicker';
+import IngredientFilterButtonList from './IngredientFilterButtonList';
 import IngredientSearch from './IngredientSearch';
 import Recipe from './Recipe';
 import RecipeList from './RecipeList';
 import RecipeModal from './RecipeModal';
-import StrengthSlider from './StrengthSlider';
 
 // initial data prep
 const initialIngredientTagMap = generateIngredientTagMap(ingredients);
@@ -32,30 +35,9 @@ const recipesWithStrength = RAW_RECIPES.map(recipe => determineRecipeStrength(re
 const recipes = createRecipesPair(recipesWithStrength);
 const recipeTagMap = generateRecipeTagMap(recipes.list);
 const availableIngredients = determineAvailableIngredients(recipes.list);
-//console.log('available', availableIngredients);
-//console.log('recipetag', recipeTagMap);
-
-const availableIngredientsByFrequency = Object.keys(recipeTagMap).map(tag => {
-  return {
-    numRecipes: Object.keys(recipeTagMap[tag].reduce((result, recipe) => {
-      result[recipe.name] = true;
-      return result;
-    }, {})).length,
-    tag
-  };
-}).sort((a, b) => {
-  if (a.numRecipes > b.numRecipes) {
-    return -1;
-  } else if (a.numRecipes < b.numRecipes) {
-    return 1;
-  } else {
-    return a.tag.localeCompare(b.tag);
-  }
-});
-
-//console.log(availableIngredientsByFrequency);
-
-// toggle to show hidden recipes, works in progress, not ready for primetime, pending evaluation
+const availableIngredientsByFrequency = determineAvailableIngredientsByFrequency(recipeTagMap);
+const alcoholicByFrequency = determineAlcoholicByFrequency(availableIngredientsByFrequency);
+const nonalcoholicByFrequency = determineNonalcoholicByFrequency(availableIngredientsByFrequency);
 
 // in modal under recipe, recommended
 // --> more tart [recipe]
@@ -222,7 +204,20 @@ function App() {
             onSelectMultiple={handleSelectTags}
             selected={selectedTags}
           />
-          {/*<StrengthSlider />*/}
+          <IngredientFilterButtonList
+            onDeselect={handleDeselectTag}
+            onSelect={handleSelectTag}
+            selectedTags={selectedTags}
+            tags={alcoholicByFrequency}
+            title="Common Liqueurs"
+          />
+          <IngredientFilterButtonList
+            onDeselect={handleDeselectTag}
+            onSelect={handleSelectTag}
+            selectedTags={selectedTags}
+            tags={nonalcoholicByFrequency}
+            title="Common Mixers"
+          />
         </div>
         <div className="ResultsPane">
           {selectedTags && selectedTags.length > 0 && (

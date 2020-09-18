@@ -1,0 +1,14 @@
+.IngredientFilterButtonList {
+  display: none;
+}
+.IngredientFilterButtonList-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+@media (min-width: 1024px) {
+  .IngredientFilterButtonList {
+    display: block;
+  }
+}

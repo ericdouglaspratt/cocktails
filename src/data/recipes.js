@@ -59,20 +59,17 @@ export default [
       },
       {
         amount: 0.25,
-        preferred: 'benedictine',
         tag: 'benedictine',
         unit: 'oz'
       },
       {
         amount: 2,
-        preferred: 'angostura',
-        tag: 'angostura',
+        tag: 'angostura bitters',
         unit: 'dash'
       },
       {
         amount: 2,
-        preferred: 'peychaud\'s',
-        tag: 'peychaud\'s',
+        tag: 'peychaud\'s bitters',
         unit: 'dash'
       }
     ]
@@ -430,8 +427,8 @@ export default [
       },
       {
         amount: 2,
-        preferred: 'angostura',
-        tag: 'angostura',
+        preferred: 'angostura bitters',
+        tag: 'angostura bitters',
         unit: 'dash'
       }
     ]
@@ -855,8 +852,8 @@ export default [
       },
       {
         amount: 1,
-        preferred: 'angostura',
-        tag: 'angostura',
+        preferred: 'angostura bitters',
+        tag: 'angostura bitters',
         unit: 'dash'
       }
     ]
@@ -889,7 +886,7 @@ export default [
       {
         amount: 2,
         preferred: 'angostura bitters',
-        tag: 'angostura',
+        tag: 'angostura bitters',
         unit: 'dash'
       }
     ]
@@ -1224,7 +1221,7 @@ export default [
       },
       {
         amount: 4,
-        tag: 'angostura',
+        tag: 'angostura bitters',
         unit: 'dash'
       },
       {
@@ -1485,7 +1482,7 @@ export default [
       },
       {
         amount: 4,
-        tag: 'angostura',
+        tag: 'angostura bitters',
         unit: 'dash'
       }
     ]
@@ -1619,7 +1616,7 @@ export default [
       },
       {
         amount: 2,
-        tag: 'angostura',
+        tag: 'angostura bitters',
         unit: 'dash'
       }
     ]
