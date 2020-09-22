@@ -87,7 +87,7 @@
   padding: 0 22px;
 }
 .RecipeList-header {
-  font-family: 'Forum', cursive;
+  font-family: 'Forum', serif;
   font-size: 26px;
   font-weight: 400;
   margin: 0;
@@ -147,13 +147,13 @@
 }
 .RecipeList-banner::before {
   background-color: #5C8E89;
-  bottom: 2px;
+  bottom: 1.7px;
   box-shadow: -1px 2px 3px rgba(50, 50, 50, 0.5);
   content: '';
-  height: 1.5px;
-  left: -1px;
+  height: 1.9px;
+  left: -0.5px;
   position: absolute;
-  transform: rotate(-45deg);
+  transform: rotate(-44deg);
   width: 10px;
 }
 .RecipeList-banner::after {

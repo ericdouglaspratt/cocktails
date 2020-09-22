@@ -78,6 +78,7 @@ export const UNIT_DISPLAY = [
 
 export const NONALCOHOLIC_INGREDIENTS = {
   'agave nectar': [TASTES.SWEET],
+  'apple cider': true,
   'blackberry puree': [TASTES.SWEET],
   'cane sugar': [TASTES.SWEET],
   'cherry': true,
@@ -103,6 +104,7 @@ export const NONALCOHOLIC_INGREDIENTS = {
   'orange juice': [TASTES.CITRUS, TASTES.SWEET],
   'pineapple juice': [TASTES.SWEET],
   'pumpkin puree': true,
+  'raspberry preserves': true,
   'simple syrup': [TASTES.SWEET],
   'tonic water': true,
   'water': true

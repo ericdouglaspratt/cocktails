@@ -411,7 +411,7 @@ export default [
   {
     name: 'Manhattan',
     image: 'images/manhattan.jpg',
-    instructions: 'Stir with ice and strain into a chilled coupe or martini glass. Garnish with three cherries on a pick.',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with three cherries on a pick.',
     dateVerified: '2020-05-30',
     verified: true,
     ingredients: [
@@ -435,7 +435,8 @@ export default [
   },
   {
     name: 'Vodka Martini',
-    instructions: 'Shake or stir with ice and strain into a chilled martini glass. Garnish with lemon peel.',
+    image: 'images/vodka-martini.jpg',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon peel.',
     ingredients: [
       {
         amount: 2.5,
@@ -489,8 +490,8 @@ export default [
   },
   {
     name: 'Periodista',
+    image: 'images/periodista.jpg',
     instructions: 'Shake with ice and strain into chilled coupe glass. No garnish.',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -499,14 +500,14 @@ export default [
       },
       {
         amount: 0.5,
-        preferred: 'combier',
-        tag: 'triple sec',
+        //preferred: 'rothman winter',
+        tag: 'apricot brandy',
         unit: 'oz'
       },
       {
         amount: 0.5,
-        //preferred: 'rothman winter',
-        tag: 'apricot liqueur',
+        preferred: 'combier',
+        tag: 'triple sec',
         unit: 'oz'
       },
       {
@@ -1092,6 +1093,7 @@ export default [
   },
   {
     name: 'Martini',
+    image: 'images/martini.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with a lemon twist.',
     ingredients: [
       {
@@ -1153,6 +1155,7 @@ export default [
   },
   {
     name: 'El Daiquiri Verde',
+    image: 'images/el-daiquiri-verde.jpg',
     instructions: 'Shake with ice and strain into a chilled, absinthe-rinsed coupe glass. Garnish with a lime twist.',
     dateVerified: '2012-03-10',
     verified: true,
@@ -1368,6 +1371,7 @@ export default [
     rating: 5,
     dateVerified: '2020-06-24',
     verified: true,
+    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
@@ -1696,13 +1700,242 @@ export default [
         unit: 'tsp'
       }
     ]
+  },
+  {
+    name: 'Amaro Spritz',
+    image: 'images/amaro-spritz.jpg',
+    instructions: 'Stir with ice in a chilled rocks glass. Garnish with lime wheel.',
+    season: SEASONS.SUMMER,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'amaro',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'prosecco',
+        unit: 'oz'
+      },
+      {
+        amount: 3,
+        tag: 'club soda',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'lime juice',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Toronto',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with an orange peel.',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'rye',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'fernet',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'angostura bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Boulevardier',
+    instructions: 'Stir with ice and strain into a chilled, ice-filled rocks glass. Garnish with an orange twist.',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'bourbon',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'sweet vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'campari',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Clover Club',
+    instructions: 'Dry shake, then shake with ice and strain into a chilled coupe glass. No garnish.',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'egg white',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'raspberry preserves',
+        unit: 'barspoon'
+      }
+    ]
+  },
+  {
+    name: 'Pimms Cup',
+    instructions: 'Muddle cucumber and simple in shaker. Add remaining ingredients, shake with ice, and strain into a chilled Collins glass filled with ice. Garnish with a cucumber wheel.',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'pimms #1 cup',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'club soda',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'cucumber',
+        unit: 'slice'
+      }
+    ]
+  },
+  {
+    name: 'Fall From the Tree', // https://www.liquor.com/recipes/fall-from-the-tree/
+    instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with an apple slice.',
+    season: SEASONS.AUTUMN,
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'apple brandy',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'apple cider',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'demerara syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 4,
+        tag: 'cinnamon bitters',
+        unit: 'dash'
+      },
+      {
+        amount: 1,
+        tag: 'fee brothers bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Lights Out Punch', // https://www.liquor.com/recipes/lights-out-punch/
+    instructions: 'Stir with ice and strain into a chilled rocks glass. Garnish with an apple slice, cinnamon, and nutmeg.',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'reposado tequila',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'sweet vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 1.5,
+        tag: 'club soda',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'apple cider',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'demerara syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'angostura bitters',
+        unit: 'dash'
+      },
+      {
+        amount: 1,
+        tag: 'fee brothers bitters',
+        unit: 'dash'
+      },
+      {
+        amount: 1,
+        tag: 'cinnamon bitters',
+        unit: 'dash'
+      }
+    ]
   }
 
-  // Pegu Club, Clover Club, Colleen Bawn, Pimm's Cup, Mamie Taylor
+  // Pegu Club, Colleen Bawn, Mamie Taylor
   // French Pearl
   // Dark and Stormy
   // Cuarto Vides by John McCarthy, with Pisco Portón, Cappelletti, Carpano Bianco, Verjus and seltzer.
-  // Boulevardier
   // White Negroni (Day for Night at Paris, with cucumber garnish)
-  // Toronto
 ];

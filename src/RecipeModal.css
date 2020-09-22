@@ -19,7 +19,7 @@
   width: 300px;
 }
 .RecipeModal-image .Strength {
-  bottom: 2px;
+  bottom: 8px;
   color: #fff;
   position: absolute;
   right: 10px;
@@ -32,7 +32,7 @@
   padding-left: 60px;
 }
 .RecipeModal-header {
-  font-family: 'Forum', cursive;
+  font-family: 'Forum', serif;
   font-size: 48px;
   font-weight: 400;
   margin: 0;
