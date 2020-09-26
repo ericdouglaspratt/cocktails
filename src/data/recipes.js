@@ -1758,8 +1758,8 @@ export default [
   },
   {
     name: 'Boulevardier',
+    image: 'images/boulevardier.jpg',
     instructions: 'Stir with ice and strain into a chilled, ice-filled rocks glass. Garnish with an orange twist.',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -1929,6 +1929,90 @@ export default [
         amount: 1,
         tag: 'cinnamon bitters',
         unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Isle of the Pines',
+    image: 'images/isle-of-the-pines.jpg',
+    instructions: 'Dice plum wedges and muddle with lime, rosemary, and brown sugar syrup. Add rum, stir with ice, and strain into coupe glass. Garnish with plum wedge.',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'pineapple-infused dark rum',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'brown sugar syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'plum',
+        unit: 'wedge'
+      },
+      {
+        amount: 1,
+        tag: 'lime',
+        unit: 'wedge'
+      },
+      {
+        amount: 1,
+        tag: 'rosemary',
+        unit: 'sprig'
+      }
+    ]
+  },
+  {
+    name: 'Pineapple Sangaree',
+    image: 'images/pineapple-sangaree.jpg',
+    instructions: 'Infuse red wine with broken cinnamon sticks, diced plum, and orange wheel for 30 minutes in rocks glass. Add remaining ingredients and stir in glass with ice. Grate cinnamon stick onto drink and then drop in.',
+    ingredients: [
+      {
+        amount: 2.5,
+        tag: 'red wine',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'pineapple-infused dark rum',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'brown sugar syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'apple cider',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'angostura bitters',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'plum',
+        unit: 'wedge'
+      },
+      {
+        amount: 1,
+        tag: 'orange',
+        unit: 'wheel'
+      },
+      {
+        amount: 2,
+        tag: 'cinnamon',
+        unit: 'stick'
       }
     ]
   }

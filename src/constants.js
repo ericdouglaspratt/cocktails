@@ -13,6 +13,7 @@ export const CORE_SPIRIT_VARIATION_MAP = {
   'bourbon': 'whiskey',
   'dark rum': 'rum',
   'light rum': 'rum',
+  'pineapple-infused dark rum': 'rum',
   'reposado tequila': 'tequila',
   'rye': 'whiskey',
   'scotch': 'whiskey',
@@ -51,8 +52,11 @@ export const UNIT_CONVERSION_TO_OZ = {
   'pinch': 0,
   'slice': 0.0625, // 1/16,
   'sprig': 0,
+  'stick': 0,
   'Tbsp': 0.5,
   'tsp': 0.166667,
+  'wedge': 0.125, // 1/8,
+  'wheel': 0.0625, // 1/16,
 };
 
 export const UNIT_DISPLAY = [
@@ -71,6 +75,14 @@ export const UNIT_DISPLAY = [
   {
     SINGULAR: 'slice',
     PLURAL: 'slices'
+  },
+  {
+    SINGULAR: 'stick',
+    PLURAL: 'sticks'
+  },
+  {
+    SINGULAR: 'wedge',
+    PLURAL: 'wedges'
   }
 ];
 
@@ -80,6 +92,7 @@ export const NONALCOHOLIC_INGREDIENTS = {
   'agave nectar': [TASTES.SWEET],
   'apple cider': true,
   'blackberry puree': [TASTES.SWEET],
+  'brown sugar syrup': true,
   'cane sugar': [TASTES.SWEET],
   'cherry': true,
   'cinnamon': true,
@@ -98,13 +111,17 @@ export const NONALCOHOLIC_INGREDIENTS = {
   'honey': true,
   'ice': true,
   'lemon juice': [TASTES.CITRUS],
+  'lime': true,
   'lime juice': [TASTES.CITRUS],
   'maple syrup': true,
+  'orange': true,
   'orange flower water': [TASTES.FLORAL],
   'orange juice': [TASTES.CITRUS, TASTES.SWEET],
   'pineapple juice': [TASTES.SWEET],
+  'plum': true,
   'pumpkin puree': true,
   'raspberry preserves': true,
+  'rosemary': true,
   'simple syrup': [TASTES.SWEET],
   'tonic water': true,
   'water': true

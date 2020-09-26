@@ -74,6 +74,13 @@ export default [
     origin: 'Boston, MA, USA'
   },
   {
+    name: 'Bully Boy Boston Rum, Pineapple-Infused',
+    fullName: 'Bully Boy Distillers Boston Rum, Pineapple-Infused',
+    tags: ['rum', 'pineapple-infused dark rum'],
+    abv: 40,
+    origin: 'Boston, MA, USA'
+  },
+  {
     name: 'Bacardi White Rum',
     fullName: 'Bacardi Superior White Rum',
     tags: ['rum', 'light rum'],
@@ -85,6 +92,13 @@ export default [
     name: 'Don Julio Añejo Tequila',
     fullName: 'Tequila Reservada de Don Julio, Añejo',
     tags: ['tequila', 'añejo tequila'],
+    abv: 40,
+    origin: 'Mexico'
+  },
+  {
+    name: 'Cabo Wabo Tequila Reposado',
+    fullName: 'Cabo Wabo Tequila Reposado',
+    tags: ['tequila', 'reposado tequila'],
     abv: 40,
     origin: 'Mexico'
   },
@@ -423,6 +437,14 @@ export default [
     fullName: 'Era Prosecco',
     tags: ['prosecco', 'sparkling wine'],
     abv: 11,
+    origin: 'Italy'
+  },
+  // red wine
+  {
+    name: 'Cannonau di Sardegna',
+    fullName: 'Cannonau di Sardegna Riserva 2016',
+    tags: ['red wine'],
+    abv: 14,
     origin: 'Italy'
   },
 
