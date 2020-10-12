@@ -55,6 +55,14 @@ const nonalcoholicByFrequency = determineNonalcoholicByFrequency(availableIngred
 // recommended ingredients for each, with tasting notes, which is better than another
 // be able to store and actively write the drink journal on there
 
+// a network graph of connected circles, visualizing how ingredients are commonly used together
+
+// three tabs - Recipes, Ingredients, Insights
+// insights can be content, it can be the above network graph of ingredients
+// eventual graph of related recipes once i figure that out
+// Ingredients tab not only lets you search, it lets you assemble a list of what's in stock that you can use to filter recipes, saves in localStorage?
+// insights can power filters - e.g. a cluster graph of common abv can help me see categories for crafting a simple slider for filtering ingredients by strength
+
 function App() {
   const [activeRecipeId, setActiveRecipeId] = useState(null);
   const [isRecipeOpen, setIsRecipeOpen] = useState(false);

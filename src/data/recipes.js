@@ -674,7 +674,7 @@ export default [
     name: 'Coda',
     image: 'images/coda.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled fizz glass. Garnish with grated nutmeg.',
-    inHoldingPen: true,
+    season: SEASONS.WINTER,
     ingredients: [
       {
         amount: 1,
@@ -1731,8 +1731,8 @@ export default [
   },
   {
     name: 'Toronto',
+    image: 'images/toronto.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with an orange peel.',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -1844,9 +1844,9 @@ export default [
   },
   {
     name: 'Fall From the Tree', // https://www.liquor.com/recipes/fall-from-the-tree/
+    image: 'images/fall-from-the-tree.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with an apple slice.',
     season: SEASONS.AUTUMN,
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -1882,8 +1882,9 @@ export default [
   },
   {
     name: 'Lights Out Punch', // https://www.liquor.com/recipes/lights-out-punch/
+    image: 'images/lights-out-punch.jpg',
     instructions: 'Stir with ice and strain into a chilled rocks glass. Garnish with an apple slice, cinnamon, and nutmeg.',
-    inHoldingPen: true,
+    season: SEASONS.AUTUMN,
     ingredients: [
       {
         amount: 1.5,
