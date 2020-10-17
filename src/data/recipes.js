@@ -259,7 +259,7 @@ export default [
   {
     name: 'Silver Lily',
     image: 'images/silver-lily.jpg',
-    instructions: 'Fill shaker with ice. Combine ingredients into shaker and shake well. Strain into coupe glass.',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
     dateVerified: '2012-04-14',
     verified: true,
     ingredients: [
@@ -1065,8 +1065,8 @@ export default [
   },
   {
     name: 'Martinez',
+    image: 'images/martinez.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with an orange twist.',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -1520,8 +1520,8 @@ export default [
   },
   {
     name: 'Eventide',
+    image: 'images/eventide.jpg',
     instructions: 'Stir with ice and strain into chilled coupe glass. Garnish with lemon twist.',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
