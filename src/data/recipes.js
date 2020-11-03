@@ -2016,6 +2016,28 @@ export default [
         unit: 'stick'
       }
     ]
+  },
+  {
+    name: 'White Negroni',
+    image: 'images/white-negroni.jpg',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon peel.',
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'suze',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'blanc vermouth',
+        unit: 'oz'
+      }
+    ]
   }
 
   // Pegu Club, Colleen Bawn, Mamie Taylor
