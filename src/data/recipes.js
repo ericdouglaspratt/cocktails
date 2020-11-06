@@ -2038,6 +2038,103 @@ export default [
         unit: 'oz'
       }
     ]
+  },
+  {
+    name: 'Red Tide',
+    image: 'images/red-tide.jpg',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with orange peel.',
+    season: SEASONS.ELECTION,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'bourbon',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'aperol',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'grenadine',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'club soda',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Blue Wave',
+    image: 'images/blue-wave.jpg',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. No garnish.',
+    season: SEASONS.ELECTION,
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'vodka',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'blue curacao',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'club soda',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Pepino Martini',
+    instructions: 'Muddle cucumber slices with simple syrup in a shaker. Combine ingredients, shake with ice and strain into a chilled martini glass. Garnish with a cucumber wheel.',
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'domaine de canton',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'elderflower liqueur',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lime juice',
+        unit: 'oz'
+      },
+      {
+        amount: 3,
+        tag: 'cucumber',
+        unit: 'slice'
+      }
+    ]
   }
 
   // Pegu Club, Colleen Bawn, Mamie Taylor
