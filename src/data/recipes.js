@@ -1259,8 +1259,8 @@ export default [
   },
   {
     name: 'Pearl of Puebla',
+    image: 'images/pearl-of-puebla.jpg',
     instructions: 'Muddle the oregano and agave nectar. Add everything else, shake with ice, and strain into a chilled coupe glass. No garnish.',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
@@ -2103,6 +2103,7 @@ export default [
   {
     name: 'Pepino Martini',
     instructions: 'Muddle cucumber slices with simple syrup in a shaker. Combine ingredients, shake with ice and strain into a chilled martini glass. Garnish with a cucumber wheel.',
+    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
