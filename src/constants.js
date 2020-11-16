@@ -20,6 +20,12 @@ export const CORE_SPIRIT_VARIATION_MAP = {
   'single malt scotch': 'whiskey'
 };
 
+export const INVENTORY_VIEWS = {
+  ALL: 'all',
+  AVAILABLE: 'available',
+  UNAVAILABLE: 'unavailable'
+};
+
 export const RECIPE_GROUP_TYPES = {
   HOLDING_PEN: 'holding pen',
   MAIN: 'main',

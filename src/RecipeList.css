@@ -109,6 +109,10 @@
   color: #5C8E89;
   font-weight: 500;
 }
+.RecipeList-ingredient--unavailable {
+  text-decoration: line-through;
+  text-decoration-color: #5C8E89;
+}
 
 .RecipeList-banner {
   align-items: center;

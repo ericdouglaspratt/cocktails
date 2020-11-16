@@ -1,12 +1,16 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './RecipeList.css';
 
-import { CORE_SPIRIT_VARIATION_MAP, RECIPE_GROUP_TYPES } from './constants';
+import {
+  CORE_SPIRIT_VARIATION_MAP,
+  INVENTORY_VIEWS,
+  RECIPE_GROUP_TYPES
+} from './constants';
 import { determineCurrentSeason } from './helpers';
 
 import Strength from './Strength';
 
-const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
+const RecipeList = ({ activeInventoryView, inventory, onClickRecipe, recipes, selectedTags }) => {
   const [groups, setGroups] = useState([{ recipes }]);
 
   useEffect(() => {
@@ -97,7 +101,8 @@ const RecipeList = ({ onClickRecipe, recipes, selectedTags }) => {
                     <p className="RecipeList-ingredients">
                       {dedeupedIngredients.map((name, index) => {
                         const isSelected = selectedTags.find(item => item.tag === name) || selectedTags.find(item => item.tag === CORE_SPIRIT_VARIATION_MAP[name]);
-                        const className = `RecipeList-ingredient${isSelected ? ' RecipeList-ingredient--selected' : ''}`;
+                        const isUnavailable = activeInventoryView === INVENTORY_VIEWS.UNAVAILABLE && !inventory[name];
+                        const className = `RecipeList-ingredient${isSelected ? ' RecipeList-ingredient--selected' : ''}${isUnavailable ? ' RecipeList-ingredient--unavailable' : ''}`;
                         return (
                           <Fragment key={name}>
                             <span className={className}>{name}</span>

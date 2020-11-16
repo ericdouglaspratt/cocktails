@@ -1,0 +1,57 @@
+.InventoryViewControl {
+  margin-top: 1.33em;
+}
+
+.InventoryViewControl .MuiFormControl-root {
+  width: 100%;
+}
+
+.InventoryViewControl .MuiFormLabel-root {
+  color: inherit;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+}
+.InventoryViewControl .MuiFormLabel-root.Mui-focused {
+  color: inherit;
+}
+
+.InventoryViewControl .MuiFormGroup-row {
+  border-radius: 8px;
+  flex-flow: row nowrap;
+  margin-top: 5px;
+  width: 100%;
+}
+.InventoryViewControl .MuiFormLabel-root.Mui-focused + .MuiFormGroup-row {
+  box-shadow: 0 0 0 1px #BED2A8;
+}
+.InventoryViewControl .MuiFormControlLabel-root {
+  flex-grow: 1;
+  margin: 0;
+}
+.InventoryViewControl .MuiRadio-root {
+  left: -9999em;
+  position: absolute;
+}
+.InventoryViewControl .MuiFormControlLabel-label {
+  border: 1px solid #5C8E89;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+  text-align: center;
+  width: 100%;
+}
+.InventoryViewControl .MuiFormControlLabel-root + .MuiFormControlLabel-root .MuiFormControlLabel-label {
+  border-left: none;
+}
+.InventoryViewControl .MuiFormControlLabel-root:first-child .MuiFormControlLabel-label {
+  border-radius: 8px 0 0 8px;
+}
+.InventoryViewControl .MuiFormControlLabel-root:last-child .MuiFormControlLabel-label {
+  border-radius: 0 8px 8px 0;
+}
+.InventoryViewControl .MuiRadio-root.Mui-checked + .MuiFormControlLabel-label {
+  background-color: #5C8E89;
+  color: #FFF;
+}

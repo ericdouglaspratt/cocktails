@@ -971,7 +971,7 @@ export default [
       },
       {
         amount: 0.25,
-        tag: 'fernet branca',
+        tag: 'fernet',
         unit: 'oz'
       }
     ]
@@ -2034,7 +2034,7 @@ export default [
       },
       {
         amount: 1,
-        tag: 'blanc vermouth',
+        tag: 'vermouth blanc',
         unit: 'oz'
       }
     ]
@@ -2112,7 +2112,7 @@ export default [
       },
       {
         amount: 0.75,
-        tag: 'domaine de canton',
+        tag: 'ginger liqueur',
         unit: 'oz'
       },
       {

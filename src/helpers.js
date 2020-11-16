@@ -97,6 +97,18 @@ export const determineNumInclusiveMatches = (recipe, inclusiveTags) => {
   }, 0);
 };
 
+export const determineAvailableRecipesFromInventory = (recipes, inventory) => {
+  return recipes.filter(recipe => {
+    return recipe.ingredients.every(ingredient => inventory[ingredient.tag]);
+  });
+};
+
+export const determineUnavailableRecipesFromInventory = (recipes, inventory) => {
+  return recipes.filter(recipe => {
+    return recipe.ingredients.some(ingredient => !inventory[ingredient.tag]);
+  });
+};
+
 export const determineRecipeStrength = (recipe, ingredientTagMap) => {
   let strength = 0;
   let strengthAudit = [];

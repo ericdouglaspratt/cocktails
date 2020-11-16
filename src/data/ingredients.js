@@ -331,6 +331,13 @@ export default [
     abv: 22.5,
     origin: 'Austria'
   },
+  {
+    name: 'Suze',
+    fullName: 'Suze Bitter Élaboré a Partir de Gentianes Sauvages',
+    tags: ['liqueur', 'herbal', 'suze'],
+    abv: 20,
+    origin: 'France'
+  },
   // coffee
   {
     name: 'Boston Harbor Distillery Coffee Liqueur',
@@ -417,6 +424,13 @@ export default [
     tags: ['cocchi americano'],
     abv: 16.5,
     origin: 'Italy'
+  },
+  {
+    name: 'Vermouth de Chambéry',
+    fullName: 'C. Comoz Vermouth de Chambéry Vermouth Blanc',
+    tags: ['vermouth blanc', 'white vermouth'],
+    abv: 16,
+    origin: 'France'
   },
 
   // ----------

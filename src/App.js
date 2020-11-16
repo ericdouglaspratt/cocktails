@@ -2,16 +2,22 @@ import React, { useEffect, useState } from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import './App.css';
 
-import {BREAKPOINTS, CORE_SPIRIT_VARIATION_MAP} from './constants';
+import {
+  BREAKPOINTS,
+  CORE_SPIRIT_VARIATION_MAP,
+  INVENTORY_VIEWS
+} from './constants';
 import {
   addTagsAndSort,
   createRecipesPair,
   determineAlcoholicByFrequency,
   determineAvailableIngredients,
   determineAvailableIngredientsByFrequency,
+  determineAvailableRecipesFromInventory,
   determineNonalcoholicByFrequency,
   determineNumInclusiveMatches,
   determineRecipeStrength,
+  determineUnavailableRecipesFromInventory,
   generateIngredientTagMap,
   generateRecipeTagMap,
   removeTagsFromArray,
@@ -25,17 +31,19 @@ import ActiveFilters from './ActiveFilters';
 import CategoryPicker from './CategoryPicker';
 import IngredientFilterButtonList from './IngredientFilterButtonList';
 import IngredientSearch from './IngredientSearch';
+import InventoryViewControl from './InventoryViewControl';
 import Recipe from './Recipe';
 import RecipeList from './RecipeList';
 import RecipeModal from './RecipeModal';
 
 // initial data prep
 const initialIngredientTagMap = generateIngredientTagMap(ingredients);
-const recipesWithStrength = RAW_RECIPES.map(recipe => determineRecipeStrength(recipe, initialIngredientTagMap));
-const recipes = createRecipesPair(recipesWithStrength);
-const recipeTagMap = generateRecipeTagMap(recipes.list);
-const availableIngredients = determineAvailableIngredients(recipes.list);
-const availableIngredientsByFrequency = determineAvailableIngredientsByFrequency(recipeTagMap);
+const initialRecipes = sortByName(RAW_RECIPES.map(recipe => determineRecipeStrength(recipe, initialIngredientTagMap)));
+const initialRecipesPair = createRecipesPair(initialRecipes);
+const initialRecipeTagMap = generateRecipeTagMap(initialRecipes);
+
+const availableIngredients = determineAvailableIngredients(initialRecipes);
+const availableIngredientsByFrequency = determineAvailableIngredientsByFrequency(initialRecipeTagMap);
 const alcoholicByFrequency = determineAlcoholicByFrequency(availableIngredientsByFrequency);
 const nonalcoholicByFrequency = determineNonalcoholicByFrequency(availableIngredientsByFrequency);
 
@@ -63,17 +71,67 @@ const nonalcoholicByFrequency = determineNonalcoholicByFrequency(availableIngred
 // Ingredients tab not only lets you search, it lets you assemble a list of what's in stock that you can use to filter recipes, saves in localStorage?
 // insights can power filters - e.g. a cluster graph of common abv can help me see categories for crafting a simple slider for filtering ingredients by strength
 
+// randomizer - slightly herbal, maybe some 
+
 function App() {
+  // data from server
+  const [inventory, setInventory] = useState(null);
+
+  // UI state
+  const [activeInventoryView, setActiveInventoryView] = useState(INVENTORY_VIEWS.ALL);
   const [activeRecipeId, setActiveRecipeId] = useState(null);
   const [isRecipeOpen, setIsRecipeOpen] = useState(false);
   const [selectedTags, setSelectedTags] = useState([]);
-  const [visibleRecipes, setVisibleRecipes] = useState(sortByName(recipes.list));
+
+  // cached calculations based on inventory
+  const [availableRecipeData, setAvailableRecipeData] = useState(null);
+  const [unavailableRecipeData, setUnavailableRecipeData] = useState(null);
+
+  // data that flows from the source list of recipes
+  const [recipes, setRecipes] = useState(initialRecipesPair);
+  const [recipeTagMap, setRecipeTagMap] = useState(initialRecipeTagMap);
+  const [visibleRecipes, setVisibleRecipes] = useState(initialRecipes);
 
   const breakpoint = useBreakpoint();
 
   useEffect(() => {
     document.addEventListener('keydown', handleGlobalKeyDown);
+    loadInventory();
   }, []);
+
+  // determine and save in-stock/out-of-stock recipe data once the inventory is loaded
+  useEffect(() => {
+    if (inventory) {
+      const availableRecipes = sortByName(determineAvailableRecipesFromInventory(initialRecipes, inventory));
+      setAvailableRecipeData({
+        recipes: createRecipesPair(availableRecipes),
+        recipeTagMap: generateRecipeTagMap(availableRecipes)
+      });
+
+      const unavailableRecipes = sortByName(determineUnavailableRecipesFromInventory(initialRecipes, inventory));
+      setUnavailableRecipeData({
+        recipes: createRecipesPair(unavailableRecipes),
+        recipeTagMap: generateRecipeTagMap(unavailableRecipes)
+      });
+    }
+  }, [inventory]);
+
+  // switch recipe source list when inventory filter is changed
+  useEffect(() => {
+    if (activeInventoryView === INVENTORY_VIEWS.AVAILABLE) {
+      setRecipes(availableRecipeData.recipes);
+      setRecipeTagMap(availableRecipeData.recipeTagMap);
+      updateVisibleRecipes(selectedTags, availableRecipeData.recipes.list, availableRecipeData.recipeTagMap);
+    } else if (activeInventoryView === INVENTORY_VIEWS.UNAVAILABLE) {
+      setRecipes(unavailableRecipeData.recipes);
+      setRecipeTagMap(unavailableRecipeData.recipeTagMap);
+      updateVisibleRecipes(selectedTags, unavailableRecipeData.recipes.list, unavailableRecipeData.recipeTagMap);
+    } else {
+      setRecipes(initialRecipesPair);
+      setRecipeTagMap(initialRecipeTagMap);
+      updateVisibleRecipes(selectedTags, initialRecipes, initialRecipeTagMap);
+    }
+  }, [activeInventoryView]);
 
   const handleClickCloseRecipe = () => {
     setIsRecipeOpen(false);
@@ -92,7 +150,7 @@ function App() {
       // deselect the tag and update the recipes accordingly
       setSelectedTags(prevState => {
         const newSelectedTags = removeTagsFromArray([tag], prevState);
-        updateVisibleRecipes(newSelectedTags);
+        updateVisibleRecipes(newSelectedTags, recipes.list, recipeTagMap);
         return newSelectedTags;
       });
     }
@@ -102,7 +160,7 @@ function App() {
       // deselect the tags and update the recipes accordingly
       setSelectedTags(prevState => {
         const newSelectedTags = removeTagsFromArray(tags, prevState);
-        updateVisibleRecipes(newSelectedTags);
+        updateVisibleRecipes(newSelectedTags, recipes.list, recipeTagMap);
         return newSelectedTags;
       });
   };
@@ -112,7 +170,7 @@ function App() {
     if (e.keyCode === 27) {
       setSelectedTags(prevState => {
         if (prevState.length > 0) {
-          updateVisibleRecipes([]);
+          updateVisibleRecipes([], recipes.list, recipeTagMap);
           return [];
         } else {
           return prevState;
@@ -129,7 +187,7 @@ function App() {
           include,
           tag
          }], prevState);
-        updateVisibleRecipes(newSelectedTags);
+        updateVisibleRecipes(newSelectedTags, recipes.list, recipeTagMap);
         return newSelectedTags;
       });
     }
@@ -139,25 +197,39 @@ function App() {
     // select the tags and update the recipes accordingly
     setSelectedTags(prevState => {
       const newSelectedTags = addTagsAndSort(tags.map(tag => ({include, tag})), prevState);
-      updateVisibleRecipes(newSelectedTags);
+      updateVisibleRecipes(newSelectedTags, recipes.list, recipeTagMap);
       return newSelectedTags;
     });
   };
 
-  const updateVisibleRecipes = selected => {
+  const loadInventory = () => {
+    fetch(`${window.location.origin}/data/inventory`)
+      .then(response => response.json())
+      .then(data => {
+        setInventory(data.data.reduce((result, item) => {
+          result[item.tag] = item.inStock;
+          return result;
+        }, {}));
+      })
+      .catch(e => {
+        console.log('error fetching inventory data', e);
+      });
+  }
+
+  const updateVisibleRecipes = (selected, currentRecipeList, currentRecipeTagMap) => {
     if (selected && selected.length > 0) {
       const inclusionTags = selected.filter(item => item.include).map(item => item.tag);
       const exclusionTags = selected.filter(item => !item.include).map(item => item.tag);
 
       // find the recipes with matching inclusive tags and dedupe
       const uniqueInclusiveRecipes = inclusionTags.length > 0 ? Object.values(selected.reduce((result, {include, tag}) => {
-        if (include && recipeTagMap[tag] && recipeTagMap[tag].forEach) {
-          recipeTagMap[tag].forEach(recipe => {
+        if (include && currentRecipeTagMap[tag] && currentRecipeTagMap[tag].forEach) {
+          currentRecipeTagMap[tag].forEach(recipe => {
             result[recipe.name] = recipe;
           });
         }
         return result;
-      }, {})) : recipes.list;
+      }, {})) : currentRecipeList;
 
       // remove the recipes that match the exclusion tags, if any
       const recipesAfterExclusion = exclusionTags.length > 0 ? uniqueInclusiveRecipes.filter(recipe => {
@@ -191,7 +263,7 @@ function App() {
 
       setVisibleRecipes(recipesByNumMatches);
     } else {
-      setVisibleRecipes(sortByName(recipes.list));
+      setVisibleRecipes(currentRecipeList);
     }
   };
 
@@ -204,6 +276,11 @@ function App() {
           <IngredientSearch
             availableIngredients={availableIngredients}
             onSelectIngredient={handleSelectTag}
+          />
+          <InventoryViewControl
+            activeInventoryView={activeInventoryView}
+            isInventoryLoaded={!!inventory}
+            onChange={setActiveInventoryView}
           />
           <CategoryPicker
             onDeselect={handleDeselectTag}
@@ -238,6 +315,8 @@ function App() {
             />
           )}
           <RecipeList
+            activeInventoryView={activeInventoryView}
+            inventory={inventory}
             onClickRecipe={handleClickRecipe}
             recipes={visibleRecipes}
             selectedTags={selectedTags}
