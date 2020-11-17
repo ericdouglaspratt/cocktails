@@ -40,9 +40,9 @@ import RecipeModal from './RecipeModal';
 const initialIngredientTagMap = generateIngredientTagMap(ingredients);
 const initialRecipes = sortByName(RAW_RECIPES.map(recipe => determineRecipeStrength(recipe, initialIngredientTagMap)));
 const initialRecipesPair = createRecipesPair(initialRecipes);
-const initialRecipeTagMap = generateRecipeTagMap(initialRecipes);
+const initialRecipeTagMap = generateRecipeTagMap(initialRecipesPair.list);
 
-const availableIngredients = determineAvailableIngredients(initialRecipes);
+const availableIngredients = determineAvailableIngredients(initialRecipesPair.list);
 const availableIngredientsByFrequency = determineAvailableIngredientsByFrequency(initialRecipeTagMap);
 const alcoholicByFrequency = determineAlcoholicByFrequency(availableIngredientsByFrequency);
 const nonalcoholicByFrequency = determineNonalcoholicByFrequency(availableIngredientsByFrequency);
@@ -90,7 +90,7 @@ function App() {
   // data that flows from the source list of recipes
   const [recipes, setRecipes] = useState(initialRecipesPair);
   const [recipeTagMap, setRecipeTagMap] = useState(initialRecipeTagMap);
-  const [visibleRecipes, setVisibleRecipes] = useState(initialRecipes);
+  const [visibleRecipes, setVisibleRecipes] = useState(initialRecipesPair.list);
 
   const breakpoint = useBreakpoint();
 
@@ -102,13 +102,13 @@ function App() {
   // determine and save in-stock/out-of-stock recipe data once the inventory is loaded
   useEffect(() => {
     if (inventory) {
-      const availableRecipes = sortByName(determineAvailableRecipesFromInventory(initialRecipes, inventory));
+      const availableRecipes = sortByName(determineAvailableRecipesFromInventory(initialRecipesPair.list, inventory));
       setAvailableRecipeData({
         recipes: createRecipesPair(availableRecipes),
         recipeTagMap: generateRecipeTagMap(availableRecipes)
       });
 
-      const unavailableRecipes = sortByName(determineUnavailableRecipesFromInventory(initialRecipes, inventory));
+      const unavailableRecipes = sortByName(determineUnavailableRecipesFromInventory(initialRecipesPair.list, inventory));
       setUnavailableRecipeData({
         recipes: createRecipesPair(unavailableRecipes),
         recipeTagMap: generateRecipeTagMap(unavailableRecipes)
@@ -129,7 +129,7 @@ function App() {
     } else {
       setRecipes(initialRecipesPair);
       setRecipeTagMap(initialRecipeTagMap);
-      updateVisibleRecipes(selectedTags, initialRecipes, initialRecipeTagMap);
+      updateVisibleRecipes(selectedTags, initialRecipesPair.list, initialRecipeTagMap);
     }
   }, [activeInventoryView]);
 
@@ -203,7 +203,7 @@ function App() {
   };
 
   const loadInventory = () => {
-    fetch(`${window.location.origin}/data/inventory`)
+    fetch(`${window.location.origin}/cocktails/data/inventory`)
       .then(response => response.json())
       .then(data => {
         setInventory(data.data.reduce((result, item) => {
