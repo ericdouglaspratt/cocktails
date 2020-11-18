@@ -23,7 +23,7 @@
   width: 100%;
 }
 .InventoryViewControl .MuiFormLabel-root.Mui-focused + .MuiFormGroup-row {
-  box-shadow: 0 0 0 1px #BED2A8;
+  box-shadow: 0 0 0 1px #FFF, 0 0 0 2px #BED2A8;
 }
 .InventoryViewControl .MuiFormControlLabel-root {
   flex-grow: 1;

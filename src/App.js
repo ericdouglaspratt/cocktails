@@ -30,8 +30,8 @@ import RAW_RECIPES from './data/recipes';
 import ActiveFilters from './ActiveFilters';
 import CategoryPicker from './CategoryPicker';
 import IngredientFilterButtonList from './IngredientFilterButtonList';
-import IngredientSearch from './IngredientSearch';
 import InventoryViewControl from './InventoryViewControl';
+import NavBar from './NavBar';
 import Recipe from './Recipe';
 import RecipeList from './RecipeList';
 import RecipeModal from './RecipeModal';
@@ -52,10 +52,6 @@ const nonalcoholicByFrequency = determineNonalcoholicByFrequency(availableIngred
 // --> more herbal [recipe]
 // --> more citrus [recipe]
 // citrus, sweet, herbal, bitter, tart, spicy
-
-// out of stock / stock status
-// keep a running tally of what i can make, use that to quickly find drinks for people when they come over
-// php / mysql simple
 
 // also use it for a random top featured recommendation?
 
@@ -166,16 +162,19 @@ function App() {
   };
 
   const handleGlobalKeyDown = e => {
-    // clear filters when escape key is hit
+    // clear filters when escape key is hit (if a recipe isn't open)
     if (e.keyCode === 27) {
-      setSelectedTags(prevState => {
-        if (prevState.length > 0) {
-          updateVisibleRecipes([], recipes.list, recipeTagMap);
-          return [];
-        } else {
-          return prevState;
-        }
-      });
+      const recipeIsOpen = document.getElementsByClassName('RecipeModal').length > 0 || document.getElementsByClassName('Recipe').length > 0;
+      if (!recipeIsOpen) {
+        setSelectedTags(prevState => {
+          if (prevState.length > 0) {
+            updateVisibleRecipes([], recipes.list, recipeTagMap);
+            return [];
+          } else {
+            return prevState;
+          }
+        });
+      }
     }
   };
 
@@ -271,12 +270,15 @@ function App() {
 
   return (
     <>
+      <NavBar
+        availableIngredients={availableIngredients}
+        onSelectIngredient={handleSelectTag}
+        onSelectRecipe={handleClickRecipe}
+        recipes={recipes.list}
+        selectedTags={selectedTags}
+      />
       <div className="BrowseLayout">
         <div className="FilterPane">
-          <IngredientSearch
-            availableIngredients={availableIngredients}
-            onSelectIngredient={handleSelectTag}
-          />
           <InventoryViewControl
             activeInventoryView={activeInventoryView}
             isInventoryLoaded={!!inventory}

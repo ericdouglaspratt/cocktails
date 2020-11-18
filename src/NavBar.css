@@ -1,0 +1,30 @@
+.NavBar {
+  align-items: center;
+  background-color: #2F4858;
+  border-bottom: 1px solid #5C8E89;
+  display: flex;
+  flex-flow: row nowrap;
+  height: 50px;
+  left: 0;
+  padding: 0 20px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 30;
+}
+.NavBar::after {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.7), transparent);
+  bottom: -21px;
+  height: 20px;
+  left: 0;
+  content: '';
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+@media (min-width: 1024px) {
+  .NavBar {
+    padding: 0 60px;
+  }
+}

@@ -19,6 +19,7 @@ body {
 .BrowseLayout {
   display: flex;
   flex-flow: column nowrap;
+  margin-top: 30px;
   padding: 20px;
 }
 .FilterPane {
@@ -28,7 +29,8 @@ body {
 @media (min-width: 1024px) {
   .BrowseLayout {
     flex-flow: row nowrap;
-    padding: 60px;
+    margin-top: 50px;
+    padding: 20px 60px 60px;
   }
   .FilterPane {
     border-right: 2px solid #5C8E89;

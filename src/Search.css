@@ -1,0 +1,41 @@
+.Search {
+  position: relative;
+  width: 100%;
+}
+.Search-label {
+  font-size: 14px;
+  font-weight: 500;
+}
+.Search-input {
+  border: none;
+  border-radius: 8px;
+  font-family: 'Hind', sans-serif;
+  font-size: 16px;
+  padding: 4px 28px 4px 12px;
+  width: 100%;
+}
+.Search-input::placeholder {
+  color: #5C8E89;
+}
+.Search-input:focus {
+  box-shadow: 0 0 0 1px #2F4858, 0 0 0 2px #BED2A8;
+  outline: none;
+}
+.Search-icon {
+  color: #2F4858;
+}
+.Search .MuiSvgIcon-root {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@media (min-width: 768px) {
+  .Search {
+    width: auto;
+  }
+  .Search-input {
+    width: 320px;
+  }
+}
