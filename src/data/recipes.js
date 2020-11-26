@@ -139,6 +139,7 @@ export default [
     name: 'Japanese Courage',
     instructions: 'Warm up the sake on the stove. Combine all other ingredients in a heatproof glass, then pour in the sake. Garnish with lemon (optional) and ground cloves.',
     season: SEASONS.WINTER,
+    inHoldingPen: true,
     dateVerified: '2020-03-21',
     verified: true,
     ingredients: [
@@ -2134,6 +2135,35 @@ export default [
         amount: 3,
         tag: 'cucumber',
         unit: 'slice'
+      }
+    ]
+  },
+  {
+    name: 'Hot Toddy',
+    image: 'images/hot-toddy.jpg',
+    instructions: 'Bring water to simmer on stovetop. Combine all in glass mug and stir. Garnish with lemon wheel and cinnamon stick.',
+    season: SEASONS.WINTER,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'whiskey',
+        preferred: 'bulleit bourbon',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'honey',
+        unit: 'oz'
+      },
+      {
+        amount: 6,
+        tag: 'water',
+        unit: 'oz'
       }
     ]
   }
