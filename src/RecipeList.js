@@ -61,7 +61,7 @@ const RecipeList = ({ activeInventoryView, inventory, onClickRecipe, recipes, se
   return (
     <>
       {groups.map(group => (
-        <Fragment key={`${group.recipes.length}${group.numMatches}`}>
+        <Fragment key={`${group.recipes.length}${group.numMatches}${group.type}`}>
           {groups.length > 1 && !!group.numMatches && (
             <h3 className="RecipeList-numMatches">
               {`${group.numMatches} matching ${group.numMatches === 1 ? 'ingredient' : 'ingredients'}`}
