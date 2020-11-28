@@ -2166,6 +2166,28 @@ export default [
         unit: 'oz'
       }
     ]
+  },
+  {
+    name: 'Barbados',
+    image: 'images/barbados.jpg',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with a lime wedge.',
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'dark rum',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'velvet falernum',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lime juice',
+        unit: 'oz'
+      }
+    ]
   }
 
   // Pegu Club, Colleen Bawn, Mamie Taylor
