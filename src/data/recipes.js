@@ -2188,6 +2188,33 @@ export default [
         unit: 'oz'
       }
     ]
+  },
+  {
+    name: 'Old Difford',
+    image: 'images/old-difford.jpg',
+    instructions: 'Stir with ice and strain into an ice-filled rocks glass. Garnish with an orange peel.',
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'bourbon',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'rye',
+        unit: 'oz'
+      },
+      {
+        amount: 0.33,
+        tag: 'demerara syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'bokers bitters',
+        unit: 'dash'
+      }
+    ]
   }
 
   // Pegu Club, Colleen Bawn, Mamie Taylor
