@@ -114,23 +114,25 @@ export const determineRecipeStrength = (recipe, ingredientTagMap) => {
   let strengthAudit = [];
   let totalVolume = 0;
 
-  const ingredientInfo = recipe.ingredients.map(ingredient => {
-    const possibleIngredients = ingredientTagMap[ingredient.tag];
-    if (possibleIngredients) {
-      return {
-        ...ingredient,
-        abv: possibleIngredients.map(ingredient => ingredient.abv).reduce((sum, abv) => sum + abv, 0) / possibleIngredients.length
-      };
-    } else if (NONALCOHOLIC_INGREDIENTS[ingredient.tag]) {
-      return {
-        ...ingredient,
-        abv: 0
-      };
-    } else {
-      console.warn('no match found for ', ingredient.tag);
-      return null;
-    }
-  });
+  const ingredientInfo = recipe.ingredients
+    .filter(ingredient => !ingredient.notPresentInFinalProduct)
+    .map(ingredient => {
+      const possibleIngredients = ingredientTagMap[ingredient.tag];
+      if (possibleIngredients) {
+        return {
+          ...ingredient,
+          abv: possibleIngredients.map(ingredient => ingredient.abv).reduce((sum, abv) => sum + abv, 0) / possibleIngredients.length
+        };
+      } else if (NONALCOHOLIC_INGREDIENTS[ingredient.tag]) {
+        return {
+          ...ingredient,
+          abv: 0
+        };
+      } else {
+        console.warn('no match found for ', ingredient.tag);
+        return null;
+      }
+    });
 
   if (!ingredientInfo.includes(null)) {
     const unconvertableUnits = ingredientInfo.filter(ingredient => ingredient.unit && !UNIT_CONVERSION_TO_OZ[ingredient.unit] && UNIT_CONVERSION_TO_OZ[ingredient.unit] !== 0);
@@ -152,6 +154,11 @@ export const determineRecipeStrength = (recipe, ingredientTagMap) => {
         console.warn(`cannot convert '${ingredient.unit}' to ounces`);
       });
     }
+  }
+
+  if (recipe.serves) {
+    strength = strength / recipe.serves;
+    totalVolume = totalVolume / recipe.serves;
   }
 
   return {

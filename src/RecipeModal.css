@@ -4,7 +4,7 @@
 .RecipeModal-content {
   display: flex;
   flex-flow: row nowrap;
-  font-family: 'Alegreya', serif;
+  font-family: 'Merriweather', serif;
   padding: 60px;
 }
 .RecipeModal-image {
@@ -34,6 +34,7 @@
 .RecipeModal-header {
   font-family: 'Forum', serif;
   font-size: 48px;
+  font-style: normal;
   font-weight: 400;
   margin: 0;
 }
@@ -42,6 +43,7 @@
   font-size: 24px;
 }
 .RecipeModal-ingredients {
+  font-family: 'Merriweather Light Italic', 'Merriweather', serif;
   list-style-type: none;
   margin: 40px 0;
   padding: 0;

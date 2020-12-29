@@ -2013,8 +2013,8 @@ export default [
       },
       {
         amount: 2,
-        tag: 'cinnamon',
-        unit: 'stick'
+        tag: 'cinnamon sticks',
+        unit: ''
       }
     ]
   },
@@ -2212,6 +2212,141 @@ export default [
       {
         amount: 2,
         tag: 'bokers bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Swedish Glogg',
+    image: 'images/swedish-glogg.jpg',
+    instructions: 'Combine all ingredients except sugar in an enamel slow-cooker. Let stand for 12 hours, tightly covered. Stir in sugar, heat rapidly to near-boil, and serve hot.',
+    season: SEASONS.WINTER,
+    serves: 4,
+    ingredients: [
+      {
+        amount: 16,
+        tag: 'dry red wine',
+        unit: 'oz'
+      },
+      {
+        amount: 16,
+        tag: 'moscatel wine',
+        unit: 'oz'
+      },
+      {
+        amount: 4,
+        tag: 'sweet vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 3,
+        tag: 'aquavit',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'angostura bitters',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'raisins',
+        unit: 'cup',
+        notPresentInFinalProduct: true,
+      },
+      {
+        amount: 0.5,
+        tag: 'whole blanched peeled almonds',
+        unit: 'cup',
+        notPresentInFinalProduct: true,
+      },
+      {
+        amount: 1,
+        tag: 'orange peel',
+        unit: '',
+        notPresentInFinalProduct: true,
+      },
+      {
+        amount: 3,
+        tag: 'whole cardamoms',
+        unit: '',
+        notPresentInFinalProduct: true,
+      },
+      {
+        amount: 3,
+        tag: 'whole cloves',
+        unit: '',
+        notPresentInFinalProduct: true,
+      },
+      {
+        amount: 0.5,
+        tag: 'ginger root',
+        unit: 'inch',
+        notPresentInFinalProduct: true,
+      },
+      {
+        amount: 1,
+        tag: 'cinnamon stick',
+        unit: '',
+        notPresentInFinalProduct: true,
+      },
+      {
+        amount: 4,
+        tag: 'sugar',
+        unit: 'Tbsp'
+      }
+    ]
+  },
+  {
+    name: 'Corn\'n\'Oil',
+    instructions: 'Stir all except blackstrap rum with ice and strain into a chilled rocks glass filled with ice. Float blackstrap rum on top. Garnish with a lime wedge.',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'dark rum',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'velvet falernum',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'blackstrap rum',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lime juice',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'angostura bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Falernum Manhattan',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lime peel.',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'rye',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'velvet falernum',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'angostura bitters',
         unit: 'dash'
       }
     ]

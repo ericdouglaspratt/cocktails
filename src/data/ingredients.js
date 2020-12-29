@@ -188,6 +188,13 @@ export default [
     origin: 'Portland, OR, USA'
   },
   {
+    name: 'Lysholm Authentic Linie Aquavit',
+    fullName: 'Lysholm Authentic Linie Aquavit',
+    tags: ['aquavit'],
+    abv: 41.5,
+    origin: 'Norway'
+  },
+  {
     name: 'Ricard Pastis de Marseille',
     fullName: 'Ricard Pastis de Marseille',
     tags: ['pastis'],
@@ -432,6 +439,14 @@ export default [
     abv: 16,
     origin: 'France'
   },
+  // other
+  {
+    name: 'Velvet Falernum',
+    fullName: 'John D. Taylor\'s Velvet Falernum Liqueur',
+    tags: ['velvet falernum', 'falernum'],
+    abv: 11,
+    origin: 'Barbados'
+  },
 
   // ----------
   // WINE
@@ -444,6 +459,13 @@ export default [
     tags: ['white wine', 'sauvignon blanc', 'new zealand sauvignon blanc'],
     abv: 13.1,
     origin: 'Marlborough, New Zealand'
+  },
+  {
+    name: 'Muscadet Sèvre et Maine 2019',
+    fullName: 'Selection des Cognettes 2019 Muscadet Sèvre et Maine Sur Lie',
+    tags: ['white wine', 'moscatel', 'muscadet', 'moscatel wine', 'muscadet wine'],
+    abv: 12.5,
+    origin: 'France'
   },
   // sparkling wine
   {
@@ -460,6 +482,13 @@ export default [
     tags: ['red wine'],
     abv: 14,
     origin: 'Italy'
+  },
+  {
+    name: 'Dark Horse Merlot 2017',
+    fullName: 'The Original Dark Horse Merlot, 2017',
+    tags: ['red wine', 'merlot', 'dry red wine'],
+    abv: 14.5,
+    origin: 'Modesto, CA, USA'
   },
 
   // ----------
