@@ -2331,8 +2331,8 @@ export default [
   },
   {
     name: 'Falernum Manhattan',
+    image: 'images/falernum-manhattan.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lime peel.',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
@@ -2345,7 +2345,7 @@ export default [
         unit: 'oz'
       },
       {
-        amount: 1,
+        amount: 2,
         tag: 'angostura bitters',
         unit: 'dash'
       }
