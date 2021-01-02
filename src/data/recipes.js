@@ -1781,8 +1781,8 @@ export default [
   },
   {
     name: 'Clover Club',
+    image: 'images/clover-club.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled coupe glass. No garnish.',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
@@ -2348,6 +2348,59 @@ export default [
         amount: 2,
         tag: 'angostura bitters',
         unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Quarantini',
+    instructions: 'Shake with ice and strain into a chilled martini glass rimmed with Vitamin C powder. Garnish with a lemon twist.',
+    ingredients: [
+      {
+        amount: 3,
+        tag: 'vodka',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'honey simple syrup',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Rattlesnake',
+    image: 'images/rattlesnake.jpg',
+    instructions: 'Dry shake, then shake with ice and strain into a chilled coupe glass. Express a lemon peel over top and garnish with two drops of bitters pulled through the foam to form a snake.',
+    ingredients: [
+      {
+        amount: 1.75,
+        tag: 'rye',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'egg white',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'demerara syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'pastis',
+        unit: 'oz'
       }
     ]
   }
