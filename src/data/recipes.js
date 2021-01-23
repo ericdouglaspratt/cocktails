@@ -2354,6 +2354,7 @@ export default [
   {
     name: 'Quarantini',
     instructions: 'Shake with ice and strain into a chilled martini glass rimmed with Vitamin C powder. Garnish with a lemon twist.',
+    inHoldingPen: true,
     ingredients: [
       {
         amount: 3,
@@ -2400,6 +2401,23 @@ export default [
       {
         amount: 0.25,
         tag: 'pastis',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Lillet Spritz',
+    instructions: 'Stir with ice in a tall wine glass. Garnish with cucumber, mint, and strawberry.',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 3,
+        tag: 'lillet blanc',
+        unit: 'oz'
+      },
+      {
+        amount: 3,
+        tag: 'tonic water',
         unit: 'oz'
       }
     ]
