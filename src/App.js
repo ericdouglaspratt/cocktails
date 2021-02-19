@@ -69,6 +69,8 @@ const nonalcoholicByFrequency = determineNonalcoholicByFrequency(availableIngred
 
 // randomizer - slightly herbal, maybe some 
 
+// filters - sort by completeness of match vs. number of matching ingredients
+
 function App() {
   // data from server
   const [inventory, setInventory] = useState(null);

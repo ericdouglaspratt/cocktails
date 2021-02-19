@@ -2421,6 +2421,208 @@ export default [
         unit: 'oz'
       }
     ]
+  },
+  {
+    name: 'Brown Derby',
+    instructions: 'Shake over ice and strain into a chilled cocktail glass. No garnish.',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'bourbon',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'grapefruit juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'honey syrup',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Whiskey Smash',
+    instructions: 'Muddle mint, lemon, and simple syrup. Dry shake with whiskey and strain into a rocks glass filled with crushed ice. Garnish with mint sprig.',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'bourbon',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 4,
+        tag: 'mint',
+        unit: 'leaf'
+      },
+      {
+        amount: 0.5,
+        tag: 'lemon'
+      }
+    ]
+  },
+  {
+    name: 'Red Hook',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with cherry.',
+    source: 'https://robbreport.com/food-drink/spirits/red-hook-cocktail-recipe-rye-whiskey-maraschino-1234596861/',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'rye',
+        preferred: 'rittenhouse',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'sweet vermouth',
+        preferred: 'punt e mes',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'maraschino liqueur',
+        preferred: 'luxardo',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Fort Point',
+    instructions: 'Stir with ice and strain into a chilled cocktail glass. Garnish with a maraschino cherry.',
+    source: 'https://robbreport.com/food-drink/spirits/drink-boston-232071/',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'rye',
+        preferred: 'old overholt',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'sweet vermouth',
+        preferred: 'punt e mes',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'benedictine',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Maximilian Affair',
+    instructions: 'Shake with ice and strain into a chilled vintage coupe glass. No garnish.',
+    source: 'https://robbreport.com/food-drink/spirits/drink-boston-232071/',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'mezcal',
+        preferred: 'del maguey vida',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'elderflower liqueur',
+        preferred: 'st germain',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'sweet vermouth',
+        preferred: 'punt e mes',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'lemon juice',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Mission of Burma',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. Express lime peel over glass. No garnish.',
+    source: 'https://robbreport.com/food-drink/spirits/drink-boston-232071/',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2.25,
+        tag: 'grand marnier',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'angostura bitters',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'gin',
+        preferred: 'junipero',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'lime juice',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Vodka Gimlet',
+    instructions: 'Shake with ice and strain into a chilled cocktail glass. Garnish with a lime wheel.',
+    source: 'https://vodkacocktailswithbrothercleve.splashthat.com/',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'vodka',
+        preferred: 'hammer and sickle',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lime juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'simple syrup',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Kangaroo',
+    instructions: 'Stir with ice and strain into a chilled cocktail glass. Express lemon peel over glass. Garnish with straight trimmed lemon peel.',
+    source: 'https://vodkacocktailswithbrothercleve.splashthat.com/',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'vodka',
+        preferred: 'hammer and sickle',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'dry vermouth',
+        preferred: 'noilly prat extra dry',
+        unit: 'oz'
+      }
+    ]
   }
 
   // Pegu Club, Colleen Bawn, Mamie Taylor
