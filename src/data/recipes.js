@@ -2498,9 +2498,9 @@ export default [
   },
   {
     name: 'Fort Point',
+    image: 'images/fort-point.jpg',
     instructions: 'Stir with ice and strain into a chilled cocktail glass. Garnish with a maraschino cherry.',
     source: 'https://robbreport.com/food-drink/spirits/drink-boston-232071/',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
