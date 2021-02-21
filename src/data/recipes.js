@@ -2190,8 +2190,9 @@ export default [
     ]
   },
   {
-    name: 'Old Difford',
-    image: 'images/old-difford.jpg',
+    name: 'Difford\'s Old Fashioned',
+    image: 'images/diffords-old-fashioned.jpg',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/1427/old-fashioned-cocktail-diffords-recipe',
     instructions: 'Stir with ice and strain into an ice-filled rocks glass. Garnish with an orange peel.',
     ingredients: [
       {
@@ -2425,6 +2426,7 @@ export default [
   {
     name: 'Brown Derby',
     instructions: 'Shake over ice and strain into a chilled cocktail glass. No garnish.',
+    source: 'https://www.boston.com/food/food/2021/02/11/how-to-make-a-brown-derby-cocktail-recipe',
     inHoldingPen: true,
     ingredients: [
       {
@@ -2472,9 +2474,9 @@ export default [
   },
   {
     name: 'Red Hook',
+    image: 'images/red-hook.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with cherry.',
     source: 'https://robbreport.com/food-drink/spirits/red-hook-cocktail-recipe-rye-whiskey-maraschino-1234596861/',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
@@ -2583,6 +2585,7 @@ export default [
   },
   {
     name: 'Vodka Gimlet',
+    image: 'images/vodka-gimlet.jpg',
     instructions: 'Shake with ice and strain into a chilled cocktail glass. Garnish with a lime wheel.',
     source: 'https://vodkacocktailswithbrothercleve.splashthat.com/',
     ingredients: [
@@ -2621,6 +2624,39 @@ export default [
         tag: 'dry vermouth',
         preferred: 'noilly prat extra dry',
         unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Barney Barnato',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with a lemon twist.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/2274/barney-barnato-cocktail',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'cognac',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'kina aromatised wine',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lillet blanc',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'triple sec',
+        unit: 'dash'
+      },
+      {
+        amount: 1,
+        tag: 'angostura bitters',
+        unit: 'dash'
       }
     ]
   }
