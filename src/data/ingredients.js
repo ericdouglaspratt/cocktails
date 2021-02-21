@@ -140,6 +140,13 @@ export default [
     abv: 40,
     origin: 'Kentucky, USA'
   },
+  {
+    name: 'Rittenhouse Rye',
+    fullName: 'Rittenhouse 100 Proof Straight Rye Whiskey',
+    tags: ['whiskey', 'rye'],
+    abv: 50,
+    origin: 'Louisville, Kentucky, USA'
+  },
   // scotch whiskey
   {
     name: 'Aberlour Highland Single Malt Scotch Whisky, 16 Years Old',
@@ -250,6 +257,13 @@ export default [
     abv: 20,
     origin: 'Everett, MA, USA'
   },
+  {
+    name: 'Cynar',
+    fullName: 'Cynar Ricetta Originale Liqueur',
+    tags: ['liqueur', 'cynar'],
+    abv: 16.5,
+    origin: 'Italy'
+  },
   // floral liqueurs
   {
     name: 'Tempus Fugit Liqueur de Violettes',
@@ -281,6 +295,13 @@ export default [
     abv: 18,
     origin: 'France',
     tastes: [TASTES.TART]
+  },
+  {
+    name: 'Pimm\'s No. 1',
+    fullName: 'Pimm\'s The Original No. 1 Cup Liqueur',
+    tags: ['liqueur', 'pimm\'s no. 1 cup'],
+    abv: 25,
+    origin: 'Great Britain'
   },
   // ginger liqueurs
   {
@@ -437,6 +458,20 @@ export default [
     fullName: 'C. Comoz Vermouth de Chambéry Vermouth Blanc',
     tags: ['vermouth blanc', 'white vermouth'],
     abv: 16,
+    origin: 'France'
+  },
+  {
+    name: 'Punt e Mes',
+    fullName: 'Punt e Mes Aperitivo Originale',
+    tags: ['sweet vermouth', 'punt e mes'],
+    abv: 16,
+    origin: 'Italy'
+  },
+  {
+    name: 'Noilly Prat Extra Dry Vermouth',
+    fullName: 'Noilly Prat Vermouth de France Extra Dry',
+    tags: ['dry vermouth', 'extra dry vermouth'],
+    abv: 18,
     origin: 'France'
   },
   // other

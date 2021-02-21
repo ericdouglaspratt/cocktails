@@ -1812,13 +1812,13 @@ export default [
     ]
   },
   {
-    name: 'Pimms Cup',
+    name: 'Pimm\'s Cup',
     instructions: 'Muddle cucumber and simple in shaker. Add remaining ingredients, shake with ice, and strain into a chilled Collins glass filled with ice. Garnish with a cucumber wheel.',
     inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
-        tag: 'pimms #1 cup',
+        tag: 'pimm\'s no. 1 cup',
         unit: 'oz'
       },
       {
@@ -2369,7 +2369,7 @@ export default [
       },
       {
         amount: 2,
-        tag: 'honey simple syrup',
+        tag: 'honey syrup',
         unit: 'oz'
       }
     ]
