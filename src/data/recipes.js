@@ -35,7 +35,7 @@ export default [
     image: 'images/vieux-carre.jpg',
     instructions: 'Combine all ingredients over a sphere of ice in a mixing glass. Stir with a barspoon until chilled. Move the ice sphere into a rocks glass. Pour over the ice into the glass.',
     rating: 5,
-    season: SEASONS.WINTER,
+    season: SEASONS.MANHATTAN,
     dateVerified: '2019-09-27',
     verified: true,
     ingredients: [
@@ -413,6 +413,7 @@ export default [
     name: 'Manhattan',
     image: 'images/manhattan.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with three cherries on a pick.',
+    season: SEASONS.MANHATTAN,
     dateVerified: '2020-05-30',
     verified: true,
     ingredients: [
@@ -1182,6 +1183,7 @@ export default [
     name: 'Little Italy',
     image: 'images/little-italy.jpg',
     instructions: 'Stir with ice and strain over a chilled coupe glass. Garnish with a flamed orange twist and a cherry.',
+    season: SEASONS.MANHATTAN,
     ingredients: [
       {
         amount: 1.75,
@@ -2477,6 +2479,7 @@ export default [
     image: 'images/red-hook.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with cherry.',
     source: 'https://robbreport.com/food-drink/spirits/red-hook-cocktail-recipe-rye-whiskey-maraschino-1234596861/',
+    season: SEASONS.MANHATTAN,
     ingredients: [
       {
         amount: 2,
@@ -2503,6 +2506,7 @@ export default [
     image: 'images/fort-point.jpg',
     instructions: 'Stir with ice and strain into a chilled cocktail glass. Garnish with a maraschino cherry.',
     source: 'https://robbreport.com/food-drink/spirits/drink-boston-232071/',
+    season: SEASONS.MANHATTAN,
     ingredients: [
       {
         amount: 2,
@@ -2657,6 +2661,131 @@ export default [
         amount: 1,
         tag: 'angostura bitters',
         unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Fallen Leaves',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon twist.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/2652/fallen-leaves',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'apple brandy',
+        preferred: 'avallen calvados',
+        unit: 'oz'
+      },
+      {
+        amount: 1.5,
+        tag: 'sweet vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'dry vermouth',
+        preferred: 'noilly prat extra dry',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'cognac',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Gustings\' Grasshopper',
+    instructions: 'Shake with ice and strain into a chilled cocktail glass. Garnish with mint sprig.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/6850/gustings-grasshopper',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 0.75,
+        tag: 'cognac',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'creme de menthe',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'creme de cacao',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'half and half',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'White Lady',
+    instructions: 'Shake with ice, then dry shake, and strain into chilled cocktail glass. Garnish with lemon twist.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/2091/white-lady-cocktail',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'triple sec',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.33,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'egg white',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Ward Eight',
+    image: 'images/ward-eight.jpg',
+    instructions: 'Shake with ice and strain into a chilled cocktail glass. Garnish with cherry and orange wedge on a pick.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/2062/ward-eight',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'rye',
+        preferred: 'rittenhouse',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'orange juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'grenadine',
+        unit: 'oz'
       }
     ]
   }

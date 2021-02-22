@@ -35,6 +35,7 @@ export const RECIPE_GROUP_TYPES = {
 export const SEASONS = {
   AUTUMN: 'autumn',
   ELECTION: 'election',
+  MANHATTAN: 'manhattan',
   SPRING: 'spring',
   SUMMER: 'summer',
   WINTER: 'winter'
