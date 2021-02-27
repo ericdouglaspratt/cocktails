@@ -2529,9 +2529,9 @@ export default [
   },
   {
     name: 'Maximilian Affair',
+    image: 'images/maximilian-affair.jpg',
     instructions: 'Shake with ice and strain into a chilled vintage coupe glass. No garnish.',
     source: 'https://robbreport.com/food-drink/spirits/drink-boston-232071/',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1,
@@ -2785,6 +2785,159 @@ export default [
       {
         amount: 0.25,
         tag: 'grenadine',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Comte de Sureau',
+    instructions: 'Stir with ice and strain into a chilled rocks glass over ice. Garnish with orange and lemon twists.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/7257/comte-de-sureau',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'elderflower liqueur',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'campari',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'McKinley\'s Delight',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon twist.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/7653/mckinleys-delight',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'rye',
+        preferred: 'rittenhouse',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'sweet vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'cherry heering',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'absinthe',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Landing Gear',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon twist.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/4913/landing-gear',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'cognac',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'triple sec',
+        preferred: 'grand marnier',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'dry vermouth',
+        preferred: 'extra dry',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'cherry heering',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'maraschino liqueur',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'La Poire des Benedictines',
+    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with pear wedge.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/3463/la-poire-des-benedictines',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 0.75,
+        tag: 'pear vodka',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'benedictine',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'cognac',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'water',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Dartmouth Highball',
+    image: 'images/dartmouth-highball.jpg',
+    instructions: 'Muddle mint and simple in shaker, dry shake all except ginger beer, and strain into ice-filled collins glass. Top with ginger beer and garnish with mint sprig.',
+    source: 'https://pimmscocktails.splashthat.com/',
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'pimm\'s no. 1 cup',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 4,
+        tag: 'mint',
+        unit: 'leaf'
+      },
+      {
+        amount: 2,
+        tag: 'ginger beer',
         unit: 'oz'
       }
     ]

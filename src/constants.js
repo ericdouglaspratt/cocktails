@@ -82,6 +82,10 @@ export const UNIT_DISPLAY = [
     PLURAL: 'drops'
   },
   {
+    SINGULAR: 'leaf',
+    PLURAL: 'leaves'
+  },
+  {
     SINGULAR: 'slice',
     PLURAL: 'slices'
   },
