@@ -208,6 +208,13 @@ export default [
     abv: 45,
     origin: 'Marseille, France'
   },
+  {
+    name: 'Kübler Swiss Absinthe Superieure',
+    fullName: 'Kübler Swiss Absinthe Superieure',
+    tags: ['absinthe'],
+    abv: 53,
+    origin: 'Switzerland'
+  },
   // cachaça
   {
     name: 'Leblon Cachaça',
