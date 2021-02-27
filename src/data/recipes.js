@@ -1996,8 +1996,8 @@ export default [
       },
       {
         amount: 2,
-        tag: 'cinnamon sticks',
-        unit: ''
+        tag: 'cinnamon',
+        unit: 'stick'
       }
     ]
   },
@@ -2269,8 +2269,8 @@ export default [
       },
       {
         amount: 1,
-        tag: 'cinnamon stick',
-        unit: '',
+        tag: 'cinnamon',
+        unit: 'stick',
         notPresentInFinalProduct: true,
       },
       {
@@ -2430,27 +2430,30 @@ export default [
   },
   {
     name: 'Whiskey Smash',
+    image: 'images/whiskey-smash.jpg',
     instructions: 'Muddle mint, lemon, and simple syrup. Dry shake with whiskey and strain into a rocks glass filled with crushed ice. Garnish with mint sprig.',
-    inHoldingPen: true,
+    source: 'The PDT Cocktail Book',
     ingredients: [
       {
         amount: 2,
-        tag: 'bourbon',
+        tag: 'rye',
+        preferred: 'rittenhouse',
         unit: 'oz'
       },
       {
-        amount: 1,
+        amount: 0.75,
         tag: 'simple syrup',
         unit: 'oz'
       },
       {
-        amount: 4,
+        amount: 6,
         tag: 'mint',
         unit: 'leaf'
       },
       {
-        amount: 0.5,
-        tag: 'lemon'
+        amount: 3,
+        tag: 'lemon',
+        unit: 'wedge'
       }
     ]
   },
@@ -2946,7 +2949,8 @@ export default [
       },
       {
         amount: 1,
-        tag: 'grapefruit peel'
+        tag: 'grapefruit peel',
+        notPresentInFinalProduct: true
       }
     ]
   }
