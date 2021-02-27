@@ -195,7 +195,7 @@ export default [
     origin: 'Portland, OR, USA'
   },
   {
-    name: 'Lysholm Authentic Linie Aquavit',
+    name: 'Linie Aquavit',
     fullName: 'Lysholm Authentic Linie Aquavit',
     tags: ['aquavit'],
     abv: 41.5,
@@ -260,7 +260,7 @@ export default [
   {
     name: 'Short Path Autumn Amaro',
     fullName: 'Short Path Distillery Autumn Amaro Liqueur',
-    tags: ['liqueur', 'short path autumn amaro'],
+    tags: ['liqueur', 'amaro', 'short path autumn amaro'],
     abv: 20,
     origin: 'Everett, MA, USA'
   },
@@ -306,7 +306,7 @@ export default [
   {
     name: 'Pimm\'s No. 1',
     fullName: 'Pimm\'s The Original No. 1 Cup Liqueur',
-    tags: ['liqueur', 'pimm\'s no. 1 cup'],
+    tags: ['liqueur', 'pimm\'s no. 1'],
     abv: 25,
     origin: 'Great Britain'
   },
@@ -320,8 +320,8 @@ export default [
   },
   // herbal liqueurs
   {
-    name: 'Benedictine',
-    fullName: 'D.O.M. Benedictine Liqueur',
+    name: 'Bénédictine',
+    fullName: 'D.O.M. Bénédictine Liqueur',
     tags: ['liqueur', 'herbal', 'benedictine'],
     abv: 40,
     origin: 'France',
@@ -456,7 +456,7 @@ export default [
   {
     name: 'Cocchi Americano',
     fullName: 'Aperitivo Cocchi Americano',
-    tags: ['cocchi americano'],
+    tags: ['dry vermouth', 'aperitif wine', 'cocchi americano'],
     abv: 16.5,
     origin: 'Italy'
   },
@@ -580,7 +580,7 @@ export default [
     origin: 'Scotland'
   },
   {
-    name: 'Scrappy\' Chocolate Bitters',
+    name: 'Scrappy\'s Chocolate Bitters',
     fullName: 'Scrappy\'s Bitters Old Fashion Style Chocolate',
     tags: ['bitters', 'chocolate bitters'],
     abv: 47.6,

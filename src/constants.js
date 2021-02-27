@@ -126,6 +126,7 @@ export const NONALCOHOLIC_INGREDIENTS = {
   'ginger beer': true,
   'ginger root': true,
   'grapefruit juice': true,
+  'grapefruit peel': true,
   'grenadine': true,
   'ground nutmeg': true,
   'heavy cream': true,

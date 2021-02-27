@@ -7,7 +7,7 @@ import { determineUnitDisplay } from './helpers';
 import RecipeAmount from './RecipeAmount';
 import Strength from './Strength';
 
-const Recipe = ({onClose, recipe}) => {
+const Recipe = ({onClose, preferredIngredientTagMap, recipe}) => {
   return (
     <div className="Recipe">
       <div className="Recipe-image" style={{ backgroundImage: `url(${`${process.env.PUBLIC_URL}/${recipe.image || 'images/default.jpg'}`})` }}>
@@ -22,12 +22,18 @@ const Recipe = ({onClose, recipe}) => {
           <CloseIcon />
         </button>
         <ol className="Recipe-ingredients">
-          {recipe.ingredients.map(ingredient => (
-            <li className="Recipe-ingredient" key={ingredient.tag}>
-              <RecipeAmount amount={ingredient.amount} />
-              {` ${determineUnitDisplay(ingredient.unit, ingredient.amount)} ${ingredient.tag}`}
-            </li>
-          ))}
+          {recipe.ingredients.map(({amount, preferred, tag, unit}) => {
+            const displayName = preferred && preferredIngredientTagMap[tag][preferred] ? preferredIngredientTagMap[tag][preferred] : '';
+            const displayUnit = determineUnitDisplay(unit, amount);
+            return (
+              <li className="Recipe-ingredient" key={tag}>
+                <RecipeAmount amount={amount} />
+                {displayUnit && ` ${displayUnit}`}
+                {` ${tag}`}
+                {displayName && <span className="Recipe-preferred">{` (${displayName})`}</span>}
+              </li>
+            );
+          })}
         </ol>
         <p className="Recipe-instructions">
           {recipe.instructions}

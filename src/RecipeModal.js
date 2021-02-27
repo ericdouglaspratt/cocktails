@@ -13,7 +13,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Grow direction="up" ref={ref} {...props} />;
 });
 
-const RecipeModal = ({ onClose, recipe }) => {
+const RecipeModal = ({ onClose, preferredIngredientTagMap, recipe }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -50,12 +50,18 @@ const RecipeModal = ({ onClose, recipe }) => {
               <CloseIcon />
             </button>
             <ol className="RecipeModal-ingredients">
-              {recipe.ingredients.map(ingredient => (
-                <li className="RecipeModal-ingredient" key={ingredient.tag}>
-                  <RecipeAmount amount={ingredient.amount} />
-                  {` ${determineUnitDisplay(ingredient.unit, ingredient.amount)} ${ingredient.tag}`}
-                </li>
-              ))}
+              {recipe.ingredients.map(({amount, preferred, tag, unit}) => {
+                const displayName = preferred && preferredIngredientTagMap[tag][preferred] ? preferredIngredientTagMap[tag][preferred] : '';
+                const displayUnit = determineUnitDisplay(unit, amount);
+                return (
+                  <li className="RecipeModal-ingredient" key={tag}>
+                    <RecipeAmount amount={amount} />
+                    {displayUnit && ` ${displayUnit}`}
+                    {` ${tag}`}
+                    {displayName && <span className="RecipeModal-preferred">{` (${displayName})`}</span>}
+                  </li>
+                );
+              })}
             </ol>
             <p className="RecipeModal-instructions">
               {recipe.instructions}

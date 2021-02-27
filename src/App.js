@@ -19,6 +19,7 @@ import {
   determineRecipeStrength,
   determineUnavailableRecipesFromInventory,
   generateIngredientTagMap,
+  generatePreferredIngredientTagMap,
   generateRecipeTagMap,
   removeTagsFromArray,
   sortByName,
@@ -41,6 +42,8 @@ const initialIngredientTagMap = generateIngredientTagMap(ingredients);
 const initialRecipes = sortByName(RAW_RECIPES.map(recipe => determineRecipeStrength(recipe, initialIngredientTagMap)));
 const initialRecipesPair = createRecipesPair(initialRecipes);
 const initialRecipeTagMap = generateRecipeTagMap(initialRecipesPair.list);
+
+const preferredIngredientTagMap = generatePreferredIngredientTagMap(initialRecipes, ingredients, initialIngredientTagMap);
 
 const availableIngredients = determineAvailableIngredients(initialRecipesPair.list);
 const availableIngredientsByFrequency = determineAvailableIngredientsByFrequency(initialRecipeTagMap);
@@ -336,6 +339,7 @@ function App() {
           {activeRecipe && (
             <Recipe
               onClose={handleClickCloseRecipe}
+              preferredIngredientTagMap={preferredIngredientTagMap}
               recipe={activeRecipe}
             />
           )}
@@ -345,6 +349,7 @@ function App() {
         <RecipeModal
           id={activeRecipeId}
           isOpen={isRecipeOpen}
+          preferredIngredientTagMap={preferredIngredientTagMap}
           onClose={handleClickCloseRecipe}
           recipe={activeRecipe}
         />

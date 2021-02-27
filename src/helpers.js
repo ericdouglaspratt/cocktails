@@ -190,6 +190,33 @@ export const generateIngredientTagMap = ingredients => ingredients.reduce((resul
   return result;
 }, {});
 
+export const generatePreferredIngredientTagMap = (recipes, ingredients, ingredientTagMap) => {
+  const preferredIngredientTagMap = {};
+
+  // find and dedupe all preferred ingredients to locate
+  recipes.forEach(recipe => {
+    recipe.ingredients.forEach(ingredient => {
+      if (ingredient.preferred) {
+        preferredIngredientTagMap[ingredient.tag] = preferredIngredientTagMap[ingredient.tag] || {};
+        preferredIngredientTagMap[ingredient.tag][ingredient.preferred] = preferredIngredientTagMap[ingredient.tag][ingredient.preferred] || '';
+      }
+    });
+  });
+
+  // search the ingredients matching each tag for the preferred brand names
+  Object.keys(preferredIngredientTagMap).forEach(tag => {
+    Object.keys(preferredIngredientTagMap[tag]).forEach(searchTerm => {
+      const searchSpace = ingredientTagMap[tag];
+      const searchResult = searchSpace && searchSpace.find(ingredient => ingredient.name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').includes(searchTerm));
+      if (searchResult) {
+        preferredIngredientTagMap[tag][searchTerm] = searchResult.name;
+      }
+    });
+  });
+
+  return preferredIngredientTagMap;
+};
+
 export const generateRecipeTagMap = recipes =>
   recipes.reduce((result, recipe) => {
     recipe.ingredients.forEach(ingredient => {

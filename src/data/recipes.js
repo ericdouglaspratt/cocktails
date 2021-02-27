@@ -33,7 +33,7 @@ export default [
   {
     name: 'Vieux Carré',
     image: 'images/vieux-carre.jpg',
-    instructions: 'Combine all ingredients over a sphere of ice in a mixing glass. Stir with a barspoon until chilled. Move the ice sphere into a rocks glass. Pour over the ice into the glass.',
+    instructions: 'Stir with ice and strain into an ice-filled rocks glass. No garnish.',
     rating: 5,
     season: SEASONS.MANHATTAN,
     dateVerified: '2019-09-27',
@@ -41,19 +41,16 @@ export default [
     ingredients: [
       {
         amount: 0.75,
-        preferred: 'old overholt',
         tag: 'rye',
         unit: 'oz'
       },
       {
         amount: 0.75,
-        preferred: 'dolin',
         tag: 'sweet vermouth',
         unit: 'oz'
       },
       {
         amount: 0.75,
-        preferred: 'courvoisier',
         tag: 'cognac',
         unit: 'oz'
       },
@@ -83,13 +80,11 @@ export default [
     ingredients: [
       {
         amount: 2,
-        preferred: 'don julio',
         tag: 'blanco tequila',
         unit: 'oz'
       },
       {
         amount: 0.75,
-        preferred: 'grand marnier',
         tag: 'triple sec',
         unit: 'oz'
       },
@@ -114,7 +109,6 @@ export default [
     ingredients: [
       {
         amount: 2,
-        preferred: 'tito\'s',
         tag: 'vodka',
         unit: 'oz'
       },
@@ -155,7 +149,6 @@ export default [
       },
       {
         amount: 0.5,
-        preferred: 'yellow chartreuse',
         tag: 'yellow chartreuse',
         unit: 'oz'
       },
@@ -302,7 +295,6 @@ export default [
     ingredients: [
       {
         amount: 1.5,
-        preferred: 'tito\'s',
         tag: 'vodka',
         unit: 'oz'
       },
@@ -429,7 +421,6 @@ export default [
       },
       {
         amount: 2,
-        preferred: 'angostura bitters',
         tag: 'angostura bitters',
         unit: 'dash'
       }
@@ -575,7 +566,6 @@ export default [
     ingredients: [
       {
         amount: 2,
-        preferred: 'macchu pisco',
         tag: 'pisco',
         unit: 'oz'
       },
@@ -695,7 +685,6 @@ export default [
       },
       {
         amount: 0.5,
-        preferred: 'allspice dram',
         tag: 'allspice dram',
         unit: 'oz'
       },
@@ -789,7 +778,6 @@ export default [
       },
       {
         amount: 0.5,
-        preferred: 'lillet blanc',
         tag: 'lillet blanc',
         unit: 'oz'
       }
@@ -814,7 +802,6 @@ export default [
       },
       {
         amount: 0.25,
-        preferred: 'luxardo',
         tag: 'maraschino liqueur',
         unit: 'oz'
       },
@@ -849,13 +836,11 @@ export default [
       },
       {
         amount: 0.5,
-        preferred: 'campari',
         tag: 'campari',
         unit: 'oz'
       },
       {
         amount: 1,
-        preferred: 'angostura bitters',
         tag: 'angostura bitters',
         unit: 'dash'
       }
@@ -871,13 +856,11 @@ export default [
     ingredients: [
       {
         amount: 2,
-        preferred: 'old overholt',
         tag: 'rye',
         unit: 'oz'
       },
       {
         amount: 0.25,
-        preferred: 'luxardo',
         tag: 'maraschino liqueur',
         unit: 'oz'
       },
@@ -888,7 +871,6 @@ export default [
       },
       {
         amount: 2,
-        preferred: 'angostura bitters',
         tag: 'angostura bitters',
         unit: 'dash'
       }
@@ -982,25 +964,24 @@ export default [
     name: 'Occidental',
     image: 'images/occidental.jpg',
     instructions: 'Stir with ice and strain into a chilled, Fernet-Branca-rinsed coupe glass. Garnish with an orange twist.',
-    rating: 5,
+    source: 'The PDT Cocktail Book',
     dateVerified: '2019-05-17',
     verified: true,
     ingredients: [
       {
         amount: 2,
-        preferred: 'krogstad',
+        preferred: 'linie',
         tag: 'aquavit',
         unit: 'oz'
       },
       {
         amount: 0.75,
-        preferred: 'combier',
+        preferred: 'grand marnier',
         tag: 'triple sec',
         unit: 'oz'
       },
       {
         amount: 0.5,
-        preferred: 'bully boy',
         tag: 'amaro',
         unit: 'oz'
       }
@@ -1463,7 +1444,6 @@ export default [
       {
         amount: 1,
         tag: 'bourbon',
-        preferred: 'bulleit',
         unit: 'oz'
       },
       {
@@ -1479,7 +1459,6 @@ export default [
       {
         amount: 0.25,
         tag: 'chocolate bitters',
-        preferred: 'scrappy\'s',
         unit: 'oz'
       },
       {
@@ -1533,7 +1512,8 @@ export default [
       },
       {
         amount: 1.5,
-        tag: 'cocchi americano',
+        tag: 'dry vermouth',
+        preferred: 'cocchi americano',
         unit: 'oz'
       },
       {
@@ -1641,7 +1621,8 @@ export default [
       },
       {
         amount: 1,
-        tag: 'short path autumn amaro',
+        tag: 'amaro',
+        preferred: 'short path autumn amaro',
         unit: 'oz'
       },
       {
@@ -1820,7 +1801,7 @@ export default [
     ingredients: [
       {
         amount: 2,
-        tag: 'pimm\'s no. 1 cup',
+        tag: 'pimm\'s no. 1',
         unit: 'oz'
       },
       {
@@ -2149,7 +2130,6 @@ export default [
       {
         amount: 1.5,
         tag: 'whiskey',
-        preferred: 'bulleit bourbon',
         unit: 'oz'
       },
       {
@@ -2566,7 +2546,8 @@ export default [
     ingredients: [
       {
         amount: 2.25,
-        tag: 'grand marnier',
+        tag: 'triple sec',
+        preferred: 'grand marnier',
         unit: 'oz'
       },
       {
@@ -2912,7 +2893,7 @@ export default [
     ingredients: [
       {
         amount: 1.5,
-        tag: 'pimm\'s no. 1 cup',
+        tag: 'pimm\'s no. 1',
         unit: 'oz'
       },
       {
@@ -2939,6 +2920,33 @@ export default [
         amount: 2,
         tag: 'ginger beer',
         unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Gold Rush',
+    instructions: 'Shake all (including grapefruit peel) with ice and strain into an ice-filled rocks glass. Garnish with lemon peel.',
+    source: 'https://robbreport.com/food-drink/spirits/gold-rush-recipe-bourbon-whiskey-sour-cocktail-honey-1234590351/',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'bourbon',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'honey syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'grapefruit peel'
       }
     ]
   }
