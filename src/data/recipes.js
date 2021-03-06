@@ -1350,13 +1350,14 @@ export default [
   {
     name: 'Aperol Spritz',
     image: 'images/aperol-spritz.jpg',
-    instructions: 'Add to a chilled wine glass filled with ice. Stir and garnish with half an orange wheel.',
+    instructions: 'Combine in a highball glass, add half an orange wheel, add ice, stir, add straw, and serve.',
     season: SEASONS.SUMMER,
-    rating: 5,
-    dateVerified: '2020-06-24',
-    verified: true,
-    inHoldingPen: true,
     ingredients: [
+      {
+        amount: 3,
+        tag: 'prosecco',
+        unit: 'oz'
+      },
       {
         amount: 2,
         tag: 'aperol',
@@ -1364,17 +1365,7 @@ export default [
       },
       {
         amount: 1,
-        tag: 'prosecco',
-        unit: 'oz'
-      },
-      {
-        amount: 1,
         tag: 'club soda',
-        unit: 'oz'
-      },
-      {
-        amount: 0.5,
-        tag: 'orange juice',
         unit: 'oz'
       }
     ]
@@ -2389,23 +2380,6 @@ export default [
     ]
   },
   {
-    name: 'Lillet Spritz',
-    instructions: 'Stir with ice in a tall wine glass. Garnish with cucumber, mint, and strawberry.',
-    inHoldingPen: true,
-    ingredients: [
-      {
-        amount: 3,
-        tag: 'lillet blanc',
-        unit: 'oz'
-      },
-      {
-        amount: 3,
-        tag: 'tonic water',
-        unit: 'oz'
-      }
-    ]
-  },
-  {
     name: 'Brown Derby',
     instructions: 'Shake over ice and strain into a chilled cocktail glass. No garnish.',
     source: 'https://www.boston.com/food/food/2021/02/11/how-to-make-a-brown-derby-cocktail-recipe',
@@ -2951,6 +2925,29 @@ export default [
         amount: 1,
         tag: 'grapefruit peel',
         notPresentInFinalProduct: true
+      }
+    ]
+  },
+  {
+    name: 'Tequila Old Fashioned',
+    image: 'images/tequila-old-fashioned.jpg',
+    instructions: 'Stir with ice and strain into ice-filled rocks glass. Garnish with orange peel squeezed over drink.',
+    source: 'https://www.youtube.com/watch?v=Cpa66DWr6G4',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'reposado tequila',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'agave nectar',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'angostura bitters',
+        unit: 'dash'
       }
     ]
   }
