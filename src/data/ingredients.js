@@ -117,6 +117,13 @@ export default [
     abv: 40,
     origin: 'Austin, Texas'
   },
+  {
+    name: 'Zyr Russian Vodka',
+    fullName: 'Zyr Ultra Smooth Russian Vodka',
+    tags: ['vodka'],
+    abv: 40,
+    origin: 'Russia'
+  },
   // bourbon whiskey
   {
     name: 'Bulleit Bourbon',
@@ -161,6 +168,14 @@ export default [
     tags: ['whiskey', 'scotch', 'single malt scotch'],
     abv: 43,
     origin: 'Banffshire, Scotland'
+  },
+  // whiskey adjacent
+  {
+    name: 'Bully Boy Old Fashioned',
+    fullName: 'The Old Fashioned Prepared Only By Bully Boy Distillers',
+    tags: ['old fashioned', 'bully boy old fashioned'],
+    abv: 37,
+    origin: 'Boston, MA, USA'
   },
   // mezcal
   {
@@ -480,6 +495,20 @@ export default [
     tags: ['dry vermouth', 'extra dry vermouth'],
     abv: 18,
     origin: 'France'
+  },
+  {
+    name: 'Pineau des Charentes',
+    fullName: 'Pineau des Charentes Domaine du Perat',
+    tags: ['pineau des charentes'],
+    abv: 17.5,
+    origin: 'France'
+  },
+  {
+    name: 'Kina L\'Aéro d\'Or',
+    fullName: 'Kina L\'Aéro d\'Or Vin Apéritif au Quinquina',
+    tags: ['quinquina', 'aperitif wine'],
+    abv: 18,
+    origin: 'Switzerland'
   },
   // other
   {

@@ -2571,14 +2571,14 @@ export default [
   },
   {
     name: 'Kangaroo',
+    image: 'images/kangaroo.jpg',
     instructions: 'Stir with ice and strain into a chilled cocktail glass. Express lemon peel over glass. Garnish with straight trimmed lemon peel.',
     source: 'https://vodkacocktailswithbrothercleve.splashthat.com/',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
         tag: 'vodka',
-        preferred: 'hammer and sickle',
+        preferred: 'zyr',
         unit: 'oz'
       },
       {
@@ -2947,6 +2947,66 @@ export default [
       {
         amount: 2,
         tag: 'angostura bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Midnight Stinger',
+    instructions: 'Shake with crushed ice and strain into a rocks glass filled with crushed ice. Garnish with mint sprig.',
+    source: 'https://robbreport.com/food-drink/spirits/midnight-stinger-recipe-whiskey-sour-bourbon-fernet-branca-1234601482/',
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'bourbon',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'fernet branca',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'simple syrup',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Laissez Faire',
+    image: 'images/laissez-faire.jpg',
+    instructions: 'Stir with ice and strain into a chilled nick and nora glass. Optional garnish with cherry.',
+    source: 'Cocktails de Paris Seaport e-book',
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'bully boy old fashioned',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'quinquina',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'pineau des charentes',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'benedictine',
+        unit: 'oz'
+      },
+      {
+        amount: 4,
+        tag: 'peychaud\'s bitters',
         unit: 'dash'
       }
     ]
