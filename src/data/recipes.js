@@ -3010,7 +3010,70 @@ export default [
         unit: 'dash'
       }
     ]
+  },
+  {
+    name: 'Gin Smash',
+    image: 'images/gin-smash.jpg',
+    instructions: 'Muddle basil, lemon, and simple syrup. Dry shake with gin and strain into a rocks glass filled with crushed ice. Garnish with basil sprig.',
+    source: 'Modified from Whiskey Smash recipe in The PDT Cocktail Book',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 6,
+        tag: 'basil',
+        unit: 'leaf'
+      },
+      {
+        amount: 3,
+        tag: 'lemon',
+        unit: 'wedge'
+      }
+    ]
+  },
+  {
+    name: 'Ritual Gin & Tonic',
+    image: 'images/ritual-gin-and-tonic.jpg',
+    instructions: 'Combine in wine glass, add ice, and stir.',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 6,
+        tag: 'elderflower tonic water',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'cucumber',
+        unit: 'slice'
+      },
+      {
+        amount: 1,
+        tag: 'lemon',
+        unit: 'half wheel'
+      },
+      {
+        amount: 1,
+        tag: 'orange',
+        unit: 'half wheel'
+      }
+    ]
   }
+
+  // SUPER X - tito's vodka, kina l'aero d'or, velvet falernum, lemon
+  // source: Pabu cocktail menu
 
   // Pegu Club, Colleen Bawn, Mamie Taylor
   // French Pearl

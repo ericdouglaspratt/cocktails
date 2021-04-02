@@ -56,6 +56,7 @@ export const UNIT_CONVERSION_TO_OZ = {
   'cup': 8,
   'dash': 0.03125, // 1/32
   'drop': 0.0016907,
+  'half wheel': 0.03125, // 1/32
   'leaf': 0,
   'oz': 1,
   'pinch': 0,
@@ -108,6 +109,7 @@ export const UNIT_DISPLAY = [
 export const NONALCOHOLIC_INGREDIENTS = {
   'agave nectar': [TASTES.SWEET],
   'apple cider': true,
+  'basil': true,
   'blackberry puree': [TASTES.SWEET],
   'brown sugar syrup': true,
   'cane sugar': [TASTES.SWEET],
@@ -121,6 +123,7 @@ export const NONALCOHOLIC_INGREDIENTS = {
   'cucumber': true,
   'demerara syrup': [TASTES.SWEET],
   'egg white': true,
+  'elderflower tonic water': true,
   'fresh oregano': true,
   'ginger': true,
   'ginger beer': true,
