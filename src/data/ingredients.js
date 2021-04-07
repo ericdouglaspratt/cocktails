@@ -506,7 +506,7 @@ export default [
   {
     name: 'Kina L\'Aéro d\'Or',
     fullName: 'Kina L\'Aéro d\'Or Vin Apéritif au Quinquina',
-    tags: ['quinquina', 'aperitif wine'],
+    tags: ['quinquina', 'aperitif wine', 'kina aromatized wine'],
     abv: 18,
     origin: 'Switzerland'
   },

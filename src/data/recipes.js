@@ -2326,28 +2326,6 @@ export default [
     ]
   },
   {
-    name: 'Quarantini',
-    instructions: 'Shake with ice and strain into a chilled martini glass rimmed with Vitamin C powder. Garnish with a lemon twist.',
-    inHoldingPen: true,
-    ingredients: [
-      {
-        amount: 3,
-        tag: 'vodka',
-        unit: 'oz'
-      },
-      {
-        amount: 2,
-        tag: 'lemon juice',
-        unit: 'oz'
-      },
-      {
-        amount: 2,
-        tag: 'honey syrup',
-        unit: 'oz'
-      }
-    ]
-  },
-  {
     name: 'Rattlesnake',
     image: 'images/rattlesnake.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled coupe glass. Express a lemon peel over top and garnish with two drops of bitters pulled through the foam to form a snake.',
@@ -2591,9 +2569,9 @@ export default [
   },
   {
     name: 'Barney Barnato',
+    image: 'images/barney-barnato.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with a lemon twist.',
     source: 'https://www.diffordsguide.com/cocktails/recipe/2274/barney-barnato-cocktail',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -2602,7 +2580,7 @@ export default [
       },
       {
         amount: 0.75,
-        tag: 'kina aromatised wine',
+        tag: 'kina aromatized wine',
         unit: 'oz'
       },
       {
@@ -3068,6 +3046,29 @@ export default [
         amount: 1,
         tag: 'orange',
         unit: 'half wheel'
+      }
+    ]
+  },
+  {
+    name: 'Negroni',
+    image: 'images/negroni.jpg',
+    instructions: 'Pour ingredients into ice-filled rocks glass and stir. Garnish with orange twist.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/1392/negroni-cocktail',
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'campari',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'sweet vermouth',
+        unit: 'oz'
       }
     ]
   }
