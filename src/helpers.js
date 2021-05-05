@@ -77,7 +77,7 @@ export const determineAvailableIngredientsByFrequency = recipeTagMap =>
   });
 
 export const determineCurrentSeason = () => {
-  return SEASONS.MANHATTAN;
+  return null; // return SEASONS.MANHATTAN;
 };
 
 export const determineNonalcoholicByFrequency = availableIngredientsByFrequency => {

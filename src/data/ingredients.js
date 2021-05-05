@@ -83,7 +83,7 @@ export default [
   {
     name: 'Bacardi White Rum',
     fullName: 'Bacardi Superior White Rum',
-    tags: ['rum', 'light rum'],
+    tags: ['rum', 'white rum'],
     abv: 40,
     origin: 'Puerto Rico, USA'
   },

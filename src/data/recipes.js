@@ -131,9 +131,9 @@ export default [
   },
   {
     name: 'Japanese Courage',
+    image: 'images/japanese-courage.jpg',
     instructions: 'Warm up the sake on the stove. Combine all other ingredients in a heatproof glass, then pour in the sake. Garnish with lemon (optional) and ground cloves.',
     season: SEASONS.WINTER,
-    inHoldingPen: true,
     dateVerified: '2020-03-21',
     verified: true,
     ingredients: [
@@ -225,7 +225,7 @@ export default [
       {
         amount: 1,
         preferred: 'bacardi',
-        tag: 'light rum',
+        tag: 'white rum',
         unit: 'oz'
       },
       {
@@ -675,7 +675,7 @@ export default [
       },
       {
         amount: 1,
-        tag: 'light rum',
+        tag: 'white rum',
         unit: 'oz'
       },
       {
@@ -1106,7 +1106,7 @@ export default [
       },
       {
         amount: 0.5,
-        tag: 'light rum',
+        tag: 'white rum',
         unit: 'oz'
       },
       {
@@ -1145,7 +1145,7 @@ export default [
     ingredients: [
       {
         amount: 2.25,
-        tag: 'light rum',
+        tag: 'white rum',
         unit: 'oz'
       },
       {
@@ -3068,6 +3068,149 @@ export default [
       {
         amount: 1,
         tag: 'sweet vermouth',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Brooklyn\'s Finest',
+    instructions: 'Stir with ice and strain into a chilled nick and nora glass. Garnish with a lemon zest twist.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/3875/brooklyns-finest',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'cognac',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'rye',
+        preferred: 'rittenhouse',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'amaro',
+        preferred: 'cardamaro',
+        unit: 'oz'
+      },
+      {
+        amount: 0.33,
+        tag: 'velvet falernum',
+        unit: 'oz'
+      },
+      {
+        amount: 3,
+        tag: 'angostura bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Caribbean Sazerac',
+    instructions: 'Rinse a chilled rocks glass with overproof rum and discard. Shake other ingredients with ice and strain into glass. Rim with orange zest twist and discard.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/5599/caribbean-sazerac',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 0.25,
+        tag: 'overproof rum',
+        unit: 'oz'
+      },
+      {
+        amount: 1.5,
+        tag: 'dark rum',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'white rum',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'grenadine',
+        unit: 'oz'
+      },
+      {
+        amount: 0.25,
+        tag: 'velvet falernum',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'orange bitters',
+        unit: 'dash'
+      }
+    ]
+  },
+  {
+    name: 'Prestige',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with pineapple wedge and spiral lime peel.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/2550/prestige-cocktail',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'dark rum',
+        preferred: 'bacardi 8 year',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'pineapple juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'dry vermouth',
+        preferred: 'noilly prat extra dry',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'velvet falernum',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'lime juice',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Sherry Herbst',
+    instructions: 'Stir with ice and strain into a chilled, ice-filled rocks glass. Garnish with an orange zest twist.',
+    source: 'https://www.diffordsguide.com/cocktails/recipe/4199/sherry-herbst',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 0.67,
+        tag: 'rye',
+        preferred: 'rittenhouse',
+        unit: 'oz'
+      },
+      {
+        amount: 0.67,
+        tag: 'bourbon',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'punt e mes',
+        unit: 'oz'
+      },
+      {
+        amount: 0.33,
+        tag: 'velvet falernum',
+        unit: 'oz'
+      },
+      {
+        amount: 0.33,
+        tag: 'sherry',
+        preferred: 'oloroso',
         unit: 'oz'
       }
     ]
