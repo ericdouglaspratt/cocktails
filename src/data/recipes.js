@@ -1,10 +1,11 @@
-import {SEASONS} from '../constants';
+import {METHODS, SEASONS} from '../constants';
 
 export default [
   {
     name: 'Winter in Rome',
     image: 'images/winter-in-rome.jpg',
     instructions: 'Put sphere of ice into stirring glass. Combine ingredients in stirring glass. Stir 50 times with barspoon. Transfer sphere of ice into rocks glass. Pour drink into rocks glass. Serve and enjoy!',
+    method: METHODS.STIR,
     rating: 5,
     season: SEASONS.WINTER,
     dateVerified: '2019-12-31',
@@ -34,6 +35,7 @@ export default [
     name: 'Vieux Carré',
     image: 'images/vieux-carre.jpg',
     instructions: 'Stir with ice and strain into an ice-filled rocks glass. No garnish.',
+    method: METHODS.STIR,
     rating: 5,
     season: SEASONS.MANHATTAN,
     dateVerified: '2019-09-27',
@@ -75,6 +77,8 @@ export default [
     name: 'Margarita',
     image: 'images/margarita.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass rimmed with salt. Garnish with lime wheel.',
+    method: METHODS.SHAKE,
+    isCoreDrink: true,
     dateVerified: '2019-05-26',
     verified: true,
     ingredients: [
@@ -104,6 +108,7 @@ export default [
     name: 'Lemon Drop',
     image: 'images/lemon-drop.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     dateVerified: '2019-09-08',
     verified: true,
     ingredients: [
@@ -133,6 +138,7 @@ export default [
     name: 'Japanese Courage',
     image: 'images/japanese-courage.jpg',
     instructions: 'Warm up the sake on the stove. Combine all other ingredients in a heatproof glass, then pour in the sake. Garnish with lemon (optional) and ground cloves.',
+    method: METHODS.STIR,
     season: SEASONS.WINTER,
     dateVerified: '2020-03-21',
     verified: true,
@@ -192,6 +198,7 @@ export default [
     name: 'The Andy Special',
     image: 'images/the-andy-special.jpg',
     instructions: 'Shake with ice and strain into a chilled Collins glass. No garnish.',
+    method: METHODS.SHAKE,
     dateVerified: '2017-12-29',
     isExclusive: true,
     isVerified: true,
@@ -218,6 +225,7 @@ export default [
     name: 'Blue Hawaiian',
     image: 'images/blue-hawaiian.jpg',
     instructions: 'Blend and pour into a chilled rocks glass. Garnish with pineapple wedge and a cherry.',
+    method: METHODS.BLEND,
     season: SEASONS.SUMMER,
     dateVerified: '2012-07-07',
     verified: true,
@@ -254,6 +262,7 @@ export default [
     name: 'Silver Lily',
     image: 'images/silver-lily.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     dateVerified: '2012-04-14',
     verified: true,
     ingredients: [
@@ -289,6 +298,7 @@ export default [
     name: 'Moscow Mule',
     image: 'images/moscow-mule.jpg',
     instructions: 'Shake with ice and strain into copper mug filled with crushed ice. Garnish with lime wheel and serve.',
+    method: METHODS.SHAKE,
     rating: 5,
     dateVerified: '2020-04-26',
     verified: true,
@@ -319,6 +329,7 @@ export default [
     name: 'Last Word',
     image: 'images/last-word.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     dateVerified: '2020-05-21',
     verified: true,
     ingredients: [
@@ -348,6 +359,7 @@ export default [
     name: 'Aviation',
     image: 'images/aviation.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     dateVerified: '2020-05-30',
     verified: true,
     ingredients: [
@@ -377,6 +389,7 @@ export default [
     name: 'Prosecutor',
     image: 'images/prosecutor.jpg',
     instructions: 'Shake with ice and strain into a chilled rocks glass. No garnish.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 1.5,
@@ -405,6 +418,8 @@ export default [
     name: 'Manhattan',
     image: 'images/manhattan.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with three cherries on a pick.',
+    method: METHODS.STIR,
+    isCoreDrink: true,
     season: SEASONS.MANHATTAN,
     dateVerified: '2020-05-30',
     verified: true,
@@ -430,6 +445,7 @@ export default [
     name: 'Vodka Martini',
     image: 'images/vodka-martini.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon peel.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 2.5,
@@ -447,6 +463,7 @@ export default [
     name: 'Backyard Cocktail',
     image: 'images/backyard-cocktail.jpg',
     instructions: 'Muddle sauvignon blanc, elderflower liqueur, and cucumber in a shaker. Shake with ice, strain into a chilled Collins glass filled with ice, and top with club soda and prosecco. Garnish with cucumber slice.',
+    method: METHODS.SHAKE,
     season: SEASONS.SUMMER,
     dateVerified: '2011-04-30',
     isExclusive: true,
@@ -485,6 +502,7 @@ export default [
     name: 'Periodista',
     image: 'images/periodista.jpg',
     instructions: 'Shake with ice and strain into chilled coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 1.5,
@@ -514,6 +532,7 @@ export default [
     name: 'Ramos Gin Fizz',
     image: 'images/ramos-gin-fizz.jpg',
     instructions: 'Dry shake with whisk ball for 1min without club soda, then shake with ice for 2min. Pour club soda into chilled collins glass. Strain into glass and let sit for 1min. Tap glass a few times with knife to release bubbles into foam. Continue pouring or, if none left, funnel additional club soda into the center until foam rises above rim of glass. Place metal straw in the middle and garnish with orange twist.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 2,
@@ -561,6 +580,7 @@ export default [
     name: 'Pisco Sour',
     image: 'images/pisco-sour.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled coupe glass. Garnish with four drops of Angostura swirled with a cocktail straw.',
+    method: METHODS.SHAKE,
     dateVerified: '2020-05-02',
     verified: true,
     ingredients: [
@@ -590,6 +610,7 @@ export default [
     name: 'Cosmopolitan',
     image: 'images/cosmopolitan.jpg',
     instructions: 'Shake with ice and strain into a chilled martini glass. Garnish with an orange twist.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 2,
@@ -622,6 +643,7 @@ export default [
     name: 'Conquistador',
     image: 'images/conquistador.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     dateVerified: '2020-05-24',
     verified: true,
     ingredients: [
@@ -666,6 +688,7 @@ export default [
     name: 'Coda',
     image: 'images/coda.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled fizz glass. Garnish with grated nutmeg.',
+    method: METHODS.SHAKE,
     season: SEASONS.WINTER,
     ingredients: [
       {
@@ -704,6 +727,7 @@ export default [
     name: 'Water Lily',
     image: 'images/water-lily.jpg',
     instructions: 'Shake with ice and strain into chilled coupe glass. Garnish with an orange twist.',
+    method: METHODS.SHAKE,
     dateVerified: '2020-06-09',
     verified: true,
     ingredients: [
@@ -733,6 +757,7 @@ export default [
     name: 'Vieux Mot',
     image: 'images/vieux-mot.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass.',
+    method: METHODS.SHAKE,
     dateVerified: '2020-05-27',
     verified: true,
     ingredients: [
@@ -763,6 +788,7 @@ export default [
     name: 'Vesper',
     image: 'images/vesper.jpg',
     instructions: 'Stir with ice and strain into a chilled martini glass. Garnish with a lemon twist.',
+    method: METHODS.STIR,
     dateVerified: '2020-05-31',
     verified: true,
     ingredients: [
@@ -787,6 +813,7 @@ export default [
     name: 'Tuxedo',
     image: 'images/tuxedo.jpg',
     instructions: 'Stir with ice and strain into a chilled, absinthe-rinsed coupe glass. Garnish with a lemon twist and a cherry.',
+    method: METHODS.STIR,
     dateVerified: '2020-05-28',
     verified: true,
     ingredients: [
@@ -816,6 +843,7 @@ export default [
     name: 'Rosita',
     image: 'images/rosita.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with an orange twist.',
+    method: METHODS.STIR,
     dateVerified: '2020-05-27',
     verified: true,
     ingredients: [
@@ -850,6 +878,7 @@ export default [
     name: 'Improved Whiskey Cocktail',
     image: 'images/improved-whiskey-cocktail.jpg',
     instructions: 'Stir with ice and strain over one large cube into a chilled, absinthe-rinsed rocks glass. Garnish with a lemon twist.',
+    method: METHODS.STIR,
     rating: 5,
     dateVerified: '2020-05-10',
     verified: true,
@@ -880,6 +909,7 @@ export default [
     name: 'El Diablo',
     image: 'images/el-diablo.jpg',
     instructions: 'Shake with ice and strain into chilled rocks glass. Garnish with a lemon wheel.',
+    method: METHODS.SHAKE,
     rating: 4,
     dateVerified: '2020-05-20',
     verified: true,
@@ -910,6 +940,7 @@ export default [
     name: 'Bijou',
     image: 'images/bijou.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with cherry and lemon twist.',
+    method: METHODS.STIR,
     rating: 5,
     dateVerified: '2020-05-23',
     verified: true,
@@ -940,6 +971,7 @@ export default [
     name: 'Hanky Panky',
     image: 'images/hanky-panky.jpg',
     instructions: 'Stir with ice and strain into chilled coupe glass. Garnish with an orange twist.',
+    method: METHODS.STIR,
     dateVerified: '2020-06-09',
     verified: true,
     ingredients: [
@@ -964,13 +996,14 @@ export default [
     name: 'Occidental',
     image: 'images/occidental.jpg',
     instructions: 'Stir with ice and strain into a chilled, Fernet-Branca-rinsed coupe glass. Garnish with an orange twist.',
+    method: METHODS.STIR,
     source: 'The PDT Cocktail Book',
     dateVerified: '2019-05-17',
     verified: true,
     ingredients: [
       {
         amount: 2,
-        preferred: 'linie',
+        preferred: 'krogstad',
         tag: 'aquavit',
         unit: 'oz'
       },
@@ -991,6 +1024,7 @@ export default [
     name: 'May Daisy', // less simple syrup, add club soda? needs less syrupy and more fizz
     image: 'images/may-daisy.jpg',
     instructions: 'Shake with ice and strain into a chilled wine glass filled with ice. Garnish with a mint sprig.',
+    method: METHODS.SHAKE,
     inHoldingPen: true,
     ingredients: [
       {
@@ -1020,6 +1054,7 @@ export default [
     name: 'Mary Pickford',
     image: 'images/mary-pickford.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     dateVerified: '2020-06-27',
     verified: true,
     season: SEASONS.SUMMER,
@@ -1050,6 +1085,7 @@ export default [
     name: 'Martinez',
     image: 'images/martinez.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with an orange twist.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 1.5,
@@ -1078,6 +1114,8 @@ export default [
     name: 'Martini',
     image: 'images/martini.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with a lemon twist.',
+    method: METHODS.STIR,
+    isCoreDrink: true,
     ingredients: [
       {
         amount: 3,
@@ -1095,6 +1133,7 @@ export default [
     name: 'Rum Punch',
     image: 'images/rum-punch.jpg',
     instructions: 'Shake with ice and strain into a chilled rocks glass. No garnish.',
+    method: METHODS.SHAKE,
     season: SEASONS.SUMMER,
     dateVerified: '2012-02-25',
     verified: true,
@@ -1140,6 +1179,7 @@ export default [
     name: 'El Daiquiri Verde',
     image: 'images/el-daiquiri-verde.jpg',
     instructions: 'Shake with ice and strain into a chilled, absinthe-rinsed coupe glass. Garnish with a lime twist.',
+    method: METHODS.SHAKE,
     dateVerified: '2012-03-10',
     verified: true,
     ingredients: [
@@ -1164,6 +1204,7 @@ export default [
     name: 'Little Italy',
     image: 'images/little-italy.jpg',
     instructions: 'Stir with ice and strain over a chilled coupe glass. Garnish with a flamed orange twist and a cherry.',
+    method: METHODS.STIR,
     season: SEASONS.MANHATTAN,
     ingredients: [
       {
@@ -1187,6 +1228,8 @@ export default [
     name: 'Old Fashioned',
     image: 'images/old-fashioned.jpg',
     instructions: 'Stir water, simple syrup, and bitters in a chilled rocks glass. Add cherry and muddle. Add large ice, bourbon, and stir. Garnish with orange peel.',
+    method: METHODS.STIR,
+    isCoreDrink: true,
     dateVerified: '2019-05-27',
     verified: true,
     ingredients: [
@@ -1222,6 +1265,7 @@ export default [
     name: 'Pearl Button',
     image: 'images/pearl-button.jpg',
     instructions: 'Shake with ice and strain into a chilled Collins glass filled with ice. Top with 1.5 oz of San Pellegrino Limonata. Garnish with half a grapefruit wheel.',
+    method: METHODS.SHAKE,
     season: SEASONS.SUMMER,
     ingredients: [
       {
@@ -1245,6 +1289,7 @@ export default [
     name: 'Pearl of Puebla',
     image: 'images/pearl-of-puebla.jpg',
     instructions: 'Muddle the oregano and agave nectar. Add everything else, shake with ice, and strain into a chilled coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 2,
@@ -1283,6 +1328,8 @@ export default [
     name: 'Gin & Tonic',
     image: 'images/gin-and-tonic.jpg',
     instructions: 'Add to a chilled Collins glass filled with ice and stir briefly. Garnish with a lime wedge.',
+    method: METHODS.STIR,
+    isCoreDrink: true,
     ingredients: [
       {
         amount: 2,
@@ -1300,6 +1347,7 @@ export default [
     name: 'Caprice',
     image: 'images/caprice.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with an orange twist.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 1.5,
@@ -1327,6 +1375,7 @@ export default [
     name: 'Bobby Burns',
     image: 'images/bobby-burns.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with a lemon twist.',
+    method: METHODS.STIR,
     dateVerified: '2020-07-02',
     verified: true,
     ingredients: [
@@ -1351,6 +1400,7 @@ export default [
     name: 'Aperol Spritz',
     image: 'images/aperol-spritz.jpg',
     instructions: 'Combine in a highball glass, add half an orange wheel, add ice, stir, add straw, and serve.',
+    method: METHODS.STIR,
     season: SEASONS.SUMMER,
     ingredients: [
       {
@@ -1374,12 +1424,18 @@ export default [
     name: 'Bronx',
     image: 'images/bronx.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with an orange twist.',
+    method: METHODS.SHAKE,
     dateVerified: '2020-07-02',
     verified: true,
     ingredients: [
       {
         amount: 1.5,
         tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'orange juice',
         unit: 'oz'
       },
       {
@@ -1390,11 +1446,7 @@ export default [
       {
         amount: 0.5,
         tag: 'dry vermouth',
-        unit: 'oz'
-      },
-      {
-        amount: 1,
-        tag: 'orange juice',
+        preferred: 'noilly prat',
         unit: 'oz'
       },
       {
@@ -1408,6 +1460,7 @@ export default [
     name: 'Tom Collins',
     image: 'images/tom-collins.jpg',
     instructions: 'Shake with ice and strain into an ice-filled collins glass. Top with club soda. Garnish with half lemon wheel and cherry.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 2,
@@ -1431,6 +1484,7 @@ export default [
     name: 'Casino Royale',
     image: 'images/casino-royale.jpg',
     instructions: 'Stir with large ice in a large rocks glass. Garnish with orange peel.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 1,
@@ -1468,6 +1522,7 @@ export default [
     name: 'Corpse Reviver No. 2',
     image: 'images/corpse-reviver-no-2.jpg',
     instructions: 'Shake with ice and strain into an absinthe-rinsed coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 0.75,
@@ -1495,6 +1550,7 @@ export default [
     name: 'Eventide',
     image: 'images/eventide.jpg',
     instructions: 'Stir with ice and strain into chilled coupe glass. Garnish with lemon twist.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 1.5,
@@ -1518,6 +1574,7 @@ export default [
     name: 'Revolver',
     image: 'images/revolver.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with a flamed orange peel.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 2,
@@ -1541,6 +1598,7 @@ export default [
     name: 'Thunderball',
     image: 'images/thunderball.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with two blackberries on a pick.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 1.5,
@@ -1568,6 +1626,7 @@ export default [
     name: 'Nor\'easter',
     image: 'images/noreaster.jpg',
     instructions: 'Shake with ice without ginger beer and strain into a chilled collins glass filled with ice. Top with ginger beer. Garnish with a sage leaf.',
+    method: METHODS.SHAKE,
     season: SEASONS.AUTUMN,
     inHoldingPen: true,
     ingredients: [
@@ -1603,6 +1662,7 @@ export default [
     name: 'Apple Cinner',
     image: 'images/apple-cinner.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with a cinnamon stick.',
+    method: METHODS.SHAKE,
     season: SEASONS.AUTUMN,
     ingredients: [
       {
@@ -1637,6 +1697,7 @@ export default [
     name: 'Spiced Pumpkin Punch',
     image: 'images/spiced-pumpkin-punch.jpg',
     instructions: 'Shake with ice and strain into a chilled rocks glass filled with ice. Garnish with sage leaves, cinnamon stick, and ground cinnamon.',
+    method: METHODS.SHAKE,
     season: SEASONS.AUTUMN,
     ingredients: [
       {
@@ -1680,6 +1741,7 @@ export default [
     name: 'Amaro Spritz',
     image: 'images/amaro-spritz.jpg',
     instructions: 'Stir with ice in a chilled rocks glass. Garnish with lime wheel.',
+    method: METHODS.STIR,
     season: SEASONS.SUMMER,
     ingredients: [
       {
@@ -1708,6 +1770,7 @@ export default [
     name: 'Toronto',
     image: 'images/toronto.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with an orange peel.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 1.5,
@@ -1735,6 +1798,7 @@ export default [
     name: 'Boulevardier',
     image: 'images/boulevardier.jpg',
     instructions: 'Stir with ice and strain into a chilled, ice-filled rocks glass. Garnish with an orange twist.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 1.5,
@@ -1757,6 +1821,7 @@ export default [
     name: 'Clover Club',
     image: 'images/clover-club.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 2,
@@ -1788,6 +1853,7 @@ export default [
   {
     name: 'Pimm\'s Cup',
     instructions: 'Muddle cucumber and simple in shaker. Add remaining ingredients, shake with ice, and strain into a chilled Collins glass filled with ice. Garnish with a cucumber wheel.',
+    method: METHODS.SHAKE,
     inHoldingPen: true,
     ingredients: [
       {
@@ -1821,6 +1887,7 @@ export default [
     name: 'Fall From the Tree', // https://www.liquor.com/recipes/fall-from-the-tree/
     image: 'images/fall-from-the-tree.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with an apple slice.',
+    method: METHODS.SHAKE,
     season: SEASONS.AUTUMN,
     ingredients: [
       {
@@ -1859,6 +1926,7 @@ export default [
     name: 'Lights Out Punch', // https://www.liquor.com/recipes/lights-out-punch/
     image: 'images/lights-out-punch.jpg',
     instructions: 'Stir with ice and strain into a chilled rocks glass. Garnish with an apple slice, cinnamon, and nutmeg.',
+    method: METHODS.STIR,
     season: SEASONS.AUTUMN,
     ingredients: [
       {
@@ -1912,6 +1980,7 @@ export default [
     name: 'Isle of the Pines',
     image: 'images/isle-of-the-pines.jpg',
     instructions: 'Dice plum wedges and muddle with lime, rosemary, and brown sugar syrup. Add rum, stir with ice, and strain into coupe glass. Garnish with plum wedge.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 2,
@@ -1944,6 +2013,7 @@ export default [
     name: 'Pineapple Sangaree',
     image: 'images/pineapple-sangaree.jpg',
     instructions: 'Infuse red wine with broken cinnamon sticks, diced plum, and orange wheel for 30 minutes in rocks glass. Add remaining ingredients and stir in glass with ice. Grate cinnamon stick onto drink and then drop in.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 2.5,
@@ -1996,6 +2066,7 @@ export default [
     name: 'White Negroni',
     image: 'images/white-negroni.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon peel.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 1.5,
@@ -2018,6 +2089,7 @@ export default [
     name: 'Red Tide',
     image: 'images/red-tide.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with orange peel.',
+    method: METHODS.STIR,
     season: SEASONS.ELECTION,
     ingredients: [
       {
@@ -2046,6 +2118,7 @@ export default [
     name: 'Blue Wave',
     image: 'images/blue-wave.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. No garnish.',
+    method: METHODS.STIR,
     season: SEASONS.ELECTION,
     ingredients: [
       {
@@ -2078,6 +2151,7 @@ export default [
   {
     name: 'Pepino Martini',
     instructions: 'Muddle cucumber slices with simple syrup in a shaker. Combine ingredients, shake with ice and strain into a chilled martini glass. Garnish with a cucumber wheel.',
+    method: METHODS.SHAKE,
     inHoldingPen: true,
     ingredients: [
       {
@@ -2116,6 +2190,7 @@ export default [
     name: 'Hot Toddy',
     image: 'images/hot-toddy.jpg',
     instructions: 'Bring water to simmer on stovetop. Combine all in glass mug and stir. Garnish with lemon wheel and cinnamon stick.',
+    method: METHODS.STIR,
     season: SEASONS.WINTER,
     ingredients: [
       {
@@ -2144,6 +2219,7 @@ export default [
     name: 'Barbados',
     image: 'images/barbados.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with a lime wedge.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 1.5,
@@ -2167,6 +2243,7 @@ export default [
     image: 'images/diffords-old-fashioned.jpg',
     source: 'https://www.diffordsguide.com/cocktails/recipe/1427/old-fashioned-cocktail-diffords-recipe',
     instructions: 'Stir with ice and strain into an ice-filled rocks glass. Garnish with an orange peel.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 1.5,
@@ -2194,6 +2271,7 @@ export default [
     name: 'Swedish Glogg',
     image: 'images/swedish-glogg.jpg',
     instructions: 'Combine all ingredients except sugar in an enamel slow-cooker. Let stand for 12 hours, tightly covered. Stir in sugar, heat rapidly to near-boil, and serve hot.',
+    method: METHODS.STIR,
     season: SEASONS.WINTER,
     serves: 4,
     ingredients: [
@@ -2274,6 +2352,7 @@ export default [
   {
     name: 'Corn\'n\'Oil',
     instructions: 'Stir all except blackstrap rum with ice and strain into a chilled rocks glass filled with ice. Float blackstrap rum on top. Garnish with a lime wedge.',
+    method: METHODS.STIR,
     inHoldingPen: true,
     ingredients: [
       {
@@ -2307,6 +2386,7 @@ export default [
     name: 'Falernum Manhattan',
     image: 'images/falernum-manhattan.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lime peel.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 2,
@@ -2329,6 +2409,7 @@ export default [
     name: 'Rattlesnake',
     image: 'images/rattlesnake.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled coupe glass. Express a lemon peel over top and garnish with two drops of bitters pulled through the foam to form a snake.',
+    method: METHODS.SHAKE,
     ingredients: [
       {
         amount: 1.75,
@@ -2360,6 +2441,7 @@ export default [
   {
     name: 'Brown Derby',
     instructions: 'Shake over ice and strain into a chilled cocktail glass. No garnish.',
+    method: METHODS.SHAKE,
     source: 'https://www.boston.com/food/food/2021/02/11/how-to-make-a-brown-derby-cocktail-recipe',
     inHoldingPen: true,
     ingredients: [
@@ -2384,6 +2466,7 @@ export default [
     name: 'Whiskey Smash',
     image: 'images/whiskey-smash.jpg',
     instructions: 'Muddle mint, lemon, and simple syrup. Dry shake with whiskey and strain into a rocks glass filled with crushed ice. Garnish with mint sprig.',
+    method: METHODS.SHAKE,
     source: 'The PDT Cocktail Book',
     ingredients: [
       {
@@ -2413,6 +2496,7 @@ export default [
     name: 'Red Hook',
     image: 'images/red-hook.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with cherry.',
+    method: METHODS.STIR,
     source: 'https://robbreport.com/food-drink/spirits/red-hook-cocktail-recipe-rye-whiskey-maraschino-1234596861/',
     season: SEASONS.MANHATTAN,
     ingredients: [
@@ -2440,6 +2524,7 @@ export default [
     name: 'Fort Point',
     image: 'images/fort-point.jpg',
     instructions: 'Stir with ice and strain into a chilled cocktail glass. Garnish with a maraschino cherry.',
+    method: METHODS.STIR,
     source: 'https://robbreport.com/food-drink/spirits/drink-boston-232071/',
     season: SEASONS.MANHATTAN,
     ingredients: [
@@ -2466,6 +2551,7 @@ export default [
     name: 'Maximilian Affair',
     image: 'images/maximilian-affair.jpg',
     instructions: 'Shake with ice and strain into a chilled vintage coupe glass. No garnish.',
+    method: METHODS.SHAKE,
     source: 'https://robbreport.com/food-drink/spirits/drink-boston-232071/',
     ingredients: [
       {
@@ -2496,6 +2582,7 @@ export default [
   {
     name: 'Mission of Burma',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Express lime peel over glass. No garnish.',
+    method: METHODS.SHAKE,
     source: 'https://robbreport.com/food-drink/spirits/drink-boston-232071/',
     inHoldingPen: true,
     ingredients: [
@@ -2527,6 +2614,7 @@ export default [
     name: 'Vodka Gimlet',
     image: 'images/vodka-gimlet.jpg',
     instructions: 'Shake with ice and strain into a chilled cocktail glass. Garnish with a lime wheel.',
+    method: METHODS.SHAKE,
     source: 'https://vodkacocktailswithbrothercleve.splashthat.com/',
     ingredients: [
       {
@@ -2551,6 +2639,7 @@ export default [
     name: 'Kangaroo',
     image: 'images/kangaroo.jpg',
     instructions: 'Stir with ice and strain into a chilled cocktail glass. Express lemon peel over glass. Garnish with straight trimmed lemon peel.',
+    method: METHODS.STIR,
     source: 'https://vodkacocktailswithbrothercleve.splashthat.com/',
     ingredients: [
       {
@@ -2571,6 +2660,7 @@ export default [
     name: 'Barney Barnato',
     image: 'images/barney-barnato.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with a lemon twist.',
+    method: METHODS.STIR,
     source: 'https://www.diffordsguide.com/cocktails/recipe/2274/barney-barnato-cocktail',
     ingredients: [
       {
@@ -2603,6 +2693,7 @@ export default [
   {
     name: 'Fallen Leaves',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon twist.',
+    method: METHODS.STIR,
     source: 'https://www.diffordsguide.com/cocktails/recipe/2652/fallen-leaves',
     inHoldingPen: true,
     ingredients: [
@@ -2633,6 +2724,7 @@ export default [
   {
     name: 'Gustings\' Grasshopper',
     instructions: 'Shake with ice and strain into a chilled cocktail glass. Garnish with mint sprig.',
+    method: METHODS.SHAKE,
     source: 'https://www.diffordsguide.com/cocktails/recipe/6850/gustings-grasshopper',
     inHoldingPen: true,
     ingredients: [
@@ -2661,6 +2753,7 @@ export default [
   {
     name: 'White Lady',
     instructions: 'Shake with ice, then dry shake, and strain into chilled cocktail glass. Garnish with lemon twist.',
+    method: METHODS.SHAKE,
     source: 'https://www.diffordsguide.com/cocktails/recipe/2091/white-lady-cocktail',
     inHoldingPen: true,
     ingredients: [
@@ -2695,6 +2788,7 @@ export default [
     name: 'Ward Eight',
     image: 'images/ward-eight.jpg',
     instructions: 'Shake with ice and strain into a chilled cocktail glass. Garnish with cherry and orange wedge on a pick.',
+    method: METHODS.SHAKE,
     source: 'https://www.diffordsguide.com/cocktails/recipe/2062/ward-eight',
     ingredients: [
       {
@@ -2727,9 +2821,10 @@ export default [
   },
   {
     name: 'Comte de Sureau',
+    image: 'images/comte-de-sureau.jpg',
     instructions: 'Stir with ice and strain into a chilled rocks glass over ice. Garnish with orange and lemon twists.',
+    method: METHODS.STIR,
     source: 'https://www.diffordsguide.com/cocktails/recipe/7257/comte-de-sureau',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -2751,6 +2846,7 @@ export default [
   {
     name: 'McKinley\'s Delight',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon twist.',
+    method: METHODS.STIR,
     source: 'https://www.diffordsguide.com/cocktails/recipe/7653/mckinleys-delight',
     inHoldingPen: true,
     ingredients: [
@@ -2780,6 +2876,7 @@ export default [
   {
     name: 'Landing Gear',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon twist.',
+    method: METHODS.STIR,
     source: 'https://www.diffordsguide.com/cocktails/recipe/4913/landing-gear',
     inHoldingPen: true,
     ingredients: [
@@ -2815,6 +2912,7 @@ export default [
   {
     name: 'La Poire des Benedictines',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with pear wedge.',
+    method: METHODS.STIR,
     source: 'https://www.diffordsguide.com/cocktails/recipe/3463/la-poire-des-benedictines',
     inHoldingPen: true,
     ingredients: [
@@ -2844,6 +2942,7 @@ export default [
     name: 'Dartmouth Highball',
     image: 'images/dartmouth-highball.jpg',
     instructions: 'Muddle mint and simple in shaker, dry shake all except ginger beer, and strain into ice-filled collins glass. Top with ginger beer and garnish with mint sprig.',
+    method: METHODS.SHAKE,
     source: 'https://pimmscocktails.splashthat.com/',
     ingredients: [
       {
@@ -2881,6 +2980,7 @@ export default [
   {
     name: 'Gold Rush',
     instructions: 'Shake all (including grapefruit peel) with ice and strain into an ice-filled rocks glass. Garnish with lemon peel.',
+    method: METHODS.SHAKE,
     source: 'https://robbreport.com/food-drink/spirits/gold-rush-recipe-bourbon-whiskey-sour-cocktail-honey-1234590351/',
     inHoldingPen: true,
     ingredients: [
@@ -2910,6 +3010,7 @@ export default [
     name: 'Tequila Old Fashioned',
     image: 'images/tequila-old-fashioned.jpg',
     instructions: 'Stir with ice and strain into ice-filled rocks glass. Garnish with orange peel squeezed over drink.',
+    method: METHODS.STIR,
     source: 'https://www.youtube.com/watch?v=Cpa66DWr6G4',
     ingredients: [
       {
@@ -2932,6 +3033,7 @@ export default [
   {
     name: 'Midnight Stinger',
     instructions: 'Shake with crushed ice and strain into a rocks glass filled with crushed ice. Garnish with mint sprig.',
+    method: METHODS.SHAKE,
     source: 'https://robbreport.com/food-drink/spirits/midnight-stinger-recipe-whiskey-sour-bourbon-fernet-branca-1234601482/',
     ingredients: [
       {
@@ -2960,6 +3062,7 @@ export default [
     name: 'Laissez Faire',
     image: 'images/laissez-faire.jpg',
     instructions: 'Stir with ice and strain into a chilled nick and nora glass. Optional garnish with cherry.',
+    method: METHODS.STIR,
     source: 'Cocktails de Paris Seaport e-book',
     ingredients: [
       {
@@ -2993,6 +3096,7 @@ export default [
     name: 'Gin Smash',
     image: 'images/gin-smash.jpg',
     instructions: 'Muddle basil, lemon, and simple syrup. Dry shake with gin and strain into a rocks glass filled with crushed ice. Garnish with basil sprig.',
+    method: METHODS.SHAKE,
     source: 'Modified from Whiskey Smash recipe in The PDT Cocktail Book',
     ingredients: [
       {
@@ -3021,6 +3125,7 @@ export default [
     name: 'Ritual Gin & Tonic',
     image: 'images/ritual-gin-and-tonic.jpg',
     instructions: 'Combine in wine glass, add ice, and stir.',
+    method: METHODS.STIR,
     ingredients: [
       {
         amount: 2,
@@ -3053,6 +3158,8 @@ export default [
     name: 'Negroni',
     image: 'images/negroni.jpg',
     instructions: 'Pour ingredients into ice-filled rocks glass and stir. Garnish with orange twist.',
+    method: METHODS.STIR,
+    isCoreDrink: true,
     source: 'https://www.diffordsguide.com/cocktails/recipe/1392/negroni-cocktail',
     ingredients: [
       {
@@ -3075,6 +3182,7 @@ export default [
   {
     name: 'Brooklyn\'s Finest',
     instructions: 'Stir with ice and strain into a chilled nick and nora glass. Garnish with a lemon zest twist.',
+    method: METHODS.STIR,
     source: 'https://www.diffordsguide.com/cocktails/recipe/3875/brooklyns-finest',
     inHoldingPen: true,
     ingredients: [
@@ -3110,6 +3218,7 @@ export default [
   {
     name: 'Caribbean Sazerac',
     instructions: 'Rinse a chilled rocks glass with overproof rum and discard. Shake other ingredients with ice and strain into glass. Rim with orange zest twist and discard.',
+    method: METHODS.SHAKE,
     source: 'https://www.diffordsguide.com/cocktails/recipe/5599/caribbean-sazerac',
     inHoldingPen: true,
     ingredients: [
@@ -3148,6 +3257,7 @@ export default [
   {
     name: 'Prestige',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with pineapple wedge and spiral lime peel.',
+    method: METHODS.SHAKE,
     source: 'https://www.diffordsguide.com/cocktails/recipe/2550/prestige-cocktail',
     inHoldingPen: true,
     ingredients: [
@@ -3183,6 +3293,7 @@ export default [
   {
     name: 'Sherry Herbst',
     instructions: 'Stir with ice and strain into a chilled, ice-filled rocks glass. Garnish with an orange zest twist.',
+    method: METHODS.STIR,
     source: 'https://www.diffordsguide.com/cocktails/recipe/4199/sherry-herbst',
     inHoldingPen: true,
     ingredients: [
@@ -3212,6 +3323,67 @@ export default [
         tag: 'sherry',
         preferred: 'oloroso',
         unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Court Royale',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with lemon wheel and rosemary sprig.',
+    method: METHODS.SHAKE,
+    source: 'https://imbibemagazine.com/recipe/court-royale-gin-cocktail/',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lillet blanc',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'apple brandy',
+        preferred: 'applejack',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'simple syrup',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Duplex',
+    instructions: 'Stir with ice and strain into a chilled nick and nora glass. Garnish with lemon twist.',
+    method: METHODS.STIR,
+    source: 'https://kindredcocktails.com/cocktail/duplex-punt-e-mes-and-lillet',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.25,
+        tag: 'sweet vermouth',
+        preferred: 'punt e mes',
+        unit: 'oz'
+      },
+      {
+        amount: 1.25,
+        tag: 'dry vermouth',
+        preferred: 'lillet blanc', // maybe cocchi americano instead?
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'orange bitters',
+        unit: 'dash'
       }
     ]
   }

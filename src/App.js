@@ -17,6 +17,7 @@ import {
   determineNonalcoholicByFrequency,
   determineNumInclusiveMatches,
   determineRecipeStrength,
+  determineRecommendations,
   determineUnavailableRecipesFromInventory,
   generateIngredientTagMap,
   generatePreferredIngredientTagMap,
@@ -49,6 +50,20 @@ const availableIngredients = determineAvailableIngredients(initialRecipesPair.li
 const availableIngredientsByFrequency = determineAvailableIngredientsByFrequency(initialRecipeTagMap);
 const alcoholicByFrequency = determineAlcoholicByFrequency(availableIngredientsByFrequency);
 const nonalcoholicByFrequency = determineNonalcoholicByFrequency(availableIngredientsByFrequency);
+
+//const recommendations = determineRecommendations(initialRecipesPair.list);
+//console.log('recommendations', recommendations);
+
+// output of recommendation list
+/*initialRecipesPair.list.forEach(recipe => {
+  const connections = recommendations.filter(recommendation => recommendation.begin === recipe);
+  if (connections.length > 0) {
+    console.log(recipe.name);
+    connections.forEach(connection => {
+      console.log(`  ${connection.description} and it becomes ${(connection.begin === recipe ? connection.end : connection.begin).name}`)
+    });
+  }
+});*/
 
 // in modal under recipe, recommended
 // --> more tart [recipe]

@@ -26,6 +26,12 @@ export const INVENTORY_VIEWS = {
   UNAVAILABLE: 'unavailable'
 };
 
+export const METHODS = {
+  BLEND: 'blend',
+  SHAKE: 'shake',
+  STIR: 'stir'
+};
+
 export const RECIPE_GROUP_TYPES = {
   HOLDING_PEN: 'holding pen',
   MAIN: 'main',

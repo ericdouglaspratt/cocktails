@@ -109,6 +109,44 @@ export const determineUnavailableRecipesFromInventory = (recipes, inventory) => 
   });
 };
 
+export const determineRecipeConnection = (sourceRecipe, compareRecipe) => {
+  const a = sourceRecipe.ingredients.map(ingredient => ingredient.tag);
+  const b = compareRecipe.ingredients.map(ingredient => ingredient.tag);
+
+  const diff = a.filter(x => !b.includes(x)).concat(b.filter(x => !a.includes(x)));
+
+  if (diff.length > 0) {
+    if ((diff.length < 3) && (Math.abs(a.length - b.length) === diff.length)) {
+      // one or two additions
+      return {
+        begin: (a.length < b.length) ? sourceRecipe : compareRecipe,
+        end: (a.length < b.length) ? compareRecipe : sourceRecipe,
+        type: 'addition',
+        description: `add ${diff[0]}${diff.length === 2 ? ` and ${diff[1]}` : ''}`,
+        amount: diff.length
+      };
+    } else if (
+        (diff.length === 2) && 
+        (a.length === b.length) && 
+        (
+          (NONALCOHOLIC_INGREDIENTS[diff[0]] && NONALCOHOLIC_INGREDIENTS[diff[1]]) || 
+          (!NONALCOHOLIC_INGREDIENTS[diff[0]] && !NONALCOHOLIC_INGREDIENTS[diff[1]])
+        )
+    ) {
+      // one substitution
+      return {
+        begin: (compareRecipe.isCoreDrink ? compareRecipe : sourceRecipe),
+        end: (compareRecipe.isCoreDrink ? sourceRecipe : compareRecipe),
+        type: 'substitution',
+        description: `substitute ${compareRecipe.isCoreDrink ? diff[0] : diff[1]} for ${compareRecipe.isCoreDrink ? diff[1] : diff[0]}`,
+        amount: 1
+      };
+    } else if ((diff.length === 3) && (Math.abs(a.length - b.length) === 2)) {
+      console.log(diff, a, b);
+    }
+  }
+};
+
 export const determineRecipeStrength = (recipe, ingredientTagMap) => {
   let strength = 0;
   let strengthAudit = [];
@@ -171,6 +209,24 @@ export const determineRecipeStrength = (recipe, ingredientTagMap) => {
 
 export const determineRecipeTastes = (recipe, ingredients) => {
   // NONALCOHOLIC_INGREDIENTS
+};
+
+export const determineRecommendations = recipes => {
+  const result = [];
+
+  recipes.forEach((sourceRecipe, index) => {
+    //console.log(recipes.slice(index + 1));
+    //console.log(`comparing ${sourceRecipe.name}`);
+    recipes.slice(index + 1).forEach(compareRecipe => {
+      //console.log(`comparing ${sourceRecipe.name} to ${compareRecipe.name}`);
+      const connection = determineRecipeConnection(sourceRecipe, compareRecipe);
+      if (connection) {
+        result.push(connection);
+      }
+    });
+  });
+
+  return result;
 };
 
 export const determineUnitDisplay = (unit, amount) => {
