@@ -5,7 +5,7 @@ import { CORE_SPIRIT_VARIATION_MAP } from './constants';
 
 import IngredientFilterButton from './IngredientFilterButton';
 
-const SuggestedFilters = ({ onSelect, selected, visibleRecipes }) => {
+const SuggestedFilters = ({ onUpdateTags, selected, visibleRecipes }) => {
   const [availableSuggestions, setAvailableSuggestions] = useState([]);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ const SuggestedFilters = ({ onSelect, selected, visibleRecipes }) => {
         return (
           <li className="SuggestedFilters-listItem" key={tag}>
             <IngredientFilterButton
-              onSelect={onSelect}
+              onUpdateTags={onUpdateTags}
               tag={tag}
             />
           </li>

@@ -1,0 +1,163 @@
+.BaseCards {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-left: -3%;
+}
+.BaseCards-card {
+  align-items: center;
+  /*background: linear-gradient(#87B198, #5C8E89);*/
+  background-color: #2F4858;
+  border: 2px solid #2F4858;
+  border-radius: 8px;
+  box-shadow: 0px 5px 5px -5px rgba(0, 0, 0, 0.8);
+  color: #fff;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  margin-left: 3%;
+  margin-top: 3vw;
+  overflow: hidden;
+  padding: 1.5vw 0;
+  position: relative;
+  text-decoration: none;
+  width: 30.33%;
+}
+.BaseCards-card:last-child {
+  margin-right: 3%;
+}
+.BaseCards-card:active,
+.BaseCards-card:hover {
+  background-color: #3F6B74;
+  border-color: #2F4858;
+}
+.BaseCards-sampleImage {
+  background-position: 50% 33%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  transform: scale(1);
+  transition: opacity 400ms, transform 400ms;
+  top: 0;
+  z-index: 1;
+}
+.BaseCards-card:hover > .BaseCards-sampleImage {
+  opacity: 0.4;
+  /*transform: scale(1.05);*/
+}
+.BaseCards-card::after {
+  background-color: #3F6B74;
+  bottom: 0;
+  content: '';
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: opacity 400ms;
+  z-index: 2;
+}
+.BaseCards-card:hover::after {
+  opacity: 0.4;
+}
+.BaseCards-spiritName {
+  font-family: 'Forum', serif;
+  font-size: 6vw;
+  position: relative;
+  z-index: 3;
+}
+.BaseCards-cta {
+  align-items: center;
+  border-radius: 8px;
+  display: flex;
+  font-size: 2.5vw;
+  justify-content: center;
+  letter-spacing: 0.05em;
+  position: relative;
+  text-transform: lowercase;
+  z-index: 3;
+}
+
+@media (min-width: 640px) {
+  .BaseCards {
+    flex-flow: row nowrap;
+    margin-top: 1.5vw;
+  }
+  .BaseCards-spiritName {
+    font-size: 3.5vw;
+  }
+  .BaseCards-card {
+    margin-top: 0;
+  }
+  .BaseCards-card + .BaseCards-card {
+    margin-left: 1.5vw;
+  }
+  .BaseCards-card:last-child {
+    margin-right: 0;
+  }
+  .BaseCards-cta {
+    font-size: 1.4vw;
+  }
+}
+
+@media (min-width: 1024px) {
+  .BaseCards {
+    flex-flow: row nowrap;
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 1.5vw;
+  }
+  .BaseCards-card {
+    border-width: 3px;
+    box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    transition: background-color 400ms, border-color 400ms, transform 400ms;
+    width: 18.8%;
+  }
+  .BaseCards-card + .BaseCards-card {
+    margin-left: 1.5vw;
+  }
+  .BaseCards-card:last-child {
+    margin-right: 0;
+  }
+  .BaseCards-card:active,
+  .BaseCards-card:hover {
+    transform: translateY(-0.4vw);
+  }
+  .BaseCards-spiritName {
+    font-size: 2.8vw;
+  }
+  .BaseCards-cta {
+    border: 1px solid #fff;
+    font-size: 0.8vw;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-top: 0.5vw;
+    padding: 0.4vw 0.8vw 0.3vw;
+    text-transform: uppercase;
+  }
+}
+
+@media (min-width: 1540px) {
+  .BaseCards {
+    margin-top: 23.1px;
+  }
+  .BaseCards-card {
+    padding: 23.1px 0;
+  }
+  .BaseCards-card + .BaseCards-card {
+    margin-left: 23.1px;
+  }
+  .BaseCards-spiritName {
+    font-size: 43.12px;
+  }
+  .BaseCards-cta {
+    font-size: 12.32px;
+    margin-top: 7.7px;
+    padding: 6.16px 12.32px 4.62px;
+  }
+}

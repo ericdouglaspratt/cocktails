@@ -2,6 +2,7 @@ export const ALCOHOL_PER_SHOT_IN_OZ = 0.4 * 1.5;
 
 export const BREAKPOINTS = {
   MOBILE: 'mobile',
+  TABLET: 'tablet',
   DESKTOP: 'desktop'
 };
 
@@ -9,15 +10,18 @@ export const CORE_SPIRITS = ['gin', 'tequila', 'rum', 'vodka', 'whiskey'];
 
 export const CORE_SPIRIT_VARIATION_MAP = {
   'añejo tequila': 'tequila',
+  'blackstrap rum': 'rum',
   'blanco tequila': 'tequila',
   'bourbon': 'whiskey',
   'dark rum': 'rum',
-  'light rum': 'rum',
+  'overproof rum': 'rum',
+  'pear vodka': 'vodka',
   'pineapple-infused dark rum': 'rum',
   'reposado tequila': 'tequila',
   'rye': 'whiskey',
   'scotch': 'whiskey',
-  'single malt scotch': 'whiskey'
+  'single malt scotch': 'whiskey',
+  'white rum': 'rum'
 };
 
 export const INVENTORY_VIEWS = {

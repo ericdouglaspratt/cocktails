@@ -13,16 +13,14 @@
 }
 .RecipeList-recipe {
   align-items: center;
-  background: none;
-  border: none;
   color: #33333f;
-  cursor: pointer;
   display: flex;
-  font-family: inherit;
   flex-flow: column nowrap;
   margin: 0 0 20px 0;
   padding: 0;
   position: relative;
+  text-align: center;
+  text-decoration: none;
   top: 0;
   transform: translateZ(-1000px);
   transform-style: flat;

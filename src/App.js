@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import Drawer from '@material-ui/core/Drawer';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
 
 import {
@@ -29,13 +35,12 @@ import {
 import ingredients from './data/ingredients';
 import RAW_RECIPES from './data/recipes';
 
-import ActiveFilters from './ActiveFilters';
-import CategoryPicker from './CategoryPicker';
-import IngredientFilterButtonList from './IngredientFilterButtonList';
-import InventoryViewControl from './InventoryViewControl';
+import Explore from './Explore';
+import Footer from './Footer';
+import Home from './Home';
 import NavBar from './NavBar';
 import Recipe from './Recipe';
-import RecipeList from './RecipeList';
+import RecipeDrawer from './RecipeDrawer';
 import RecipeModal from './RecipeModal';
 
 // initial data prep
@@ -51,11 +56,11 @@ const availableIngredientsByFrequency = determineAvailableIngredientsByFrequency
 const alcoholicByFrequency = determineAlcoholicByFrequency(availableIngredientsByFrequency);
 const nonalcoholicByFrequency = determineNonalcoholicByFrequency(availableIngredientsByFrequency);
 
-//const recommendations = determineRecommendations(initialRecipesPair.list);
-//console.log('recommendations', recommendations);
+const recommendations = determineRecommendations(initialRecipesPair.list);
+console.log('recommendations', recommendations);
 
 // output of recommendation list
-/*initialRecipesPair.list.forEach(recipe => {
+initialRecipesPair.list.forEach(recipe => {
   const connections = recommendations.filter(recommendation => recommendation.begin === recipe);
   if (connections.length > 0) {
     console.log(recipe.name);
@@ -63,7 +68,7 @@ const nonalcoholicByFrequency = determineNonalcoholicByFrequency(availableIngred
       console.log(`  ${connection.description} and it becomes ${(connection.begin === recipe ? connection.end : connection.begin).name}`)
     });
   }
-});*/
+});
 
 // in modal under recipe, recommended
 // --> more tart [recipe]
@@ -94,24 +99,16 @@ function App() {
   const [inventory, setInventory] = useState(null);
 
   // UI state
-  const [activeInventoryView, setActiveInventoryView] = useState(INVENTORY_VIEWS.ALL);
   const [activeRecipeId, setActiveRecipeId] = useState(null);
   const [isRecipeOpen, setIsRecipeOpen] = useState(false);
-  const [selectedTags, setSelectedTags] = useState([]);
 
   // cached calculations based on inventory
   const [availableRecipeData, setAvailableRecipeData] = useState(null);
   const [unavailableRecipeData, setUnavailableRecipeData] = useState(null);
 
-  // data that flows from the source list of recipes
-  const [recipes, setRecipes] = useState(initialRecipesPair);
-  const [recipeTagMap, setRecipeTagMap] = useState(initialRecipeTagMap);
-  const [visibleRecipes, setVisibleRecipes] = useState(initialRecipesPair.list);
-
   const breakpoint = useBreakpoint();
 
   useEffect(() => {
-    document.addEventListener('keydown', handleGlobalKeyDown);
     loadInventory();
   }, []);
 
@@ -132,23 +129,6 @@ function App() {
     }
   }, [inventory]);
 
-  // switch recipe source list when inventory filter is changed
-  useEffect(() => {
-    if (activeInventoryView === INVENTORY_VIEWS.AVAILABLE) {
-      setRecipes(availableRecipeData.recipes);
-      setRecipeTagMap(availableRecipeData.recipeTagMap);
-      updateVisibleRecipes(selectedTags, availableRecipeData.recipes.list, availableRecipeData.recipeTagMap);
-    } else if (activeInventoryView === INVENTORY_VIEWS.UNAVAILABLE) {
-      setRecipes(unavailableRecipeData.recipes);
-      setRecipeTagMap(unavailableRecipeData.recipeTagMap);
-      updateVisibleRecipes(selectedTags, unavailableRecipeData.recipes.list, unavailableRecipeData.recipeTagMap);
-    } else {
-      setRecipes(initialRecipesPair);
-      setRecipeTagMap(initialRecipeTagMap);
-      updateVisibleRecipes(selectedTags, initialRecipesPair.list, initialRecipeTagMap);
-    }
-  }, [activeInventoryView]);
-
   const handleClickCloseRecipe = () => {
     setIsRecipeOpen(false);
     setTimeout(() => {
@@ -159,66 +139,6 @@ function App() {
   const handleClickRecipe = id => {
     setActiveRecipeId(id);
     setIsRecipeOpen(true);
-  };
-
-  const handleDeselectTag = tag => {
-    if (tag) {
-      // deselect the tag and update the recipes accordingly
-      setSelectedTags(prevState => {
-        const newSelectedTags = removeTagsFromArray([tag], prevState);
-        updateVisibleRecipes(newSelectedTags, recipes.list, recipeTagMap);
-        return newSelectedTags;
-      });
-    }
-  };
-
-  const handleDeselectTags = tags => {
-      // deselect the tags and update the recipes accordingly
-      setSelectedTags(prevState => {
-        const newSelectedTags = removeTagsFromArray(tags, prevState);
-        updateVisibleRecipes(newSelectedTags, recipes.list, recipeTagMap);
-        return newSelectedTags;
-      });
-  };
-
-  const handleGlobalKeyDown = e => {
-    // clear filters when escape key is hit (if a recipe isn't open)
-    if (e.keyCode === 27) {
-      const recipeIsOpen = document.getElementsByClassName('RecipeModal').length > 0 || document.getElementsByClassName('Recipe').length > 0;
-      if (!recipeIsOpen) {
-        setSelectedTags(prevState => {
-          if (prevState.length > 0) {
-            updateVisibleRecipes([], recipes.list, recipeTagMap);
-            return [];
-          } else {
-            return prevState;
-          }
-        });
-      }
-    }
-  };
-
-  const handleSelectTag = (tag, include = true) => {
-    if (tag) {
-      // select the tag and update the recipes accordingly
-      setSelectedTags(prevState => {
-        const newSelectedTags = addTagsAndSort([{
-          include,
-          tag
-         }], prevState);
-        updateVisibleRecipes(newSelectedTags, recipes.list, recipeTagMap);
-        return newSelectedTags;
-      });
-    }
-  };
-
-  const handleSelectTags = (tags, include = true) => {
-    // select the tags and update the recipes accordingly
-    setSelectedTags(prevState => {
-      const newSelectedTags = addTagsAndSort(tags.map(tag => ({include, tag})), prevState);
-      updateVisibleRecipes(newSelectedTags, recipes.list, recipeTagMap);
-      return newSelectedTags;
-    });
   };
 
   const loadInventory = () => {
@@ -235,141 +155,75 @@ function App() {
       });
   }
 
-  const updateVisibleRecipes = (selected, currentRecipeList, currentRecipeTagMap) => {
-    if (selected && selected.length > 0) {
-      const inclusionTags = selected.filter(item => item.include).map(item => item.tag);
-      const exclusionTags = selected.filter(item => !item.include).map(item => item.tag);
-
-      // find the recipes with matching inclusive tags and dedupe
-      const uniqueInclusiveRecipes = inclusionTags.length > 0 ? Object.values(selected.reduce((result, {include, tag}) => {
-        if (include && currentRecipeTagMap[tag] && currentRecipeTagMap[tag].forEach) {
-          currentRecipeTagMap[tag].forEach(recipe => {
-            result[recipe.name] = recipe;
-          });
-        }
-        return result;
-      }, {})) : currentRecipeList;
-
-      // remove the recipes that match the exclusion tags, if any
-      const recipesAfterExclusion = exclusionTags.length > 0 ? uniqueInclusiveRecipes.filter(recipe => {
-        return !recipe.ingredients.find(ingredient => {
-          return exclusionTags.includes(ingredient.tag) || exclusionTags.includes(CORE_SPIRIT_VARIATION_MAP[ingredient.tag]);
-        });
-      }) : uniqueInclusiveRecipes;
-
-      // compute the number of ingredient matches per matching recipe
-      const recipesByNumMatches = recipesAfterExclusion.map(recipe => ({
-        ...recipe,
-        numMatches: determineNumInclusiveMatches(recipe, inclusionTags)
-      }));
-
-      // sort by number of ingredient matches
-      recipesByNumMatches.sort((a, b) => {
-        if (a.numMatches > b.numMatches) {
-          return -1;
-        } else if (a.numMatches < b.numMatches) {
-          return 1;
-        } else {
-          return a.name.localeCompare(b.name);
-        }
-      });
-
-      // also want to sort by recommended/featured/verified/good ones, or include that in the algorithm mix
-
-      // possibly also sort by amount, if possible
-      // but maybe only if it's not base ones, cause we don't always want to put the strong ones first
-      // so i can say i want a vermouth-forward recipe and just search vermouth and it gives me the ones first with the most vermouth in it
-
-      setVisibleRecipes(recipesByNumMatches);
-    } else {
-      setVisibleRecipes(currentRecipeList);
-    }
-  };
-
-  const activeRecipe = activeRecipeId ? recipes.lookup[activeRecipeId] : null;
+  //const activeRecipe = activeRecipeId ? recipes.lookup[activeRecipeId] : null;
 
   return (
-    <>
-      <NavBar
-        availableIngredients={availableIngredients}
-        onSelectIngredient={handleSelectTag}
-        onSelectRecipe={handleClickRecipe}
-        recipes={recipes.list}
-        selectedTags={selectedTags}
-      />
-      <div className="BrowseLayout">
-        <div className="FilterPane">
-          <InventoryViewControl
-            activeInventoryView={activeInventoryView}
-            isInventoryLoaded={!!inventory}
-            onChange={setActiveInventoryView}
-          />
-          <CategoryPicker
-            onDeselect={handleDeselectTag}
-            onDeselectMultiple={handleDeselectTags}
-            onSelect={handleSelectTag}
-            onSelectMultiple={handleSelectTags}
-            selected={selectedTags}
-          />
-          <IngredientFilterButtonList
-            onDeselect={handleDeselectTag}
-            onSelect={handleSelectTag}
-            selectedTags={selectedTags}
-            tags={alcoholicByFrequency}
-            title="Common Liqueurs"
-          />
-          <IngredientFilterButtonList
-            onDeselect={handleDeselectTag}
-            onSelect={handleSelectTag}
-            selectedTags={selectedTags}
-            tags={nonalcoholicByFrequency}
-            title="Common Mixers"
-          />
-        </div>
-        <div className="ResultsPane">
-          {selectedTags && selectedTags.length > 0 && (
-            <ActiveFilters
-              numResults={visibleRecipes.length}
-              onDeselect={handleDeselectTag}
-              onSelect={handleSelectTag}
-              selected={selectedTags}
-              visibleRecipes={visibleRecipes}
-            />
-          )}
-          <RecipeList
-            activeInventoryView={activeInventoryView}
-            inventory={inventory}
-            onClickRecipe={handleClickRecipe}
-            recipes={visibleRecipes}
-            selectedTags={selectedTags}
-          />
-        </div>
-      </div>
-      {breakpoint === BREAKPOINTS.MOBILE && (
-        <Drawer
-          anchor="bottom"
-          open={isRecipeOpen}
-          onClose={handleClickCloseRecipe}
-        >
-          {activeRecipe && (
-            <Recipe
-              onClose={handleClickCloseRecipe}
-              preferredIngredientTagMap={preferredIngredientTagMap}
-              recipe={activeRecipe}
-            />
-          )}
-        </Drawer>
-      )}
-      {breakpoint === BREAKPOINTS.DESKTOP && (
-        <RecipeModal
-          id={activeRecipeId}
-          isOpen={isRecipeOpen}
-          preferredIngredientTagMap={preferredIngredientTagMap}
-          onClose={handleClickCloseRecipe}
-          recipe={activeRecipe}
+    <Router basename="/cocktails">
+      <div className="App-container">
+        {/*<NavBar
+          availableIngredients={availableIngredients}
+          onSelectIngredient={handleSelectTag}
+          onSelectRecipe={handleClickRecipe}
+          recipes={recipes.list}
+          selectedTags={selectedTags}
+        />*/}
+        <NavBar
+          recipes={initialRecipesPair.list}
         />
-      )}
-    </>
+        <div className="App">
+          <Switch>
+            <Route path={["/explore/:tags", "/explore"]}>
+              <Explore
+                alcoholicByFrequency={alcoholicByFrequency}
+                availableRecipeData={availableRecipeData}
+                initialRecipes={initialRecipesPair}
+                initialRecipeTagMap={initialRecipeTagMap}
+                inventory={inventory}
+                nonalcoholicByFrequency={nonalcoholicByFrequency}
+                unavailableRecipeData={unavailableRecipeData}
+              />
+              {/*breakpoint === BREAKPOINTS.MOBILE && (
+                <Drawer
+                  anchor="bottom"
+                  open={isRecipeOpen}
+                  onClose={handleClickCloseRecipe}
+                >
+                  {activeRecipe && (
+                    <RecipeDrawer
+                      onClose={handleClickCloseRecipe}
+                      preferredIngredientTagMap={preferredIngredientTagMap}
+                      recipe={activeRecipe}
+                    />
+                  )}
+                </Drawer>
+                  )*/}
+              {/*breakpoint === BREAKPOINTS.DESKTOP && (
+                <RecipeModal
+                  id={activeRecipeId}
+                  isOpen={isRecipeOpen}
+                  preferredIngredientTagMap={preferredIngredientTagMap}
+                  onClose={handleClickCloseRecipe}
+                  recipe={activeRecipe}
+                />
+              )*/}
+            </Route>
+            <Route path="/recipes/:recipeId">
+              <Recipe
+                preferredIngredientTagMap={preferredIngredientTagMap}
+                recipes={initialRecipesPair}
+              />
+            </Route>
+            <Route path="/">
+              <Home
+                recipes={initialRecipesPair}
+                recipeTagMap={initialRecipeTagMap}
+              />
+            </Route>
+          </Switch>
+        </div>
+        <Footer />
+      </div>
+    </Router>
   );
 };
 

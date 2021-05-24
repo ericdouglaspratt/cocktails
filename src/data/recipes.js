@@ -2581,10 +2581,10 @@ export default [
   },
   {
     name: 'Mission of Burma',
+    image: 'images/mission-of-burma.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Express lime peel over glass. No garnish.',
     method: METHODS.SHAKE,
     source: 'https://robbreport.com/food-drink/spirits/drink-boston-232071/',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 2.25,
@@ -3292,10 +3292,10 @@ export default [
   },
   {
     name: 'Sherry Herbst',
+    image: 'images/sherry-herbst.jpg',
     instructions: 'Stir with ice and strain into a chilled, ice-filled rocks glass. Garnish with an orange zest twist.',
     method: METHODS.STIR,
     source: 'https://www.diffordsguide.com/cocktails/recipe/4199/sherry-herbst',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 0.67,
@@ -3310,7 +3310,8 @@ export default [
       },
       {
         amount: 0.5,
-        tag: 'punt e mes',
+        tag: 'vermouth amaro',
+        preferred: 'punt e mes',
         unit: 'oz'
       },
       {

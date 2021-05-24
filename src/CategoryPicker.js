@@ -6,7 +6,7 @@ import categories from './data/categories';
 // filters
 // method: shaken, stirred, blended
 
-function CategoryPicker({ onDeselect, onDeselectMultiple, onSelect, onSelectMultiple, selected }) {
+function CategoryPicker({ onUpdateTags, selected }) {
   return (
     <div className="CategoryPicker">
       {categories.map(category => {
@@ -31,10 +31,9 @@ function CategoryPicker({ onDeselect, onDeselectMultiple, onSelect, onSelectMult
                       className={className}
                       onClick={() => {
                         if (isTagSelected) {
-                          onDeselect(tag);
+                          onUpdateTags([], true, [tag]);
                         } else {
-                          onDeselectMultiple(categoryTags);
-                          onSelect(tag);
+                          onUpdateTags([tag], true, categoryTags);
                         }
                       }}
                       style={{ backgroundImage: `url(${`${process.env.PUBLIC_URL}/${image || 'images/default.jpg'}`})` }}
@@ -50,10 +49,7 @@ function CategoryPicker({ onDeselect, onDeselectMultiple, onSelect, onSelectMult
                 <button
                   className={otherClassName}
                   onClick={() => {
-                    onDeselectMultiple(categoryTags);
-                    if (!isOtherSelected) {
-                      onSelectMultiple(categoryTags, false);
-                    }
+                    onUpdateTags(categoryTags, false, categoryTags);
                   }}
                   style={{ backgroundImage: `url(${`${process.env.PUBLIC_URL}/images/default.jpg`})` }}
                 >

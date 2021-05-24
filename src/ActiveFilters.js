@@ -4,7 +4,7 @@ import './ActiveFilters.css';
 import IngredientFilterButton from './IngredientFilterButton';
 import SuggestedFilters from './SuggestedFilters';
 
-const ActiveFilters = ({ numResults, onDeselect, onSelect, selected, visibleRecipes }) => {
+const ActiveFilters = ({ numResults, onUpdateTags, selected, visibleRecipes }) => {
   return (
     <div className="ActiveFilters">
       <p className="ActiveFilters-numResults">
@@ -17,15 +17,14 @@ const ActiveFilters = ({ numResults, onDeselect, onSelect, selected, visibleReci
               <IngredientFilterButton
                 isInclusive={include}
                 isSelected
-                onDeselect={onDeselect}
-                onSelect={onSelect}
+                onUpdateTags={onUpdateTags}
                 tag={tag}
               />
             </li>
           );
         })}
         <SuggestedFilters
-          onSelect={onSelect}
+          onUpdateTags={onUpdateTags}
           selected={selected}
           visibleRecipes={visibleRecipes}
         />

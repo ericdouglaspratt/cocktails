@@ -7,8 +7,7 @@ import './IngredientFilterButton.css';
 const IngredientFilterButton = ({
   isInclusive = false,
   isSelected = false,
-  onDeselect,
-  onSelect,
+  onUpdateTags,
   tag
 }) => {
   if (isSelected) {
@@ -16,7 +15,7 @@ const IngredientFilterButton = ({
     return (
       <button
         className={buttonClassName}
-        onClick={() => onDeselect(tag)}
+        onClick={() => onUpdateTags([], true, [tag])}
       >
         <CloseIcon />
         {tag}
@@ -27,7 +26,7 @@ const IngredientFilterButton = ({
       <div className="IngredientFilterButton-group" key={tag}>
         <button
           className="IngredientFilterButton IngredientFilterButton-include"
-          onClick={() => onSelect(tag)}
+          onClick={() => onUpdateTags([tag])}
         >
           <AddIcon />
           <span aria-hidden="true">
@@ -39,7 +38,7 @@ const IngredientFilterButton = ({
         </button>
         <button
           className="IngredientFilterButton IngredientFilterButton-exclude"
-          onClick={() => onSelect(tag, false)}
+          onClick={() => onUpdateTags([tag], false)}
         >
           <NotInterestedIcon />
           <span className="IngredientFilterButton-ariaLabel">

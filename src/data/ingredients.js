@@ -485,7 +485,7 @@ export default [
   {
     name: 'Punt e Mes',
     fullName: 'Punt e Mes Aperitivo Originale',
-    tags: ['sweet vermouth', 'punt e mes'],
+    tags: ['sweet vermouth', 'vermouth amaro', 'punt e mes'],
     abv: 16,
     origin: 'Italy'
   },

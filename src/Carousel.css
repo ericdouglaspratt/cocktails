@@ -1,0 +1,31 @@
+.Carousel-header {
+  font-family: 'Forum', serif;
+  font-size: 30px;
+  font-weight: 400;
+  margin: 20px 0 10px;
+}
+.Carousel-slider {
+  margin: 0 -15px 0 -20px;
+  padding: 0 20px 0 15px;
+  overflow: hidden;
+}
+.Carousel-slider .slick-list {
+  overflow: visible;
+}
+.Carousel-slider .slick-track {
+  margin-left: 0;
+}
+.Carousel-slider .slick-prev:before,
+.Carousel-slider .slick-next:before {
+  color: #000;
+}
+
+@media (min-width: 1024px) {
+  .Carousel-header {
+    font-size: 40px;
+    margin: 40px 0 10px;
+  }
+  .Carousel-slider {
+    margin: 0 -20px 0 -25px;
+  }
+}

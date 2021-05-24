@@ -33,14 +33,22 @@ export const createRecipesPair = rawRecipes => {
   };
 };
 
-export const createUrlSlug = name => name.toLowerCase().replace(/[\s]/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, '');
+export const createUrlSlug = name => name.toLowerCase().replace(/&/g, 'and').replace(/[\s]/g, '-').normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(/\'/g, '');
+
+export const decodeUrlTags = tags => addTagsAndSort(
+  tags.split('+').map(rawTag => ({
+    include: rawTag.substr(0, 1) !== '!',
+    tag: decodeURIComponent(rawTag).replace(/_/g, ' ').replace(/!/g, '')
+  })),
+  []
+);
 
 export const determineAlcoholicByFrequency = availableIngredientsByFrequency => {
   return availableIngredientsByFrequency
     .filter(ingredient => !NONALCOHOLIC_INGREDIENTS[ingredient.tag] && !CORE_SPIRITS.find(spirit => spirit === ingredient.tag))
     .map(ingredient => ingredient.tag)
     .slice(0, 6);
-}
+};
 
 export const determineAvailableIngredients = recipes => {
   const uniqueIngredients = recipes.reduce((result, recipe) => {
@@ -238,6 +246,11 @@ export const determineUnitDisplay = (unit, amount) => {
   }
 };
 
+export const encodeTagsForUrl = tags => tags.reduce((arr, tag) => {
+  arr.push((tag.include ? '' : '!') + encodeURIComponent(tag.tag.replace(/\s/g, '_')));
+  return arr;
+}, []).join('+');
+
 export const generateIngredientTagMap = ingredients => ingredients.reduce((result, ingredient) => {
   ingredient.tags.forEach(tag => {
     result[tag] = result[tag] || [];
@@ -303,8 +316,8 @@ export const removeTagsFromArray = (tags, arr) => {
 export const sortByName = recipes => recipes.slice().sort((a, b) => a.name.localeCompare(b.name));
 
 export const useBreakpoint = () => useMedia(
-  ['(max-width: 767px)', '(min-width: 768px)'],
-  [BREAKPOINTS.MOBILE, BREAKPOINTS.DESKTOP],
+  ['(max-width: 479px)', '(max-width: 1024px)', '(min-width: 768px)'],
+  [BREAKPOINTS.MOBILE, BREAKPOINTS.TABLET, BREAKPOINTS.DESKTOP],
   BREAKPOINTS.MOBILE
 );
 

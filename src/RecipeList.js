@@ -1,4 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import './RecipeList.css';
 
 import {
@@ -10,7 +11,7 @@ import { determineCurrentSeason } from './helpers';
 
 import Strength from './Strength';
 
-const RecipeList = ({ activeInventoryView, inventory, onClickRecipe, recipes, selectedTags }) => {
+const RecipeList = ({ activeInventoryView, inventory, recipes, selectedTags }) => {
   const [groups, setGroups] = useState([{ recipes }]);
 
   useEffect(() => {
@@ -84,10 +85,10 @@ const RecipeList = ({ activeInventoryView, inventory, onClickRecipe, recipes, se
               }, {}));
 
               return (
-                <button
+                <Link
                   className="RecipeList-recipe"
                   key={recipe.name}
-                  onClick={() => onClickRecipe(recipe.id)}
+                  to={`/recipes/${recipe.id}`}
                 >
                   <div className="RecipeList-image" style={{ backgroundImage: `url(${`${process.env.PUBLIC_URL}/${recipe.image || 'images/default.jpg'}`})` }}>
                     {!!recipe.strength && (
@@ -119,7 +120,7 @@ const RecipeList = ({ activeInventoryView, inventory, onClickRecipe, recipes, se
                       </span>
                     </span>
                   )}
-                </button>
+                </Link>
               );
             })}
           </div>

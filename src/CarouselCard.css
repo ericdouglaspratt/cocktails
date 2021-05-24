@@ -1,0 +1,52 @@
+.CarouselCard {
+  /*border: 3px solid #fff;*/
+  border-radius: 8px;
+  color: #33333f;
+  display: block;
+  margin: 10px 5px 20px;
+  padding: 3px 3px 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 400ms, box-shadow 400ms, transform 400ms;
+}
+.CarouselCard:hover {
+  border-color: #2F4858;
+  /*box-shadow: 0px 10px 20px -5px rgba(0, 0, 0, 0.5);*/
+  transform: translateY(-0.4vw);
+}
+.CarouselCard-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*border: 3px solid #5C8E89;*/
+  box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 3px #5C8E89;
+  border-radius: 8px;
+  flex-shrink: 0;
+  padding-top: 110%;
+  transition: border-radius 200ms, box-shadow 200ms;
+}
+.CarouselCard:hover .CarouselCard-image {
+  /*border-radius: 4px;*/
+  box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 3px #2F4858;
+}
+.CarouselCard-header {
+  font-family: 'Forum', serif;
+  font-size: 18px;
+  font-weight: 400;
+  margin: 10px 0 0;
+}
+.CarouselCard-ingredients {
+  font-size: 12px;
+  margin: 10px 0 0;
+  min-height: 5em;
+  padding: 0 10px;
+}
+
+@media (min-width: 1024px) {
+  .CarouselCard {
+    margin: 10px 10px 20px;
+  }
+  .CarouselCard-header {
+    font-size: 24px;
+  }
+}

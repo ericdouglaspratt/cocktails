@@ -16,28 +16,22 @@ body {
 
 /* https://mycolor.space/?hex=%23FEF0BF&sub=1 */
 
-.BrowseLayout {
-  display: flex;
-  flex-flow: column nowrap;
-  margin-top: 30px;
-  padding: 20px;
+.App-container {
+  text-align: center;
 }
-.FilterPane {
-  flex-shrink: 0;
+.App {
+  margin-top: 50px;
+  padding: 15px;
+  text-align: left;
+}
+.App-focusedContent {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
 }
 
-@media (min-width: 1024px) {
-  .BrowseLayout {
-    flex-flow: row nowrap;
-    margin-top: 50px;
-    padding: 20px 60px 60px;
-  }
-  .FilterPane {
-    border-right: 2px solid #5C8E89;
-    padding-right: 58px;
-    width: 320px;
-  }
-  .ResultsPane {
-    padding-left: 60px;
+@media (min-width: 640px) {
+  .App {
+    padding: 20px;
   }
 }

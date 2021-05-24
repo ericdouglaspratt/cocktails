@@ -4,8 +4,7 @@ import './IngredientFilterButtonList.css';
 import IngredientFilterButton from './IngredientFilterButton';
 
 const IngredientFilterButtonList = ({
-  onDeselect,
-  onSelect,
+  onUpdateTags,
   selectedTags,
   tags,
   title
@@ -23,8 +22,7 @@ const IngredientFilterButtonList = ({
               <IngredientFilterButton
                 isInclusive={selectionRecord && selectionRecord.include}
                 isSelected={!!selectionRecord}
-                onDeselect={onDeselect}
-                onSelect={onSelect}
+                onUpdateTags={onUpdateTags}
                 tag={tag}
               />
             </div>

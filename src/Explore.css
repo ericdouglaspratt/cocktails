@@ -1,0 +1,23 @@
+.Explore {
+  display: flex;
+  flex-flow: column nowrap;
+  /*padding: 20px;*/
+}
+.FilterPane {
+  flex-shrink: 0;
+}
+
+@media (min-width: 1024px) {
+  .Explore {
+    flex-flow: row nowrap;
+    padding: 20px 60px;
+  }
+  .FilterPane {
+    border-right: 2px solid #5C8E89;
+    padding-right: 58px;
+    width: 320px;
+  }
+  .ResultsPane {
+    padding-left: 60px;
+  }
+}
