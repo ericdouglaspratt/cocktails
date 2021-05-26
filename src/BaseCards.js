@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import './BaseCards.css';
 
-const BaseCards = ({ recipes, recipeTagMap }) => {
+const BaseCards = ({ recipeTagMap }) => {
   return (
     <div className="BaseCards">
       <Link className="BaseCards-card" to="/explore/gin">

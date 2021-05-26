@@ -290,17 +290,24 @@ export const generateRecipeTagMap = recipes =>
   recipes.reduce((result, recipe) => {
     recipe.ingredients.forEach(ingredient => {
       result[ingredient.tag] = result[ingredient.tag] || [];
-      result[ingredient.tag].push(recipe);
+
+      if (!result[ingredient.tag].includes(recipe)) {
+        result[ingredient.tag].push(recipe);
+      }
 
       if (CORE_SPIRIT_VARIATION_MAP[ingredient.tag]) {
         result[CORE_SPIRIT_VARIATION_MAP[ingredient.tag]] = result[CORE_SPIRIT_VARIATION_MAP[ingredient.tag]] || [];
-        result[CORE_SPIRIT_VARIATION_MAP[ingredient.tag]].push(recipe);
+        if (!result[CORE_SPIRIT_VARIATION_MAP[ingredient.tag]].includes(recipe)) {
+          result[CORE_SPIRIT_VARIATION_MAP[ingredient.tag]].push(recipe);
+        }
       }
 
       const coreSpiritTag = CORE_SPIRITS.find(tag => ingredient.tag.split(' ').includes(tag));
       if (coreSpiritTag && coreSpiritTag !== ingredient.tag) {
         result[coreSpiritTag] = result[coreSpiritTag] || [];
-        result[coreSpiritTag].push(recipe);
+        if (!result[coreSpiritTag].includes(recipe)) {
+          result[coreSpiritTag].push(recipe);
+        }
       }
     });
     return result;

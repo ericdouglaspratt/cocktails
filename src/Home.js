@@ -15,15 +15,15 @@ const Home = ({ recipes, recipeTagMap }) => {
 
   const featuredRecipeIds = [
     'sherry-herbst',
-    'comte-de-sureau',
-    //'tequila-old-fashioned'
+    'sherry-flip'
   ];
 
   const classics = recipes.list.filter(recipe => recipe.isCoreDrink);
-  const exclusives = getRecipes(['thunderball', 'the-andy-special'], recipes);
-  const fresh = getRecipes(['gin-smash', 'whiskey-smash'], recipes);
+  // const exclusives = getRecipes(['thunderball', 'the-andy-special'], recipes);
+  // const fresh = getRecipes(['gin-smash', 'whiskey-smash'], recipes);
+  const recentlyAdded = getRecipes(['comte-de-sureau', 'barney-barnato', 'gin-smash', 'kangaroo', 'tequila-old-fashioned', 'whiskey-smash'], recipes);
   const seaportCollection = getRecipes(['laissez-faire', 'maximilian-affair', 'fort-point', 'casino-royale', 'mission-of-burma'], recipes);
-  const smooth = getRecipes(['diffords-old-fashioned'], recipes);
+  // const smooth = getRecipes(['diffords-old-fashioned'], recipes);
 
   return (
     <div className="App-focusedContent">
@@ -33,22 +33,17 @@ const Home = ({ recipes, recipeTagMap }) => {
           recipes={recipes}
         />
         <BaseCards
-          recipes={recipes}
           recipeTagMap={recipeTagMap}
+        />
+        <Carousel
+          recipes={recentlyAdded}
+          title="Recently Added"
         />
         <Carousel
           recipes={classics}
           showPartialCard={breakpoint === BREAKPOINTS.MOBILE}
           title="Classics"
         />
-        {/*<Carousel
-          recipes={smooth}
-          title="Smooth"
-        />
-        <Carousel
-          recipes={fresh}
-          title="Fresh"
-        />*/}
         <Carousel
           recipes={seaportCollection}
           title="The Seaport Collection"

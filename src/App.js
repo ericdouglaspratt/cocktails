@@ -142,7 +142,7 @@ function App() {
   };
 
   const loadInventory = () => {
-    fetch(`${window.location.origin}/cocktails/data/inventory`)
+    fetch(`${window.location.origin}/cocktails/data/inventory.php`)
       .then(response => response.json())
       .then(data => {
         setInventory(data.data.reduce((result, item) => {
@@ -175,6 +175,7 @@ function App() {
             <Route path={["/explore/:tags", "/explore"]}>
               <Explore
                 alcoholicByFrequency={alcoholicByFrequency}
+                availableIngredients={availableIngredients}
                 availableRecipeData={availableRecipeData}
                 initialRecipes={initialRecipesPair}
                 initialRecipeTagMap={initialRecipeTagMap}

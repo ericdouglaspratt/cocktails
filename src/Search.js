@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
+import { useHistory } from "react-router-dom";
 import './Search.css';
 
 import IngredientIcon from '@material-ui/icons/FilterList';
@@ -12,16 +13,21 @@ const MATCH_TYPES = {
 
 const Search = ({
   availableIngredients,
-  onSelectIngredient,
-  onSelectRecipe,
+  onUpdateTags,
   recipes,
   selectedTags
 }) => {
+  const history = useHistory();
+
   const [matchType, setMatchType] = useState(null);
   const [searchTerms, setSearchTerms] = useState([]);
   const [selection, setSelection] = useState(null);
   const [value, setValue] = useState('');
   const inputRef = useRef(null);
+
+  const navigateToRecipeId = id => {
+    history.push(`/recipes/${id}`);
+  };
 
   // update available search terms whenever the ingredients, recipes, or selected tags change
   useEffect(() => {
@@ -79,9 +85,9 @@ const Search = ({
 
     if (result) {
       if (result.id) {
-        onSelectRecipe(result.id);
+        navigateToRecipeId(result.id);
       } else {
-        onSelectIngredient(value);
+        onUpdateTags([value]);
       }
 
       setValue('');
@@ -96,7 +102,7 @@ const Search = ({
         autoComplete="off"
         className="Search-input"
         id="Search-input"
-        placeholder="Find recipes by name or ingredients"
+        placeholder="Find ingredient or recipe"
         onChange={handleChange}
         ref={inputRef}
         type="text"

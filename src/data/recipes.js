@@ -1020,7 +1020,7 @@ export default [
       }
     ]
   },
-  {
+  /*{
     name: 'May Daisy', // less simple syrup, add club soda? needs less syrupy and more fizz
     image: 'images/may-daisy.jpg',
     instructions: 'Shake with ice and strain into a chilled wine glass filled with ice. Garnish with a mint sprig.',
@@ -1049,7 +1049,7 @@ export default [
         unit: 'oz'
       }
     ]
-  },
+  },*/
   {
     name: 'Mary Pickford',
     image: 'images/mary-pickford.jpg',
@@ -1622,7 +1622,7 @@ export default [
       }
     ]
   },
-  {
+  /*{
     name: 'Nor\'easter',
     image: 'images/noreaster.jpg',
     instructions: 'Shake with ice without ginger beer and strain into a chilled collins glass filled with ice. Top with ginger beer. Garnish with a sage leaf.',
@@ -1657,7 +1657,7 @@ export default [
         unit: 'dash'
       }
     ]
-  },
+  },*/
   {
     name: 'Apple Cinner',
     image: 'images/apple-cinner.jpg',
@@ -1852,9 +1852,9 @@ export default [
   },
   {
     name: 'Pimm\'s Cup',
+    image: 'images/pimms-cup.jpg',
     instructions: 'Muddle cucumber and simple in shaker. Add remaining ingredients, shake with ice, and strain into a chilled Collins glass filled with ice. Garnish with a cucumber wheel.',
     method: METHODS.SHAKE,
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
@@ -2349,7 +2349,7 @@ export default [
       }
     ]
   },
-  {
+  /*{
     name: 'Corn\'n\'Oil',
     instructions: 'Stir all except blackstrap rum with ice and strain into a chilled rocks glass filled with ice. Float blackstrap rum on top. Garnish with a lime wedge.',
     method: METHODS.STIR,
@@ -2381,7 +2381,7 @@ export default [
         unit: 'dash'
       }
     ]
-  },
+  },*/
   {
     name: 'Falernum Manhattan',
     image: 'images/falernum-manhattan.jpg',
@@ -3387,6 +3387,31 @@ export default [
         unit: 'dash'
       }
     ]
+  },
+  {
+    name: 'Sherry Flip',
+    image: 'images/sherry-flip.jpg',
+    instructions: 'Dry shake, then shake with ice and strain into a chilled nick and nora glass. Garnish with grated nutmeg.',
+    methods: METHODS.SHAKE,
+    source: 'Cocktail Codex book',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'sherry',
+        preferred: 'oloroso',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'demerara syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'whole egg'
+      }
+    ],
+    
   }
 
   // SUPER X - tito's vodka, kina l'aero d'or, velvet falernum, lemon

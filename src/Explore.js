@@ -19,9 +19,11 @@ import CategoryPicker from './CategoryPicker';
 import IngredientFilterButtonList from './IngredientFilterButtonList';
 import InventoryViewControl from './InventoryViewControl';
 import RecipeList from './RecipeList';
+import Search from './Search';
 
 const Explore = ({
   alcoholicByFrequency,
+  availableIngredients,
   availableRecipeData,
   initialRecipes,
   initialRecipeTagMap,
@@ -144,6 +146,12 @@ const Explore = ({
   return (
     <div className="Explore">
       <div className="FilterPane">
+        <Search
+          availableIngredients={availableIngredients}
+          onUpdateTags={handleUpdateTags}
+          recipes={sourceRecipes.list}
+          selectedTags={selectedTags}
+        />
         <InventoryViewControl
           activeInventoryView={activeInventoryView}
           isInventoryLoaded={!!inventory}

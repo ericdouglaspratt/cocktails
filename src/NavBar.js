@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import CocktailIcon from '@material-ui/icons/LocalBar';
 import './NavBar.css';
-
-import Search from './Search';
 
 const NavBar = ({
   availableIngredients,
