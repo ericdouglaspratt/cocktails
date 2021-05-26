@@ -40,8 +40,6 @@ import Footer from './Footer';
 import Home from './Home';
 import NavBar from './NavBar';
 import Recipe from './Recipe';
-import RecipeDrawer from './RecipeDrawer';
-import RecipeModal from './RecipeModal';
 
 // initial data prep
 const initialIngredientTagMap = generateIngredientTagMap(ingredients);

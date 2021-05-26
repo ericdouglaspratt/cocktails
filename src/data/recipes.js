@@ -3363,32 +3363,6 @@ export default [
     ]
   },
   {
-    name: 'Duplex',
-    instructions: 'Stir with ice and strain into a chilled nick and nora glass. Garnish with lemon twist.',
-    method: METHODS.STIR,
-    source: 'https://kindredcocktails.com/cocktail/duplex-punt-e-mes-and-lillet',
-    inHoldingPen: true,
-    ingredients: [
-      {
-        amount: 1.25,
-        tag: 'sweet vermouth',
-        preferred: 'punt e mes',
-        unit: 'oz'
-      },
-      {
-        amount: 1.25,
-        tag: 'dry vermouth',
-        preferred: 'lillet blanc', // maybe cocchi americano instead?
-        unit: 'oz'
-      },
-      {
-        amount: 2,
-        tag: 'orange bitters',
-        unit: 'dash'
-      }
-    ]
-  },
-  {
     name: 'Sherry Flip',
     image: 'images/sherry-flip.jpg',
     instructions: 'Dry shake, then shake with ice and strain into a chilled nick and nora glass. Garnish with grated nutmeg.',
