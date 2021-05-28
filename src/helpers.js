@@ -118,10 +118,24 @@ export const determineUnavailableRecipesFromInventory = (recipes, inventory) => 
 };
 
 export const determineRecipeConnection = (sourceRecipe, compareRecipe) => {
-  const a = sourceRecipe.ingredients.map(ingredient => ingredient.tag);
-  const b = compareRecipe.ingredients.map(ingredient => ingredient.tag);
+  if (sourceRecipe.isCoreDrink && compareRecipe.isCoreDrink) {
+    return;
+  }
 
-  const diff = a.filter(x => !b.includes(x)).concat(b.filter(x => !a.includes(x)));
+  const sourceIngredients = sourceRecipe.ingredients.map(ingredient => ingredient.tag);
+  const compareIngredients = compareRecipe.ingredients.map(ingredient => ingredient.tag);
+
+  const subtract = sourceIngredients.filter(x => !compareIngredients.includes(x));
+  const add = compareIngredients.filter(x => !sourceIngredients.includes(x));
+
+  if (subtract.length + add.length < 3) {
+    return {
+      add,
+      subtract
+    };
+  }
+
+  /*const diff = a.filter(x => !b.includes(x)).concat(b.filter(x => !a.includes(x)));
 
   if (diff.length > 0) {
     if ((diff.length < 3) && (Math.abs(a.length - b.length) === diff.length)) {
@@ -152,7 +166,7 @@ export const determineRecipeConnection = (sourceRecipe, compareRecipe) => {
     } else if ((diff.length === 3) && (Math.abs(a.length - b.length) === 2)) {
       console.log(diff, a, b);
     }
-  }
+  }*/
 };
 
 export const determineRecipeStrength = (recipe, ingredientTagMap) => {
@@ -220,16 +234,30 @@ export const determineRecipeTastes = (recipe, ingredients) => {
 };
 
 export const determineRecommendations = recipes => {
-  const result = [];
+  const result = {};
 
+  // loop through the recipes
   recipes.forEach((sourceRecipe, index) => {
-    //console.log(recipes.slice(index + 1));
-    //console.log(`comparing ${sourceRecipe.name}`);
+
+    // compare the current recipe to all recipes after it in the list
     recipes.slice(index + 1).forEach(compareRecipe => {
-      //console.log(`comparing ${sourceRecipe.name} to ${compareRecipe.name}`);
       const connection = determineRecipeConnection(sourceRecipe, compareRecipe);
+
+      // if a connection is found, record it both ways
       if (connection) {
-        result.push(connection);
+        result[sourceRecipe.id] = result[sourceRecipe.id] || [];
+        result[sourceRecipe.id].push({
+          id: compareRecipe.id,
+          add: connection.add,
+          subtract: connection.subtract
+        });
+
+        result[compareRecipe.id] = result[compareRecipe.id] || [];
+        result[compareRecipe.id].push({
+          id: sourceRecipe.id,
+          add: connection.subtract,
+          subtract: connection.add
+        });
       }
     });
   });

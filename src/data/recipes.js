@@ -442,24 +442,6 @@ export default [
     ]
   },
   {
-    name: 'Vodka Martini',
-    image: 'images/vodka-martini.jpg',
-    instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon peel.',
-    method: METHODS.STIR,
-    ingredients: [
-      {
-        amount: 2.5,
-        tag: 'vodka',
-        unit: 'oz'
-      },
-      {
-        amount: 0.5,
-        tag: 'dry vermouth',
-        unit: 'oz'
-      }
-    ]
-  },
-  {
     name: 'Backyard Cocktail',
     image: 'images/backyard-cocktail.jpg',
     instructions: 'Muddle sauvignon blanc, elderflower liqueur, and cucumber in a shaker. Shake with ice, strain into a chilled Collins glass filled with ice, and top with club soda and prosecco. Garnish with cucumber slice.',
@@ -1575,6 +1557,7 @@ export default [
     image: 'images/revolver.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with a flamed orange peel.',
     method: METHODS.STIR,
+    inHoldingPen: true,
     ingredients: [
       {
         amount: 2,
@@ -3179,7 +3162,7 @@ export default [
       }
     ]
   },
-  {
+  /*{ ** tried on 5/28/21, okay but not that great **
     name: 'Brooklyn\'s Finest',
     instructions: 'Stir with ice and strain into a chilled nick and nora glass. Garnish with a lemon zest twist.',
     method: METHODS.STIR,
@@ -3214,7 +3197,7 @@ export default [
         unit: 'dash'
       }
     ]
-  },
+  },*/
   {
     name: 'Caribbean Sazerac',
     instructions: 'Rinse a chilled rocks glass with overproof rum and discard. Shake other ingredients with ice and strain into glass. Rim with orange zest twist and discard.',
@@ -3329,10 +3312,10 @@ export default [
   },
   {
     name: 'Court Royale',
+    image: 'images/court-royale.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with lemon wheel and rosemary sprig.',
     method: METHODS.SHAKE,
     source: 'https://imbibemagazine.com/recipe/court-royale-gin-cocktail/',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1,
@@ -3387,6 +3370,8 @@ export default [
     ],
     
   }
+
+  // Cardamaro stuff https://www.foodandwine.com/drinks/what-cardamaro-and-why-should-you-drink-it-right-now
 
   // SUPER X - tito's vodka, kina l'aero d'or, velvet falernum, lemon
   // source: Pabu cocktail menu

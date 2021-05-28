@@ -58,7 +58,7 @@ const recommendations = determineRecommendations(initialRecipesPair.list);
 console.log('recommendations', recommendations);
 
 // output of recommendation list
-initialRecipesPair.list.forEach(recipe => {
+/*initialRecipesPair.list.forEach(recipe => {
   const connections = recommendations.filter(recommendation => recommendation.begin === recipe);
   if (connections.length > 0) {
     console.log(recipe.name);
@@ -66,7 +66,7 @@ initialRecipesPair.list.forEach(recipe => {
       console.log(`  ${connection.description} and it becomes ${(connection.begin === recipe ? connection.end : connection.begin).name}`)
     });
   }
-});
+});*/
 
 // in modal under recipe, recommended
 // --> more tart [recipe]
@@ -210,6 +210,7 @@ function App() {
               <Recipe
                 preferredIngredientTagMap={preferredIngredientTagMap}
                 recipes={initialRecipesPair}
+                recommendations={recommendations}
               />
             </Route>
             <Route path="/">

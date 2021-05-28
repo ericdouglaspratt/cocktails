@@ -490,6 +490,13 @@ export default [
     origin: 'Italy'
   },
   {
+    name: 'Cardamaro',
+    fullName: 'Cardamaro',
+    tags: ['vermouth amaro', 'cardamaro'],
+    abv: 17,
+    origin: 'Italy'
+  },
+  {
     name: 'Noilly Prat Extra Dry Vermouth',
     fullName: 'Noilly Prat Vermouth de France Extra Dry',
     tags: ['dry vermouth', 'extra dry vermouth'],
@@ -560,6 +567,14 @@ export default [
     tags: ['red wine', 'merlot', 'dry red wine'],
     abv: 14.5,
     origin: 'Modesto, CA, USA'
+  },
+  // sherry
+  {
+    name: 'Harvey\'s Solera Sherry',
+    fullName: 'Harvey\'s The Bristol Cream Solera Sherry',
+    tags: ['sherry'],
+    abv: 17.5,
+    origin: 'Spain'
   },
 
   // ----------

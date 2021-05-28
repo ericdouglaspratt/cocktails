@@ -54,10 +54,12 @@
 
 @media (min-width: 480px) {
   .Recipe {
+    padding: 20px;
+  }
+  .Recipe-main {
     /*align-items: center;*/
     display: flex;
     flex-flow: column nowrap;
-    padding: 20px;
   }
   .Recipe-image {
     border-radius: 8px;
@@ -71,9 +73,8 @@
 }
 
 @media (min-width: 640px) {
-  .Recipe {
+  .Recipe-main {
     flex-flow: row nowrap;
-    padding: 20px;
   }
   .Recipe-image {
     height: 280px;
@@ -88,7 +89,6 @@
 
 @media (min-width: 1024px) {
   .Recipe {
-    flex-flow: row nowrap;
     padding: 60px;
   }
   .Recipe-image {

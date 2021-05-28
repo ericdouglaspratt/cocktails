@@ -1,0 +1,61 @@
+.RecipeSimilar {
+
+}
+.RecipeSimilar-list {
+  display: flex;
+  flex-flow: row wrap;
+  list-style-type: none;
+  margin-left: -10px;
+  padding: 0;
+}
+.RecipeSimilar-link {
+  color: #33333f;
+  display: block;
+  margin: 10px 10px 20px;
+  padding: 3px 3px 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 400ms;
+  width: 240px;
+}
+.RecipeSimilar-link:hover {
+  transform: translateY(-0.4vw);
+}
+.RecipeSimilar-image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /*border: 3px solid #5C8E89;*/
+  box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 3px #5C8E89;
+  border-radius: 8px;
+  display: block;
+  flex-shrink: 0;
+  padding-top: 110%;
+  transition: border-radius 200ms, box-shadow 200ms;
+}
+.RecipeSimilar-link:hover .RecipeSimilar-image {
+  box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 3px #2F4858;
+}
+.RecipeSimilar-name {
+  display: block;
+  font-family: 'Forum', serif;
+  font-size: 24px;
+  font-weight: 400;
+  margin: 10px 0 0;
+}
+.RecipeSimilar-ingredients {
+  font-family: 'Hind', sans-serif;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.RecipeSimilar-ingredients .MuiSvgIcon-root {
+  margin-right: 5px;
+  width: 16px;
+}
+.RecipeSimilar-additions,
+.RecipeSimilar-subtractions {
+  align-items: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
