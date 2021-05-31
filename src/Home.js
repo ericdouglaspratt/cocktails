@@ -21,7 +21,7 @@ const Home = ({ recipes, recipeTagMap }) => {
   const classics = recipes.list.filter(recipe => recipe.isCoreDrink);
   // const exclusives = getRecipes(['thunderball', 'the-andy-special'], recipes);
   // const fresh = getRecipes(['gin-smash', 'whiskey-smash'], recipes);
-  const recentlyAdded = getRecipes(['court-royale', 'comte-de-sureau', 'barney-barnato', 'gin-smash', 'kangaroo', 'tequila-old-fashioned'], recipes);
+  const recentlyAdded = getRecipes(['midnight-stinger', 'court-royale', 'comte-de-sureau', 'barney-barnato', 'gin-smash', 'tequila-old-fashioned'], recipes);
   const seaportCollection = getRecipes(['laissez-faire', 'maximilian-affair', 'fort-point', 'casino-royale', 'mission-of-burma'], recipes);
   // const smooth = getRecipes(['diffords-old-fashioned'], recipes);
 

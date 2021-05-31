@@ -8,10 +8,15 @@ import {
 } from './constants';
 import {
   addTagsAndSort,
+  createRecipesPair,
   decodeUrlTags,
+  determineAvailableRecipesFromInventory,
   determineNumInclusiveMatches,
+  determineUnavailableRecipesFromInventory,
   encodeTagsForUrl,
+  generateRecipeTagMap,
   removeTagsFromArray,
+  sortByName
 } from './helpers';
 
 import ActiveFilters from './ActiveFilters';
@@ -85,6 +90,12 @@ const Explore = ({
   const { tags } = useParams();
   const history = useHistory();
 
+  // inventory filtering
+  const [inventoryCode, setInventoryCode] = useState('');
+  const [inventoryTags, setInventoryTags] = useState(null);
+  //const [availableRecipeData, setAvailableRecipeData] = useState(null);
+  //const [unavailableRecipeData, setUnavailableRecipeData] = useState(null);
+
   // UI state
   const [selectedTags, setSelectedTags] = useState(tags ? decodeUrlTags(tags) : []);
   const [activeInventoryView, setActiveInventoryView] = useState(INVENTORY_VIEWS.ALL);
@@ -126,6 +137,39 @@ const Explore = ({
     }
   }, [tags]);
 
+  const handleInventoryClear = () => {
+    setInventoryCode('');
+    setInventoryTags(null);
+    setSourceRecipes(initialRecipes);
+    setSourceRecipeTagMap(initialRecipeTagMap);
+    setVisibleRecipes(determineVisibleRecipes(selectedTags, initialRecipes.list, initialRecipeTagMap));
+  }
+
+  const handleInventoryLoadSuccess = (code, inventory) => {
+    setInventoryCode(code);
+    setInventoryTags(inventory);
+
+    const availableRecipes = sortByName(determineAvailableRecipesFromInventory(initialRecipes.list, inventory));
+    const availableRecipeData = {
+      recipes: createRecipesPair(availableRecipes),
+      recipeTagMap: generateRecipeTagMap(availableRecipes)
+    };
+    setSourceRecipes(availableRecipeData.recipes);
+    setSourceRecipeTagMap(availableRecipeData.recipeTagMap);
+    setVisibleRecipes(determineVisibleRecipes(selectedTags, availableRecipeData.recipes.list, availableRecipeData.recipeTagMap));
+    
+    /*setAvailableRecipeData({
+      recipes: createRecipesPair(availableRecipes),
+      recipeTagMap: generateRecipeTagMap(availableRecipes)
+    });
+
+    const unavailableRecipes = sortByName(determineUnavailableRecipesFromInventory(initialRecipes.list, inventory));
+    setUnavailableRecipeData({
+      recipes: createRecipesPair(unavailableRecipes),
+      recipeTagMap: generateRecipeTagMap(unavailableRecipes)
+    });*/
+  };
+
   const handleGlobalKeyDown = e => {
     // clear filters when escape key is hit
     if (e.keyCode === 27) {
@@ -154,8 +198,11 @@ const Explore = ({
         />
         <InventoryViewControl
           activeInventoryView={activeInventoryView}
+          inventoryCode={inventoryCode}
           isInventoryLoaded={!!inventory}
           onChange={setActiveInventoryView}
+          onInventoryClear={handleInventoryClear}
+          onInventoryLoadSuccess={handleInventoryLoadSuccess}
         />
         <CategoryPicker
           onUpdateTags={handleUpdateTags}

@@ -15,7 +15,7 @@ const IngredientFilterButtonList = ({
         {title}
       </h4>
       <div className="IngredientFilterButtonList-list">
-        {tags.map(tag => {
+        {tags.slice(0, 6).map(tag => {
           const selectionRecord = selectedTags && selectedTags.find(item => item.tag === tag);
           return (
             <div className="IngredientFilterButtonList-listItem" key={tag}>

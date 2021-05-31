@@ -38,6 +38,7 @@ import RAW_RECIPES from './data/recipes';
 import Explore from './Explore';
 import Footer from './Footer';
 import Home from './Home';
+import InventoryBuilder from './InventoryBuilder';
 import NavBar from './NavBar';
 import Recipe from './Recipe';
 
@@ -140,7 +141,7 @@ function App() {
   };
 
   const loadInventory = () => {
-    fetch(`${window.location.origin}/cocktails/data/inventory.php`)
+    /*fetch(`${window.location.origin}/cocktails/data/inventory.php`)
       .then(response => response.json())
       .then(data => {
         setInventory(data.data.reduce((result, item) => {
@@ -150,7 +151,7 @@ function App() {
       })
       .catch(e => {
         console.log('error fetching inventory data', e);
-      });
+      });*/
   }
 
   //const activeRecipe = activeRecipeId ? recipes.lookup[activeRecipeId] : null;
@@ -205,6 +206,12 @@ function App() {
                   recipe={activeRecipe}
                 />
               )*/}
+            </Route>
+            <Route path="/inventory-builder">
+              <InventoryBuilder
+                alcoholicByFrequency={alcoholicByFrequency}
+                nonalcoholicByFrequency={nonalcoholicByFrequency}
+              />
             </Route>
             <Route path="/recipes/:recipeId">
               <Recipe

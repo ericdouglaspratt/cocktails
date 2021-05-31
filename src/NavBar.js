@@ -29,6 +29,11 @@ const NavBar = ({
               Explore
             </Link>
           </li>
+          <li>
+            <Link className="NavBar-navLink" to="/inventory-builder">
+              Inventory Builder (alpha)
+            </Link>
+          </li>
         </ul>
         {/*<Search
           availableIngredients={availableIngredients}

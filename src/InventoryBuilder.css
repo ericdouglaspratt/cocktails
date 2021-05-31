@@ -1,0 +1,103 @@
+.InventoryBuilder {
+  max-width: 1500px;
+  width: 100%;
+}
+
+.InventoryBuilder-codeSelector {
+  text-align: center;
+}
+.InventoryBuilder-codeInput {
+  border: 2px solid #2F4858;
+  border-radius: 8px;
+  font-size: 24px;
+  letter-spacing: 0.01em;
+  padding: 8px;
+  width: 100%;
+}
+.InventoryBuilder-codeInput:focus {
+  box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 3px #87B198;
+  outline: none;
+}
+
+.InventoryBuilder-stock {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.InventoryBuilder-selectorHeading {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.InventoryBuilder-selectorHeading > h2 {
+  margin: 0 20px 0 0;
+}
+.InventoryBuilder-saveButton {
+  background-color: #2F4858;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  padding: 2px 20px;
+  transition: background-color 200ms;
+}
+.InventoryBuilder-saveButton:hover {
+  background-color: #3F6B74;
+}
+.InventoryBuilder-selectorCategories {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.InventoryBuilder-list {
+  list-style-type: none;
+  padding: 0;
+}
+.InventoryBuilder-checkboxInput {
+  left: -9999em;
+  position: absolute;
+}
+.InventoryBuilder-checkboxLabel {
+  border: 2px solid #3F6B74;
+  border-radius: 16px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  margin: 2px 0;
+  padding: 0 8px 0 28px;
+  position: relative;
+}
+.InventoryBuilder-checkboxLabel::before {
+  border: 2px solid #3F6B74;
+  border-radius: 18px;
+  content: '';
+  display: block;
+  left: 2px;
+  position: absolute;
+  height: 18px;
+  transition: background-color 200ms;
+  top: 2px;
+  width: 18px;
+}
+.InventoryBuilder-checkboxLabel .MuiSvgIcon-root {
+  color: #fff;
+  display: block;
+  position: absolute;
+  left: 2px;
+  height: 22px;
+  opacity: 0;
+  top: 2px;
+  transition: opacity 200ms;
+  width: 22px;
+}
+.InventoryBuilder-checkboxInput:checked + .InventoryBuilder-checkboxLabel::before {
+  background-color: #3F6B74;
+}
+.InventoryBuilder-checkboxInput:checked + .InventoryBuilder-checkboxLabel .MuiSvgIcon-root {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .InventoryBuilder-codeInput {
+    width: 500px;
+  }
+}

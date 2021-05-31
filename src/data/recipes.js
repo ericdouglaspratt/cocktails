@@ -3015,6 +3015,7 @@ export default [
   },
   {
     name: 'Midnight Stinger',
+    image: 'images/midnight-stinger.jpg',
     instructions: 'Shake with crushed ice and strain into a rocks glass filled with crushed ice. Garnish with mint sprig.',
     method: METHODS.SHAKE,
     source: 'https://robbreport.com/food-drink/spirits/midnight-stinger-recipe-whiskey-sour-bourbon-fernet-branca-1234601482/',

@@ -46,8 +46,7 @@ export const decodeUrlTags = tags => addTagsAndSort(
 export const determineAlcoholicByFrequency = availableIngredientsByFrequency => {
   return availableIngredientsByFrequency
     .filter(ingredient => !NONALCOHOLIC_INGREDIENTS[ingredient.tag] && !CORE_SPIRITS.find(spirit => spirit === ingredient.tag))
-    .map(ingredient => ingredient.tag)
-    .slice(0, 6);
+    .map(ingredient => ingredient.tag);
 };
 
 export const determineAvailableIngredients = recipes => {
@@ -91,8 +90,7 @@ export const determineCurrentSeason = () => {
 export const determineNonalcoholicByFrequency = availableIngredientsByFrequency => {
   return availableIngredientsByFrequency
     .filter(ingredient => NONALCOHOLIC_INGREDIENTS[ingredient.tag])
-    .map(ingredient => ingredient.tag)
-    .slice(0, 6);
+    .map(ingredient => ingredient.tag);
 };
 
 export const determineNumInclusiveMatches = (recipe, inclusiveTags) => {
