@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom";
 import './Explore.css';
 
 import {
+  CORE_SPIRITS,
   CORE_SPIRIT_VARIATION_MAP,
   INVENTORY_VIEWS
 } from './constants';
@@ -211,7 +212,7 @@ const Explore = ({
         <IngredientFilterButtonList
           onUpdateTags={handleUpdateTags}
           selectedTags={selectedTags}
-          tags={alcoholicByFrequency}
+          tags={alcoholicByFrequency.filter(tag => !CORE_SPIRITS.includes(tag) && !Object.keys(CORE_SPIRIT_VARIATION_MAP).includes(tag))}
           title="Common Liqueurs"
         />
         <IngredientFilterButtonList

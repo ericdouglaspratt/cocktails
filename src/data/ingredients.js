@@ -139,6 +139,13 @@ export default [
     abv: 57.5,
     origin: 'Louisville, Kentucky, USA'
   },
+  {
+    name: 'Mad River Bourbon',
+    fullName: 'Mad River Distillers Bourbon Whiskey',
+    tags: ['whiskey', 'bourbon'],
+    abv: 46,
+    origin: 'Warren, Vermont, USA'
+  },
   // rye whiskey
   {
     name: 'Old Overholt Rye',
@@ -325,6 +332,13 @@ export default [
     abv: 25,
     origin: 'Great Britain'
   },
+  {
+    name: 'Cherry Heering',
+    fullName: 'Heering The Original Cherry Liqueur',
+    tags: ['cherry heering'],
+    abv: 24,
+    origin: 'Copenhagen, The Netherlands'
+  },
   // ginger liqueurs
   {
     name: 'Domaine de Canton Ginger Liqueur',
@@ -332,6 +346,14 @@ export default [
     tags: ['liqueur', 'ginger liqueur'],
     abv: 28,
     origin: 'France'
+  },
+  // nut liqueurs
+  {
+    name: 'Disaronno',
+    fullName: 'Disaronno Originale Italian Liqueur',
+    tags: ['amaretto'],
+    abv: 28,
+    origin: 'Soronno, Italy'
   },
   // herbal liqueurs
   {

@@ -74,7 +74,7 @@ export const UNIT_CONVERSION_TO_OZ = {
   'sprig': 0,
   'stick': 0,
   'Tbsp': 0.5,
-  'tsp': 0.166667,
+  'tsp': 0.166667, // 1/6
   'wedge': 0.125, // 1/8,
   'wheel': 0.0625, // 1/16,
 };

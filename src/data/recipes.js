@@ -3240,10 +3240,10 @@ export default [
   },
   {
     name: 'Prestige',
+    image: 'images/prestige.jpg',
     instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with pineapple wedge and spiral lime peel.',
     method: METHODS.SHAKE,
     source: 'https://www.diffordsguide.com/cocktails/recipe/2550/prestige-cocktail',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -3368,8 +3368,72 @@ export default [
         amount: 1,
         tag: 'whole egg'
       }
-    ],
-    
+    ]
+  },
+  {
+    name: 'Amaretto Sour',
+    image: 'images/amaretto-sour.jpg',
+    instructions: 'Dry shake, then shake with ice and strain into a chilled, ice-filled rocks glass. Rim with lemon zest twist, discard, and garnish with three maraschino cherries on a skewer.',
+    methods: METHODS.SHAKE,
+    source: 'https://www.diffordsguide.com/cocktails/recipe/3263/amaretto-sour-by-jeffrey-morgenthaler',
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'amaretto',
+        preferred: 'disaronno',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'bourbon',
+        preferred: 'mad river',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'demerara syrup',
+        unit: 'tsp'
+      },
+      {
+        amount: 0.5,
+        tag: 'egg white',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Naked and Famous',
+    image: 'images/naked-and-famous.jpg',
+    instructions: 'Shake with ice and strain into a chilled cocktail glass. Garnish with lime wedge.',
+    method: METHODS.SHAKE,
+    source: 'https://www.acouplecooks.com/naked-and-famous-cocktail/',
+    ingredients: [
+      {
+        amount: 1,
+        tag: 'mezcal',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'yellow chartreuse',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'aperol',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'lime juice',
+        unit: 'oz'
+      }
+    ]
   }
 
   // Cardamaro stuff https://www.foodandwine.com/drinks/what-cardamaro-and-why-should-you-drink-it-right-now

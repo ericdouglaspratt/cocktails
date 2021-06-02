@@ -45,7 +45,7 @@ export const decodeUrlTags = tags => addTagsAndSort(
 
 export const determineAlcoholicByFrequency = availableIngredientsByFrequency => {
   return availableIngredientsByFrequency
-    .filter(ingredient => !NONALCOHOLIC_INGREDIENTS[ingredient.tag] && !CORE_SPIRITS.find(spirit => spirit === ingredient.tag))
+    .filter(ingredient => !NONALCOHOLIC_INGREDIENTS[ingredient.tag])
     .map(ingredient => ingredient.tag);
 };
 
