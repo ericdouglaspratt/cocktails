@@ -3434,6 +3434,35 @@ export default [
         unit: 'oz'
       }
     ]
+  },
+  {
+    name: 'Southside',
+    image: 'images/southside.jpg',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with small mint sprig.',
+    method: METHODS.SHAKE,
+    source: 'https://www.foodnetwork.com/recipes/geoffrey-zakarian/southside-cocktail-2303816',
+    ingredients: [
+      {
+        amount: 2,
+        tag: 'gin',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'lime juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'simple syrup',
+        unit: 'oz'
+      },
+      {
+        amount: 7,
+        tag: 'mint',
+        unit: 'leaf'
+      }
+    ]
   }
 
   // Cardamaro stuff https://www.foodandwine.com/drinks/what-cardamaro-and-why-should-you-drink-it-right-now
