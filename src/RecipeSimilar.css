@@ -1,5 +1,11 @@
-.RecipeSimilar {
-
+.RecipeSimilar-heading {
+  border-top: 2px solid #5C8E89;
+  font-family: 'Forum', serif;
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 0;
+  margin-top: 80px;
+  padding-top: 40px;
 }
 .RecipeSimilar-list {
   display: flex;
@@ -44,18 +50,28 @@
   margin: 10px 0 0;
 }
 .RecipeSimilar-ingredients {
+  display: inline-block;
   font-family: 'Hind', sans-serif;
   font-size: 14px;
   margin-top: 5px;
 }
 .RecipeSimilar-ingredients .MuiSvgIcon-root {
-  margin-right: 5px;
+  color: #5C8E89;
+  margin-right: 2px;
+  position: relative;
+  top: -1px;
+  transition: color 200ms;
   width: 16px;
 }
-.RecipeSimilar-additions,
-.RecipeSimilar-subtractions {
+.RecipeSimilar-link:hover .RecipeSimilar-ingredients .MuiSvgIcon-root {
+  color: #2F4858;
+}
+.RecipeSimilar-ingredientList {
   align-items: center;
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: flex-start;
+}
+.RecipeSimilar-ingredientList + .RecipeSimilar-ingredientList {
+  margin-top: -5px;
 }

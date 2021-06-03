@@ -25,7 +25,7 @@ const Recipe = ({ preferredIngredientTagMap, recipes, recommendations }) => {
                 )}
               </div>
               <div className="Recipe-text">
-                <h2 className="Recipe-header">{recipe.name}</h2>
+                <h1 className="Recipe-header">{recipe.name}</h1>
                 <ol className="Recipe-ingredients">
                   {recipe.ingredients.map(({ amount, preferred, tag, unit }) => {
                     const displayName = preferred && preferredIngredientTagMap[tag][preferred] ? preferredIngredientTagMap[tag][preferred] : '';

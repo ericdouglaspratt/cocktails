@@ -20,13 +20,13 @@ const RecipeSimilar = ({ recipeLookup, similar }) => {
                 <span className="RecipeSimilar-name">{recipe.name}</span>
                 <span className="RecipeSimilar-ingredients">
                   {!!info.subtract && !!info.subtract.length && (
-                    <span className="RecipeSimilar-subtractions">
+                    <span className="RecipeSimilar-ingredientList">
                       <RemoveIcon />
                       {info.subtract.join(', ')}
                     </span>
                   )}
                   {!!info.add && !!info.add.length && (
-                    <span className="RecipeSimilar-additions">
+                    <span className="RecipeSimilar-ingredientList">
                       <AddIcon />
                       {info.add.join(', ')}
                     </span>

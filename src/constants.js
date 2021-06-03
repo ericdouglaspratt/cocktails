@@ -24,6 +24,24 @@ export const CORE_SPIRIT_VARIATION_MAP = {
   'white rum': 'rum'
 };
 
+export const INGREDIENT_CATEGORIES = {
+  BITTERS: 'bitters',
+  SPIRIT_ALTERNATE: 'spirit-alternate',
+  SPIRIT_CORE: 'spirit-core',
+  LIQUEUR_FRUIT: 'liqueur-fruit',
+  LIQUEUR_AMARO: 'liqueur-amaro',
+  LIQUEUR_AROMATIZED_WINE: 'liqueur-aromatized-wine',
+  LIQUEUR_COFFEE: 'liqueur-coffee',
+  LIQUEUR_HERBAL: 'liqueur-herbal',
+  LIQUEUR_FLORAL: 'liqueur-floral',
+  LIQUEUR_SPICE: 'liqueur-spice',
+  LIQUEUR_NUT: 'liqueur-nut',
+  PERISHABLE: 'perishable',
+  SODA: 'soda',
+  SWEETENER: 'sweetener',
+  WINE: 'wine'
+};
+
 export const INVENTORY_VIEWS = {
   ALL: 'all',
   AVAILABLE: 'available',
@@ -117,54 +135,128 @@ export const UNIT_DISPLAY = [
 // ----------------
 
 export const NONALCOHOLIC_INGREDIENTS = {
-  'agave nectar': [TASTES.SWEET],
-  'apple cider': true,
-  'basil': true,
+  'agave nectar': {
+    category: INGREDIENT_CATEGORIES.SWEETENER,
+    taste: TASTES.SWEET
+  },
+  'apple cider': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'basil': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
   'blackberry puree': [TASTES.SWEET],
-  'brown sugar syrup': true,
-  'cane sugar': [TASTES.SWEET],
-  'cherry': true,
+  'brown sugar syrup': {
+    category: INGREDIENT_CATEGORIES.SWEETENER,
+    taste: TASTES.SWEET
+  },
+  'cane sugar': {
+    category: INGREDIENT_CATEGORIES.SWEETENER,
+    taste: TASTES.SWEET
+  },
+  'cherry': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
   'cinnamon': true,
   'cinnamon stick': true,
   'cinnamon sticks': true,
-  'club soda': true,
+  'club soda': {
+    category: INGREDIENT_CATEGORIES.SODA
+  },
   'cranberry juice': [TASTES.TART],
   'cream of coconut': true,
-  'cucumber': true,
-  'demerara syrup': [TASTES.SWEET],
-  'egg white': true,
-  'elderflower tonic water': true,
-  'fresh oregano': true,
+  'cucumber': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'demerara syrup': {
+    category: INGREDIENT_CATEGORIES.SWEETENER,
+    taste: TASTES.SWEET
+  },
+  'egg white': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'elderflower tonic water': {
+    category: INGREDIENT_CATEGORIES.SODA
+  },
+  'fresh oregano': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
   'ginger': true,
-  'ginger beer': true,
+  'ginger beer': {
+    category: INGREDIENT_CATEGORIES.SODA
+  },
   'ginger root': true,
-  'grapefruit juice': true,
-  'grapefruit peel': true,
-  'grenadine': true,
+  'grapefruit juice': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'grapefruit peel': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'grenadine': {
+    category: INGREDIENT_CATEGORIES.SWEETENER,
+  },
   'ground nutmeg': true,
-  'heavy cream': true,
+  'heavy cream': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
   'honey': true,
   'honey syrup': true,
   'ice': true,
-  'lemon': true,
-  'lemon juice': [TASTES.CITRUS],
-  'lime': true,
-  'lime juice': [TASTES.CITRUS],
-  'maple syrup': true,
-  'mint': true,
-  'orange': true,
+  'lemon': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'lemon juice': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE,
+    taste: TASTES.CITRUS
+  },
+  'lime': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'lime juice': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE,
+    taste: TASTES.CITRUS
+  },
+  'maple syrup': {
+    category: INGREDIENT_CATEGORIES.SWEETENER,
+    taste: TASTES.SWEET
+  },
+  'mint': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'orange': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
   'orange flower water': [TASTES.FLORAL],
-  'orange juice': [TASTES.CITRUS, TASTES.SWEET],
-  'orange peel': true,
-  'pineapple juice': [TASTES.SWEET],
-  'plum': true,
+  'orange juice': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE,
+    taste: TASTES.CITRUS
+  },
+  'orange peel': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'pineapple juice': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'plum': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
   'pumpkin puree': true,
   'raisins': true,
   'raspberry preserves': true,
-  'rosemary': true,
-  'simple syrup': [TASTES.SWEET],
-  'sugar': true,
-  'tonic water': true,
+  'rosemary': {
+    category: INGREDIENT_CATEGORIES.PERISHABLE
+  },
+  'simple syrup': {
+    category: INGREDIENT_CATEGORIES.SWEETENER,
+    taste: TASTES.SWEET
+  },
+  'sugar': {
+    category: INGREDIENT_CATEGORIES.SWEETENER,
+    taste: TASTES.SWEET
+  },
+  'tonic water': {
+    category: INGREDIENT_CATEGORIES.SODA
+  },
   'water': true,
   'whole blanched peeled almonds': true,
   'whole cardamoms': true,

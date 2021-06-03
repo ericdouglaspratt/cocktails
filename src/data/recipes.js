@@ -3463,7 +3463,68 @@ export default [
         unit: 'leaf'
       }
     ]
+  },
+  {
+    name: 'Coco No Coco',
+    instructions: 'Shake with ice and strain into a tiki mug filled with crushed ice. Garnish with a large mint sprig and freshly-grated nutmeg.',
+    method: METHODS.SHAKE,
+    source: 'https://punchdrink.com/recipes/coco-no-coco/',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'dark rum',
+        preferred: 'el dorado 12',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'heavy cream',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'pineapple juice',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'orgeat',
+        unit: 'oz'
+      }
+    ]
+  },
+  {
+    name: 'Champs Élysées',
+    instructions: 'Shake with ice and strain into a chilled coupe glass. Garnish with a lemon zest twist.',
+    method: METHODS.SHAKE,
+    source: 'https://tuxedono2.com/champs-elysees-cocktail-recipe',
+    inHoldingPen: true,
+    ingredients: [
+      {
+        amount: 1.25,
+        tag: 'cognac',
+        unit: 'oz'
+      },
+      {
+        amount: 0.5,
+        tag: 'green chartreuse',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'lemon juice',
+        unit: 'oz'
+      },
+      {
+        amount: 1,
+        tag: 'angostura bitters',
+        unit: 'dash'
+      }
+    ]
   }
+
+  // La Favorite rhum agricole stuff https://kindredcocktails.com/ingredient/la-favorite
 
   // Cardamaro stuff https://www.foodandwine.com/drinks/what-cardamaro-and-why-should-you-drink-it-right-now
 

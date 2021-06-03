@@ -77,6 +77,8 @@
     flex-flow: row nowrap;
   }
   .Recipe-image {
+    /*box-shadow: 0 0 0 1px #FFFFFF, 0 0 0 3px #2F4858;
+    box-shadow: 0 0 0 2px #2F4858;*/
     height: 280px;
     padding: 0;
     width: 240px;
