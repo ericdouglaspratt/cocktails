@@ -3522,6 +3522,35 @@ export default [
         unit: 'dash'
       }
     ]
+  },
+  {
+    name: 'Bamboo',
+    image: 'images/bamboo.jpg',
+    instructions: 'Stir with ice and strain into a chilled nick and nora glass. Express a lemon zest twist and garnish.',
+    method: METHODS.STIR,
+    source: 'Cocktail Codex book',
+    ingredients: [
+      {
+        amount: 1.5,
+        tag: 'sherry',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'vermouth blanc',
+        unit: 'oz'
+      },
+      {
+        amount: 0.75,
+        tag: 'dry vermouth',
+        unit: 'oz'
+      },
+      {
+        amount: 2,
+        tag: 'orange bitters',
+        unit: 'dash'
+      }
+    ]
   }
 
   // La Favorite rhum agricole stuff https://kindredcocktails.com/ingredient/la-favorite
