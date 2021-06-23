@@ -2828,10 +2828,10 @@ export default [
   },
   {
     name: 'McKinley\'s Delight',
+    image: 'images/mckinleys-delight.jpg',
     instructions: 'Stir with ice and strain into a chilled coupe glass. Garnish with lemon twist.',
     method: METHODS.STIR,
     source: 'https://www.diffordsguide.com/cocktails/recipe/7653/mckinleys-delight',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,
@@ -3466,10 +3466,10 @@ export default [
   },
   {
     name: 'Coco No Coco',
+    image: 'images/coco-no-coco.jpg',
     instructions: 'Shake with ice and strain into a tiki mug filled with crushed ice. Garnish with a large mint sprig and freshly-grated nutmeg.',
     method: METHODS.SHAKE,
     source: 'https://punchdrink.com/recipes/coco-no-coco/',
-    inHoldingPen: true,
     ingredients: [
       {
         amount: 1.5,

@@ -14,15 +14,15 @@ const Home = ({ recipes, recipeTagMap }) => {
   const breakpoint = useBreakpoint();
 
   const featuredRecipeIds = [
-    'bamboo',
+    'coco-no-coco',
     'sherry-herbst'
   ];
 
   const classics = recipes.list.filter(recipe => recipe.isCoreDrink);
   // const exclusives = getRecipes(['thunderball', 'the-andy-special'], recipes);
   // const fresh = getRecipes(['gin-smash', 'whiskey-smash'], recipes);
-  const recentlyAdded = getRecipes(['amaretto-sour', 'southside', 'prestige', 'naked-and-famous', 'sherry-flip', 'court-royale'], recipes);
-  const seaportCollection = getRecipes(['laissez-faire', 'maximilian-affair', 'fort-point', 'casino-royale', 'mission-of-burma'], recipes);
+  const recentlyAdded = getRecipes(['mckinleys-delight', 'amaretto-sour', 'southside', 'prestige', 'naked-and-famous', 'sherry-flip'], recipes);
+  const seaportCollection = getRecipes(['coco-no-coco', 'laissez-faire', 'maximilian-affair', 'fort-point', 'casino-royale', 'mission-of-burma'], recipes);
   // const smooth = getRecipes(['diffords-old-fashioned'], recipes);
 
   return (
